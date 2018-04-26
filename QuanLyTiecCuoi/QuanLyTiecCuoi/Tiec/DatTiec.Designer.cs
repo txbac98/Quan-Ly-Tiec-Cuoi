@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.grbThongTinKhachHang = new System.Windows.Forms.GroupBox();
+            this.txbEmail = new System.Windows.Forms.TextBox();
+            this.txbSDT = new System.Windows.Forms.TextBox();
+            this.txbDiaChi = new System.Windows.Forms.TextBox();
+            this.txbHoTen = new System.Windows.Forms.TextBox();
+            this.txbMaKhachHang = new System.Windows.Forms.TextBox();
+            this.cbbTenNhanVien = new System.Windows.Forms.ComboBox();
+            this.dtpNgayLap = new System.Windows.Forms.DateTimePicker();
+            this.txbMaHopDong = new System.Windows.Forms.TextBox();
             this.lbEmailKhachHang = new System.Windows.Forms.Label();
             this.lbSoDienThoaiKhachHang = new System.Windows.Forms.Label();
             this.lbDiaChiKhachHang = new System.Windows.Forms.Label();
@@ -38,6 +46,15 @@
             this.lbNgayLap = new System.Windows.Forms.Label();
             this.lbMaHopDong = new System.Windows.Forms.Label();
             this.grbThucDon = new System.Windows.Forms.GroupBox();
+            this.cbbNuocNgot = new System.Windows.Forms.ComboBox();
+            this.cbbBia = new System.Windows.Forms.ComboBox();
+            this.cbbTrangMieng = new System.Windows.Forms.ComboBox();
+            this.cbbLau = new System.Windows.Forms.ComboBox();
+            this.cbbMonChinh3 = new System.Windows.Forms.ComboBox();
+            this.cbbMonChinh2 = new System.Windows.Forms.ComboBox();
+            this.cbbMonChinh1 = new System.Windows.Forms.ComboBox();
+            this.cbbMonKhaiVi = new System.Windows.Forms.ComboBox();
+            this.cbbThucDon = new System.Windows.Forms.ComboBox();
             this.lbNuocNgot = new System.Windows.Forms.Label();
             this.lbBia = new System.Windows.Forms.Label();
             this.lbTrangMieng = new System.Windows.Forms.Label();
@@ -48,12 +65,28 @@
             this.lbThucDon = new System.Windows.Forms.Label();
             this.lbMonKhaiVi = new System.Windows.Forms.Label();
             this.grbTrangTri = new System.Windows.Forms.GroupBox();
+            this.cbbHoa = new System.Windows.Forms.ComboBox();
+            this.cbbGhe = new System.Windows.Forms.ComboBox();
+            this.cbbPhong = new System.Windows.Forms.ComboBox();
+            this.cbbMau = new System.Windows.Forms.ComboBox();
+            this.cbbTrangTri = new System.Windows.Forms.ComboBox();
             this.lbHoa = new System.Windows.Forms.Label();
             this.lbGhe = new System.Windows.Forms.Label();
             this.lbPhong = new System.Windows.Forms.Label();
             this.lbMau = new System.Windows.Forms.Label();
             this.lbTrangTri = new System.Windows.Forms.Label();
             this.grbDichVu = new System.Windows.Forms.GroupBox();
+            this.cbbDJ = new System.Windows.Forms.ComboBox();
+            this.cbbCaSi = new System.Windows.Forms.ComboBox();
+            this.cbbMC = new System.Windows.Forms.ComboBox();
+            this.cbbBanhKem = new System.Windows.Forms.ComboBox();
+            this.cbbRuou = new System.Windows.Forms.ComboBox();
+            this.lbDJ = new System.Windows.Forms.Label();
+            this.lbCaSi = new System.Windows.Forms.Label();
+            this.lbMC = new System.Windows.Forms.Label();
+            this.lbBanhKem = new System.Windows.Forms.Label();
+            this.lbRuou = new System.Windows.Forms.Label();
+            this.ckbThapLy = new System.Windows.Forms.CheckBox();
             this.ckbPhaoHoa = new System.Windows.Forms.CheckBox();
             this.ckbMayChieu = new System.Windows.Forms.CheckBox();
             this.ckbVuCong = new System.Windows.Forms.CheckBox();
@@ -61,60 +94,27 @@
             this.ckbGiuXe = new System.Windows.Forms.CheckBox();
             this.lbDichVu = new System.Windows.Forms.Label();
             this.grbKhuyenMai = new System.Windows.Forms.GroupBox();
-            this.ckbThapLy = new System.Windows.Forms.CheckBox();
-            this.lbRuou = new System.Windows.Forms.Label();
-            this.lbBanhKem = new System.Windows.Forms.Label();
-            this.lbMC = new System.Windows.Forms.Label();
-            this.lbCaSi = new System.Windows.Forms.Label();
-            this.lbDJ = new System.Windows.Forms.Label();
             this.btDatTiec = new System.Windows.Forms.Button();
             this.btHuy = new System.Windows.Forms.Button();
             this.grbTiec = new System.Windows.Forms.GroupBox();
+            this.nudSoNhanVien = new System.Windows.Forms.NumericUpDown();
+            this.nudSoBan = new System.Windows.Forms.NumericUpDown();
+            this.cbbLoaiSanh = new System.Windows.Forms.ComboBox();
+            this.cbbCa = new System.Windows.Forms.ComboBox();
+            this.dtpNgayToChuc = new System.Windows.Forms.DateTimePicker();
+            this.lbCa = new System.Windows.Forms.Label();
             this.lbSoLuongNhanVien = new System.Windows.Forms.Label();
             this.lbSoLuongBan = new System.Windows.Forms.Label();
             this.lbLoaiSanh = new System.Windows.Forms.Label();
             this.lbNgayToChucTiec = new System.Windows.Forms.Label();
-            this.lbCa = new System.Windows.Forms.Label();
             this.lbHopDongDatTiec = new System.Windows.Forms.Label();
-            this.txbMaHopDong = new System.Windows.Forms.TextBox();
-            this.dtpNgayLap = new System.Windows.Forms.DateTimePicker();
-            this.cbbTenNhanVien = new System.Windows.Forms.ComboBox();
-            this.txbMaKhachHang = new System.Windows.Forms.TextBox();
-            this.txbHoTen = new System.Windows.Forms.TextBox();
-            this.txbDiaChi = new System.Windows.Forms.TextBox();
-            this.txbSDT = new System.Windows.Forms.TextBox();
-            this.txbEmail = new System.Windows.Forms.TextBox();
-            this.dtpNgayToChuc = new System.Windows.Forms.DateTimePicker();
-            this.cbbCa = new System.Windows.Forms.ComboBox();
-            this.cbbLoaiSanh = new System.Windows.Forms.ComboBox();
-            this.nudSoBan = new System.Windows.Forms.NumericUpDown();
-            this.nudSoNhanVien = new System.Windows.Forms.NumericUpDown();
-            this.cbbThucDon = new System.Windows.Forms.ComboBox();
-            this.cbbMonKhaiVi = new System.Windows.Forms.ComboBox();
-            this.cbbMonChinh1 = new System.Windows.Forms.ComboBox();
-            this.cbbMonChinh2 = new System.Windows.Forms.ComboBox();
-            this.cbbMonChinh3 = new System.Windows.Forms.ComboBox();
-            this.cbbLau = new System.Windows.Forms.ComboBox();
-            this.cbbTrangMieng = new System.Windows.Forms.ComboBox();
-            this.cbbBia = new System.Windows.Forms.ComboBox();
-            this.cbbNuocNgot = new System.Windows.Forms.ComboBox();
-            this.cbbTrangTri = new System.Windows.Forms.ComboBox();
-            this.cbbMau = new System.Windows.Forms.ComboBox();
-            this.cbbPhong = new System.Windows.Forms.ComboBox();
-            this.cbbGhe = new System.Windows.Forms.ComboBox();
-            this.cbbHoa = new System.Windows.Forms.ComboBox();
-            this.cbbRuou = new System.Windows.Forms.ComboBox();
-            this.cbbBanhKem = new System.Windows.Forms.ComboBox();
-            this.cbbMC = new System.Windows.Forms.ComboBox();
-            this.cbbCaSi = new System.Windows.Forms.ComboBox();
-            this.cbbDJ = new System.Windows.Forms.ComboBox();
             this.grbThongTinKhachHang.SuspendLayout();
             this.grbThucDon.SuspendLayout();
             this.grbTrangTri.SuspendLayout();
             this.grbDichVu.SuspendLayout();
             this.grbTiec.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSoBan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSoNhanVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSoBan)).BeginInit();
             this.SuspendLayout();
             // 
             // grbThongTinKhachHang
@@ -142,6 +142,72 @@
             this.grbThongTinKhachHang.TabIndex = 0;
             this.grbThongTinKhachHang.TabStop = false;
             this.grbThongTinKhachHang.Text = "Thông tin";
+            // 
+            // txbEmail
+            // 
+            this.txbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbEmail.Location = new System.Drawing.Point(103, 240);
+            this.txbEmail.Name = "txbEmail";
+            this.txbEmail.Size = new System.Drawing.Size(129, 20);
+            this.txbEmail.TabIndex = 15;
+            // 
+            // txbSDT
+            // 
+            this.txbSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbSDT.Location = new System.Drawing.Point(103, 207);
+            this.txbSDT.Name = "txbSDT";
+            this.txbSDT.Size = new System.Drawing.Size(129, 20);
+            this.txbSDT.TabIndex = 14;
+            // 
+            // txbDiaChi
+            // 
+            this.txbDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbDiaChi.Location = new System.Drawing.Point(103, 177);
+            this.txbDiaChi.Name = "txbDiaChi";
+            this.txbDiaChi.Size = new System.Drawing.Size(129, 20);
+            this.txbDiaChi.TabIndex = 13;
+            // 
+            // txbHoTen
+            // 
+            this.txbHoTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbHoTen.Location = new System.Drawing.Point(103, 147);
+            this.txbHoTen.Name = "txbHoTen";
+            this.txbHoTen.Size = new System.Drawing.Size(129, 20);
+            this.txbHoTen.TabIndex = 12;
+            // 
+            // txbMaKhachHang
+            // 
+            this.txbMaKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbMaKhachHang.Location = new System.Drawing.Point(103, 117);
+            this.txbMaKhachHang.Name = "txbMaKhachHang";
+            this.txbMaKhachHang.Size = new System.Drawing.Size(129, 20);
+            this.txbMaKhachHang.TabIndex = 11;
+            // 
+            // cbbTenNhanVien
+            // 
+            this.cbbTenNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbTenNhanVien.FormattingEnabled = true;
+            this.cbbTenNhanVien.Location = new System.Drawing.Point(103, 87);
+            this.cbbTenNhanVien.Name = "cbbTenNhanVien";
+            this.cbbTenNhanVien.Size = new System.Drawing.Size(129, 21);
+            this.cbbTenNhanVien.TabIndex = 10;
+            // 
+            // dtpNgayLap
+            // 
+            this.dtpNgayLap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgayLap.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNgayLap.Location = new System.Drawing.Point(103, 56);
+            this.dtpNgayLap.Name = "dtpNgayLap";
+            this.dtpNgayLap.Size = new System.Drawing.Size(129, 20);
+            this.dtpNgayLap.TabIndex = 9;
+            // 
+            // txbMaHopDong
+            // 
+            this.txbMaHopDong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbMaHopDong.Location = new System.Drawing.Point(103, 27);
+            this.txbMaHopDong.Name = "txbMaHopDong";
+            this.txbMaHopDong.Size = new System.Drawing.Size(129, 20);
+            this.txbMaHopDong.TabIndex = 8;
             // 
             // lbEmailKhachHang
             // 
@@ -250,7 +316,87 @@
             this.grbThucDon.TabIndex = 1;
             this.grbThucDon.TabStop = false;
             this.grbThucDon.Text = "Thực đơn";
-
+            // 
+            // cbbNuocNgot
+            // 
+            this.cbbNuocNgot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbNuocNgot.FormattingEnabled = true;
+            this.cbbNuocNgot.Location = new System.Drawing.Point(89, 267);
+            this.cbbNuocNgot.Name = "cbbNuocNgot";
+            this.cbbNuocNgot.Size = new System.Drawing.Size(129, 21);
+            this.cbbNuocNgot.TabIndex = 24;
+            // 
+            // cbbBia
+            // 
+            this.cbbBia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbBia.FormattingEnabled = true;
+            this.cbbBia.Location = new System.Drawing.Point(89, 237);
+            this.cbbBia.Name = "cbbBia";
+            this.cbbBia.Size = new System.Drawing.Size(129, 21);
+            this.cbbBia.TabIndex = 23;
+            // 
+            // cbbTrangMieng
+            // 
+            this.cbbTrangMieng.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbTrangMieng.FormattingEnabled = true;
+            this.cbbTrangMieng.Location = new System.Drawing.Point(89, 207);
+            this.cbbTrangMieng.Name = "cbbTrangMieng";
+            this.cbbTrangMieng.Size = new System.Drawing.Size(129, 21);
+            this.cbbTrangMieng.TabIndex = 22;
+            // 
+            // cbbLau
+            // 
+            this.cbbLau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbLau.FormattingEnabled = true;
+            this.cbbLau.Location = new System.Drawing.Point(89, 177);
+            this.cbbLau.Name = "cbbLau";
+            this.cbbLau.Size = new System.Drawing.Size(129, 21);
+            this.cbbLau.TabIndex = 21;
+            // 
+            // cbbMonChinh3
+            // 
+            this.cbbMonChinh3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbMonChinh3.FormattingEnabled = true;
+            this.cbbMonChinh3.Location = new System.Drawing.Point(89, 147);
+            this.cbbMonChinh3.Name = "cbbMonChinh3";
+            this.cbbMonChinh3.Size = new System.Drawing.Size(129, 21);
+            this.cbbMonChinh3.TabIndex = 20;
+            // 
+            // cbbMonChinh2
+            // 
+            this.cbbMonChinh2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbMonChinh2.FormattingEnabled = true;
+            this.cbbMonChinh2.Location = new System.Drawing.Point(89, 117);
+            this.cbbMonChinh2.Name = "cbbMonChinh2";
+            this.cbbMonChinh2.Size = new System.Drawing.Size(129, 21);
+            this.cbbMonChinh2.TabIndex = 19;
+            // 
+            // cbbMonChinh1
+            // 
+            this.cbbMonChinh1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbMonChinh1.FormattingEnabled = true;
+            this.cbbMonChinh1.Location = new System.Drawing.Point(89, 87);
+            this.cbbMonChinh1.Name = "cbbMonChinh1";
+            this.cbbMonChinh1.Size = new System.Drawing.Size(129, 21);
+            this.cbbMonChinh1.TabIndex = 18;
+            // 
+            // cbbMonKhaiVi
+            // 
+            this.cbbMonKhaiVi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbMonKhaiVi.FormattingEnabled = true;
+            this.cbbMonKhaiVi.Location = new System.Drawing.Point(89, 57);
+            this.cbbMonKhaiVi.Name = "cbbMonKhaiVi";
+            this.cbbMonKhaiVi.Size = new System.Drawing.Size(129, 21);
+            this.cbbMonKhaiVi.TabIndex = 17;
+            // 
+            // cbbThucDon
+            // 
+            this.cbbThucDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbThucDon.FormattingEnabled = true;
+            this.cbbThucDon.Location = new System.Drawing.Point(89, 27);
+            this.cbbThucDon.Name = "cbbThucDon";
+            this.cbbThucDon.Size = new System.Drawing.Size(129, 21);
+            this.cbbThucDon.TabIndex = 16;
             // 
             // lbNuocNgot
             // 
@@ -362,6 +508,51 @@
             this.grbTrangTri.TabStop = false;
             this.grbTrangTri.Text = "Trang Trí";
             // 
+            // cbbHoa
+            // 
+            this.cbbHoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbHoa.FormattingEnabled = true;
+            this.cbbHoa.Location = new System.Drawing.Point(84, 147);
+            this.cbbHoa.Name = "cbbHoa";
+            this.cbbHoa.Size = new System.Drawing.Size(129, 21);
+            this.cbbHoa.TabIndex = 21;
+            // 
+            // cbbGhe
+            // 
+            this.cbbGhe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbGhe.FormattingEnabled = true;
+            this.cbbGhe.Location = new System.Drawing.Point(84, 117);
+            this.cbbGhe.Name = "cbbGhe";
+            this.cbbGhe.Size = new System.Drawing.Size(129, 21);
+            this.cbbGhe.TabIndex = 20;
+            // 
+            // cbbPhong
+            // 
+            this.cbbPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbPhong.FormattingEnabled = true;
+            this.cbbPhong.Location = new System.Drawing.Point(84, 87);
+            this.cbbPhong.Name = "cbbPhong";
+            this.cbbPhong.Size = new System.Drawing.Size(129, 21);
+            this.cbbPhong.TabIndex = 19;
+            // 
+            // cbbMau
+            // 
+            this.cbbMau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbMau.FormattingEnabled = true;
+            this.cbbMau.Location = new System.Drawing.Point(84, 59);
+            this.cbbMau.Name = "cbbMau";
+            this.cbbMau.Size = new System.Drawing.Size(129, 21);
+            this.cbbMau.TabIndex = 18;
+            // 
+            // cbbTrangTri
+            // 
+            this.cbbTrangTri.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbTrangTri.FormattingEnabled = true;
+            this.cbbTrangTri.Location = new System.Drawing.Point(84, 27);
+            this.cbbTrangTri.Name = "cbbTrangTri";
+            this.cbbTrangTri.Size = new System.Drawing.Size(129, 21);
+            this.cbbTrangTri.TabIndex = 17;
+            // 
             // lbHoa
             // 
             this.lbHoa.AutoSize = true;
@@ -439,6 +630,112 @@
             this.grbDichVu.TabStop = false;
             this.grbDichVu.Text = "Dịch vụ";
             // 
+            // cbbDJ
+            // 
+            this.cbbDJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbDJ.FormattingEnabled = true;
+            this.cbbDJ.Location = new System.Drawing.Point(166, 177);
+            this.cbbDJ.Name = "cbbDJ";
+            this.cbbDJ.Size = new System.Drawing.Size(107, 21);
+            this.cbbDJ.TabIndex = 29;
+            // 
+            // cbbCaSi
+            // 
+            this.cbbCaSi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbCaSi.FormattingEnabled = true;
+            this.cbbCaSi.Location = new System.Drawing.Point(166, 148);
+            this.cbbCaSi.Name = "cbbCaSi";
+            this.cbbCaSi.Size = new System.Drawing.Size(107, 21);
+            this.cbbCaSi.TabIndex = 28;
+            // 
+            // cbbMC
+            // 
+            this.cbbMC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbMC.FormattingEnabled = true;
+            this.cbbMC.Location = new System.Drawing.Point(166, 118);
+            this.cbbMC.Name = "cbbMC";
+            this.cbbMC.Size = new System.Drawing.Size(107, 21);
+            this.cbbMC.TabIndex = 27;
+            // 
+            // cbbBanhKem
+            // 
+            this.cbbBanhKem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbBanhKem.FormattingEnabled = true;
+            this.cbbBanhKem.Location = new System.Drawing.Point(166, 88);
+            this.cbbBanhKem.Name = "cbbBanhKem";
+            this.cbbBanhKem.Size = new System.Drawing.Size(107, 21);
+            this.cbbBanhKem.TabIndex = 26;
+            // 
+            // cbbRuou
+            // 
+            this.cbbRuou.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbRuou.FormattingEnabled = true;
+            this.cbbRuou.Location = new System.Drawing.Point(166, 52);
+            this.cbbRuou.Name = "cbbRuou";
+            this.cbbRuou.Size = new System.Drawing.Size(107, 21);
+            this.cbbRuou.TabIndex = 22;
+            // 
+            // lbDJ
+            // 
+            this.lbDJ.AutoSize = true;
+            this.lbDJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDJ.Location = new System.Drawing.Point(106, 180);
+            this.lbDJ.Name = "lbDJ";
+            this.lbDJ.Size = new System.Drawing.Size(20, 13);
+            this.lbDJ.TabIndex = 25;
+            this.lbDJ.Text = "DJ";
+            // 
+            // lbCaSi
+            // 
+            this.lbCaSi.AutoSize = true;
+            this.lbCaSi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCaSi.Location = new System.Drawing.Point(106, 150);
+            this.lbCaSi.Name = "lbCaSi";
+            this.lbCaSi.Size = new System.Drawing.Size(33, 13);
+            this.lbCaSi.TabIndex = 24;
+            this.lbCaSi.Text = "Ca sĩ";
+            // 
+            // lbMC
+            // 
+            this.lbMC.AutoSize = true;
+            this.lbMC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMC.Location = new System.Drawing.Point(106, 120);
+            this.lbMC.Name = "lbMC";
+            this.lbMC.Size = new System.Drawing.Size(23, 13);
+            this.lbMC.TabIndex = 23;
+            this.lbMC.Text = "MC";
+            // 
+            // lbBanhKem
+            // 
+            this.lbBanhKem.AutoSize = true;
+            this.lbBanhKem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBanhKem.Location = new System.Drawing.Point(106, 90);
+            this.lbBanhKem.Name = "lbBanhKem";
+            this.lbBanhKem.Size = new System.Drawing.Size(55, 13);
+            this.lbBanhKem.TabIndex = 22;
+            this.lbBanhKem.Text = "Bánh kem";
+            // 
+            // lbRuou
+            // 
+            this.lbRuou.AutoSize = true;
+            this.lbRuou.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRuou.Location = new System.Drawing.Point(106, 60);
+            this.lbRuou.Name = "lbRuou";
+            this.lbRuou.Size = new System.Drawing.Size(33, 13);
+            this.lbRuou.TabIndex = 21;
+            this.lbRuou.Text = "Rượu";
+            // 
+            // ckbThapLy
+            // 
+            this.ckbThapLy.AutoSize = true;
+            this.ckbThapLy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbThapLy.Location = new System.Drawing.Point(9, 210);
+            this.ckbThapLy.Name = "ckbThapLy";
+            this.ckbThapLy.Size = new System.Drawing.Size(61, 17);
+            this.ckbThapLy.TabIndex = 20;
+            this.ckbThapLy.Text = "Tháp ly";
+            this.ckbThapLy.UseVisualStyleBackColor = true;
+            // 
             // ckbPhaoHoa
             // 
             this.ckbPhaoHoa.AutoSize = true;
@@ -460,7 +757,6 @@
             this.ckbMayChieu.TabIndex = 18;
             this.ckbMayChieu.Text = "Máy chiếu";
             this.ckbMayChieu.UseVisualStyleBackColor = true;
-
             // 
             // ckbVuCong
             // 
@@ -472,7 +768,6 @@
             this.ckbVuCong.TabIndex = 17;
             this.ckbVuCong.Text = "Vũ công";
             this.ckbVuCong.UseVisualStyleBackColor = true;
-
             // 
             // ckbLeTan
             // 
@@ -516,68 +811,6 @@
             this.grbKhuyenMai.TabStop = false;
             this.grbKhuyenMai.Text = "Khuyến mãi";
             // 
-            // ckbThapLy
-            // 
-            this.ckbThapLy.AutoSize = true;
-            this.ckbThapLy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbThapLy.Location = new System.Drawing.Point(9, 210);
-            this.ckbThapLy.Name = "ckbThapLy";
-            this.ckbThapLy.Size = new System.Drawing.Size(61, 17);
-            this.ckbThapLy.TabIndex = 20;
-            this.ckbThapLy.Text = "Tháp ly";
-            this.ckbThapLy.UseVisualStyleBackColor = true;
-            // 
-            // lbRuou
-            // 
-            this.lbRuou.AutoSize = true;
-            this.lbRuou.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRuou.Location = new System.Drawing.Point(106, 60);
-            this.lbRuou.Name = "lbRuou";
-            this.lbRuou.Size = new System.Drawing.Size(33, 13);
-            this.lbRuou.TabIndex = 21;
-            this.lbRuou.Text = "Rượu";
-            // 
-            // lbBanhKem
-            // 
-            this.lbBanhKem.AutoSize = true;
-            this.lbBanhKem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbBanhKem.Location = new System.Drawing.Point(106, 90);
-            this.lbBanhKem.Name = "lbBanhKem";
-            this.lbBanhKem.Size = new System.Drawing.Size(55, 13);
-            this.lbBanhKem.TabIndex = 22;
-            this.lbBanhKem.Text = "Bánh kem";
-            // 
-            // lbMC
-            // 
-            this.lbMC.AutoSize = true;
-            this.lbMC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMC.Location = new System.Drawing.Point(106, 120);
-            this.lbMC.Name = "lbMC";
-            this.lbMC.Size = new System.Drawing.Size(23, 13);
-            this.lbMC.TabIndex = 23;
-            this.lbMC.Text = "MC";
-            // 
-            // lbCaSi
-            // 
-            this.lbCaSi.AutoSize = true;
-            this.lbCaSi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCaSi.Location = new System.Drawing.Point(106, 150);
-            this.lbCaSi.Name = "lbCaSi";
-            this.lbCaSi.Size = new System.Drawing.Size(33, 13);
-            this.lbCaSi.TabIndex = 24;
-            this.lbCaSi.Text = "Ca sĩ";
-            // 
-            // lbDJ
-            // 
-            this.lbDJ.AutoSize = true;
-            this.lbDJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDJ.Location = new System.Drawing.Point(106, 180);
-            this.lbDJ.Name = "lbDJ";
-            this.lbDJ.Size = new System.Drawing.Size(20, 13);
-            this.lbDJ.TabIndex = 25;
-            this.lbDJ.Text = "DJ";
-
-            // 
             // btDatTiec
             // 
             this.btDatTiec.Location = new System.Drawing.Point(556, 555);
@@ -586,7 +819,6 @@
             this.btDatTiec.TabIndex = 5;
             this.btDatTiec.Text = "Đặt tiệc";
             this.btDatTiec.UseVisualStyleBackColor = true;
-
             // 
             // btHuy
             // 
@@ -617,6 +849,61 @@
             this.grbTiec.TabStop = false;
             this.grbTiec.Text = "Tiệc";
             // 
+            // nudSoNhanVien
+            // 
+            this.nudSoNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudSoNhanVien.Location = new System.Drawing.Point(181, 148);
+            this.nudSoNhanVien.Name = "nudSoNhanVien";
+            this.nudSoNhanVien.Size = new System.Drawing.Size(49, 20);
+            this.nudSoNhanVien.TabIndex = 19;
+            this.nudSoNhanVien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // nudSoBan
+            // 
+            this.nudSoBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudSoBan.Location = new System.Drawing.Point(181, 118);
+            this.nudSoBan.Name = "nudSoBan";
+            this.nudSoBan.Size = new System.Drawing.Size(49, 20);
+            this.nudSoBan.TabIndex = 18;
+            this.nudSoBan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // cbbLoaiSanh
+            // 
+            this.cbbLoaiSanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbLoaiSanh.FormattingEnabled = true;
+            this.cbbLoaiSanh.Location = new System.Drawing.Point(101, 90);
+            this.cbbLoaiSanh.Name = "cbbLoaiSanh";
+            this.cbbLoaiSanh.Size = new System.Drawing.Size(129, 21);
+            this.cbbLoaiSanh.TabIndex = 17;
+            // 
+            // cbbCa
+            // 
+            this.cbbCa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbCa.FormattingEnabled = true;
+            this.cbbCa.Location = new System.Drawing.Point(101, 60);
+            this.cbbCa.Name = "cbbCa";
+            this.cbbCa.Size = new System.Drawing.Size(129, 21);
+            this.cbbCa.TabIndex = 16;
+            // 
+            // dtpNgayToChuc
+            // 
+            this.dtpNgayToChuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgayToChuc.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNgayToChuc.Location = new System.Drawing.Point(101, 24);
+            this.dtpNgayToChuc.Name = "dtpNgayToChuc";
+            this.dtpNgayToChuc.Size = new System.Drawing.Size(129, 20);
+            this.dtpNgayToChuc.TabIndex = 10;
+            // 
+            // lbCa
+            // 
+            this.lbCa.AutoSize = true;
+            this.lbCa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCa.Location = new System.Drawing.Point(7, 60);
+            this.lbCa.Name = "lbCa";
+            this.lbCa.Size = new System.Drawing.Size(20, 13);
+            this.lbCa.TabIndex = 16;
+            this.lbCa.Text = "Ca";
+            // 
             // lbSoLuongNhanVien
             // 
             this.lbSoLuongNhanVien.AutoSize = true;
@@ -646,7 +933,6 @@
             this.lbLoaiSanh.Size = new System.Drawing.Size(53, 13);
             this.lbLoaiSanh.TabIndex = 13;
             this.lbLoaiSanh.Text = "Loại sảnh";
-
             // 
             // lbNgayToChucTiec
             // 
@@ -658,16 +944,6 @@
             this.lbNgayToChucTiec.TabIndex = 12;
             this.lbNgayToChucTiec.Text = "Ngày tổ chức tiệc";
             // 
-            // lbCa
-            // 
-            this.lbCa.AutoSize = true;
-            this.lbCa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCa.Location = new System.Drawing.Point(7, 60);
-            this.lbCa.Name = "lbCa";
-            this.lbCa.Size = new System.Drawing.Size(20, 13);
-            this.lbCa.TabIndex = 16;
-            this.lbCa.Text = "Ca";
-            // 
             // lbHopDongDatTiec
             // 
             this.lbHopDongDatTiec.AutoSize = true;
@@ -678,303 +954,11 @@
             this.lbHopDongDatTiec.TabIndex = 8;
             this.lbHopDongDatTiec.Text = "Hợp đồng đặt tiệc";
             // 
-            // txbMaHopDong
-            // 
-            this.txbMaHopDong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbMaHopDong.Location = new System.Drawing.Point(103, 27);
-            this.txbMaHopDong.Name = "txbMaHopDong";
-            this.txbMaHopDong.Size = new System.Drawing.Size(129, 20);
-            this.txbMaHopDong.TabIndex = 8;
-
-            // 
-            // dtpNgayLap
-            // 
-            this.dtpNgayLap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNgayLap.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgayLap.Location = new System.Drawing.Point(103, 56);
-            this.dtpNgayLap.Name = "dtpNgayLap";
-            this.dtpNgayLap.Size = new System.Drawing.Size(129, 20);
-            this.dtpNgayLap.TabIndex = 9;
-
-            // 
-            // cbbTenNhanVien
-            // 
-            this.cbbTenNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbTenNhanVien.FormattingEnabled = true;
-            this.cbbTenNhanVien.Location = new System.Drawing.Point(103, 87);
-            this.cbbTenNhanVien.Name = "cbbTenNhanVien";
-            this.cbbTenNhanVien.Size = new System.Drawing.Size(129, 21);
-            this.cbbTenNhanVien.TabIndex = 10;
-            // 
-            // txbMaKhachHang
-            // 
-            this.txbMaKhachHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbMaKhachHang.Location = new System.Drawing.Point(103, 117);
-            this.txbMaKhachHang.Name = "txbMaKhachHang";
-            this.txbMaKhachHang.Size = new System.Drawing.Size(129, 20);
-            this.txbMaKhachHang.TabIndex = 11;
-            // 
-            // txbHoTen
-            // 
-            this.txbHoTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbHoTen.Location = new System.Drawing.Point(103, 147);
-            this.txbHoTen.Name = "txbHoTen";
-            this.txbHoTen.Size = new System.Drawing.Size(129, 20);
-            this.txbHoTen.TabIndex = 12;
-
-            // 
-            // txbDiaChi
-            // 
-            this.txbDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbDiaChi.Location = new System.Drawing.Point(103, 177);
-            this.txbDiaChi.Name = "txbDiaChi";
-            this.txbDiaChi.Size = new System.Drawing.Size(129, 20);
-            this.txbDiaChi.TabIndex = 13;
-            // 
-            // txbSDT
-            // 
-            this.txbSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSDT.Location = new System.Drawing.Point(103, 207);
-            this.txbSDT.Name = "txbSDT";
-            this.txbSDT.Size = new System.Drawing.Size(129, 20);
-            this.txbSDT.TabIndex = 14;
-
-            // 
-            // txbEmail
-            // 
-            this.txbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbEmail.Location = new System.Drawing.Point(103, 240);
-            this.txbEmail.Name = "txbEmail";
-            this.txbEmail.Size = new System.Drawing.Size(129, 20);
-            this.txbEmail.TabIndex = 15;
-            // 
-            // dtpNgayToChuc
-            // 
-            this.dtpNgayToChuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNgayToChuc.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgayToChuc.Location = new System.Drawing.Point(101, 24);
-            this.dtpNgayToChuc.Name = "dtpNgayToChuc";
-            this.dtpNgayToChuc.Size = new System.Drawing.Size(129, 20);
-            this.dtpNgayToChuc.TabIndex = 10;
-            // 
-            // cbbCa
-            // 
-            this.cbbCa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbCa.FormattingEnabled = true;
-            this.cbbCa.Location = new System.Drawing.Point(101, 60);
-            this.cbbCa.Name = "cbbCa";
-            this.cbbCa.Size = new System.Drawing.Size(129, 21);
-            this.cbbCa.TabIndex = 16;
-            // 
-            // cbbLoaiSanh
-            // 
-            this.cbbLoaiSanh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbLoaiSanh.FormattingEnabled = true;
-            this.cbbLoaiSanh.Location = new System.Drawing.Point(101, 90);
-            this.cbbLoaiSanh.Name = "cbbLoaiSanh";
-            this.cbbLoaiSanh.Size = new System.Drawing.Size(129, 21);
-            this.cbbLoaiSanh.TabIndex = 17;
-            // 
-            // nudSoBan
-            // 
-            this.nudSoBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudSoBan.Location = new System.Drawing.Point(181, 118);
-            this.nudSoBan.Name = "nudSoBan";
-            this.nudSoBan.Size = new System.Drawing.Size(49, 20);
-            this.nudSoBan.TabIndex = 18;
-            this.nudSoBan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-
-            // 
-            // nudSoNhanVien
-            // 
-            this.nudSoNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudSoNhanVien.Location = new System.Drawing.Point(181, 148);
-            this.nudSoNhanVien.Name = "nudSoNhanVien";
-            this.nudSoNhanVien.Size = new System.Drawing.Size(49, 20);
-            this.nudSoNhanVien.TabIndex = 19;
-            this.nudSoNhanVien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-
-            // 
-            // cbbThucDon
-            // 
-            this.cbbThucDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbThucDon.FormattingEnabled = true;
-            this.cbbThucDon.Location = new System.Drawing.Point(89, 27);
-            this.cbbThucDon.Name = "cbbThucDon";
-            this.cbbThucDon.Size = new System.Drawing.Size(129, 21);
-            this.cbbThucDon.TabIndex = 16;
-            // 
-            // cbbMonKhaiVi
-            // 
-            this.cbbMonKhaiVi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbMonKhaiVi.FormattingEnabled = true;
-            this.cbbMonKhaiVi.Location = new System.Drawing.Point(89, 57);
-            this.cbbMonKhaiVi.Name = "cbbMonKhaiVi";
-            this.cbbMonKhaiVi.Size = new System.Drawing.Size(129, 21);
-            this.cbbMonKhaiVi.TabIndex = 17;
-
-            // 
-            // cbbMonChinh1
-            // 
-            this.cbbMonChinh1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbMonChinh1.FormattingEnabled = true;
-            this.cbbMonChinh1.Location = new System.Drawing.Point(89, 87);
-            this.cbbMonChinh1.Name = "cbbMonChinh1";
-            this.cbbMonChinh1.Size = new System.Drawing.Size(129, 21);
-            this.cbbMonChinh1.TabIndex = 18;
-
-            // 
-            // cbbMonChinh2
-            // 
-            this.cbbMonChinh2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbMonChinh2.FormattingEnabled = true;
-            this.cbbMonChinh2.Location = new System.Drawing.Point(89, 117);
-            this.cbbMonChinh2.Name = "cbbMonChinh2";
-            this.cbbMonChinh2.Size = new System.Drawing.Size(129, 21);
-            this.cbbMonChinh2.TabIndex = 19;
-
-            // 
-            // cbbMonChinh3
-            // 
-            this.cbbMonChinh3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbMonChinh3.FormattingEnabled = true;
-            this.cbbMonChinh3.Location = new System.Drawing.Point(89, 147);
-            this.cbbMonChinh3.Name = "cbbMonChinh3";
-            this.cbbMonChinh3.Size = new System.Drawing.Size(129, 21);
-            this.cbbMonChinh3.TabIndex = 20;
-            // 
-            // cbbLau
-            // 
-            this.cbbLau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbLau.FormattingEnabled = true;
-            this.cbbLau.Location = new System.Drawing.Point(89, 177);
-            this.cbbLau.Name = "cbbLau";
-            this.cbbLau.Size = new System.Drawing.Size(129, 21);
-            this.cbbLau.TabIndex = 21;
-            // 
-            // cbbTrangMieng
-            // 
-            this.cbbTrangMieng.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbTrangMieng.FormattingEnabled = true;
-            this.cbbTrangMieng.Location = new System.Drawing.Point(89, 207);
-            this.cbbTrangMieng.Name = "cbbTrangMieng";
-            this.cbbTrangMieng.Size = new System.Drawing.Size(129, 21);
-            this.cbbTrangMieng.TabIndex = 22;
-            // 
-            // cbbBia
-            // 
-            this.cbbBia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbBia.FormattingEnabled = true;
-            this.cbbBia.Location = new System.Drawing.Point(89, 237);
-            this.cbbBia.Name = "cbbBia";
-            this.cbbBia.Size = new System.Drawing.Size(129, 21);
-            this.cbbBia.TabIndex = 23;
-            // 
-            // cbbNuocNgot
-            // 
-            this.cbbNuocNgot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbNuocNgot.FormattingEnabled = true;
-            this.cbbNuocNgot.Location = new System.Drawing.Point(89, 267);
-            this.cbbNuocNgot.Name = "cbbNuocNgot";
-            this.cbbNuocNgot.Size = new System.Drawing.Size(129, 21);
-            this.cbbNuocNgot.TabIndex = 24;
-            // 
-            // cbbTrangTri
-            // 
-            this.cbbTrangTri.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbTrangTri.FormattingEnabled = true;
-            this.cbbTrangTri.Location = new System.Drawing.Point(84, 27);
-            this.cbbTrangTri.Name = "cbbTrangTri";
-            this.cbbTrangTri.Size = new System.Drawing.Size(129, 21);
-            this.cbbTrangTri.TabIndex = 17;
-
-            // 
-            // cbbMau
-            // 
-            this.cbbMau.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbMau.FormattingEnabled = true;
-            this.cbbMau.Location = new System.Drawing.Point(84, 59);
-            this.cbbMau.Name = "cbbMau";
-            this.cbbMau.Size = new System.Drawing.Size(129, 21);
-            this.cbbMau.TabIndex = 18;
-            // 
-            // cbbPhong
-            // 
-            this.cbbPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbPhong.FormattingEnabled = true;
-            this.cbbPhong.Location = new System.Drawing.Point(84, 87);
-            this.cbbPhong.Name = "cbbPhong";
-            this.cbbPhong.Size = new System.Drawing.Size(129, 21);
-            this.cbbPhong.TabIndex = 19;
-            // 
-            // cbbGhe
-            // 
-            this.cbbGhe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbGhe.FormattingEnabled = true;
-            this.cbbGhe.Location = new System.Drawing.Point(84, 117);
-            this.cbbGhe.Name = "cbbGhe";
-            this.cbbGhe.Size = new System.Drawing.Size(129, 21);
-            this.cbbGhe.TabIndex = 20;
-            // 
-            // cbbHoa
-            // 
-            this.cbbHoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbHoa.FormattingEnabled = true;
-            this.cbbHoa.Location = new System.Drawing.Point(84, 147);
-            this.cbbHoa.Name = "cbbHoa";
-            this.cbbHoa.Size = new System.Drawing.Size(129, 21);
-            this.cbbHoa.TabIndex = 21;
-            // 
-            // cbbRuou
-            // 
-            this.cbbRuou.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbRuou.FormattingEnabled = true;
-            this.cbbRuou.Location = new System.Drawing.Point(166, 52);
-            this.cbbRuou.Name = "cbbRuou";
-            this.cbbRuou.Size = new System.Drawing.Size(107, 21);
-            this.cbbRuou.TabIndex = 22;
-            // 
-            // cbbBanhKem
-            // 
-            this.cbbBanhKem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbBanhKem.FormattingEnabled = true;
-            this.cbbBanhKem.Location = new System.Drawing.Point(166, 88);
-            this.cbbBanhKem.Name = "cbbBanhKem";
-            this.cbbBanhKem.Size = new System.Drawing.Size(107, 21);
-            this.cbbBanhKem.TabIndex = 26;
-            // 
-            // cbbMC
-            // 
-            this.cbbMC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbMC.FormattingEnabled = true;
-            this.cbbMC.Location = new System.Drawing.Point(166, 118);
-            this.cbbMC.Name = "cbbMC";
-            this.cbbMC.Size = new System.Drawing.Size(107, 21);
-            this.cbbMC.TabIndex = 27;
-            // 
-            // cbbCaSi
-            // 
-            this.cbbCaSi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbCaSi.FormattingEnabled = true;
-            this.cbbCaSi.Location = new System.Drawing.Point(166, 148);
-            this.cbbCaSi.Name = "cbbCaSi";
-            this.cbbCaSi.Size = new System.Drawing.Size(107, 21);
-            this.cbbCaSi.TabIndex = 28;
-            // 
-            // cbbDJ
-            // 
-            this.cbbDJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbDJ.FormattingEnabled = true;
-            this.cbbDJ.Location = new System.Drawing.Point(166, 177);
-            this.cbbDJ.Name = "cbbDJ";
-            this.cbbDJ.Size = new System.Drawing.Size(107, 21);
-            this.cbbDJ.TabIndex = 29;
-            // 
             // DatTiec
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 609);
+            this.ClientSize = new System.Drawing.Size(784, 611);
             this.Controls.Add(this.lbHopDongDatTiec);
             this.Controls.Add(this.grbTiec);
             this.Controls.Add(this.btHuy);
@@ -996,8 +980,8 @@
             this.grbDichVu.PerformLayout();
             this.grbTiec.ResumeLayout(false);
             this.grbTiec.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSoBan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSoNhanVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSoBan)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
