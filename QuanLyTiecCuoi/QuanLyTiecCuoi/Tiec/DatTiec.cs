@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyTiecCuoi.KetNoiCSDL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,16 @@ namespace QuanLyTiecCuoi.Tiec
 {
     public partial class DatTiec : Form
     {
+        ConnectDatabase condb = new ConnectDatabase();
+
         public DatTiec()
         {
             InitializeComponent();
         }
 
-       
+        private void btDatTiec_Click(object sender, EventArgs e)
+        {
+            condb.ExecuteNonQuery("");
+        }
     }
 }

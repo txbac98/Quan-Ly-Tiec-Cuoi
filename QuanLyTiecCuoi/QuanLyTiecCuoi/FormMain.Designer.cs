@@ -32,8 +32,9 @@
             this.btnNhanVien = new System.Windows.Forms.Button();
             this.btnKhachHang = new System.Windows.Forms.Button();
             this.btnDichVu = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // btnTiec
@@ -72,27 +73,28 @@
             this.btnDichVu.Text = "Dịch vụ";
             this.btnDichVu.UseVisualStyleBackColor = true;
             // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(149, 142);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(623, 344);
-            this.panel1.TabIndex = 4;
-            // 
             // panel2
             // 
             this.panel2.Location = new System.Drawing.Point(149, 24);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(623, 112);
+            this.panel2.Size = new System.Drawing.Size(623, 59);
             this.panel2.TabIndex = 5;
+            // 
+            // dataGridView
+            // 
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(138, 89);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(644, 409);
+            this.dataGridView.TabIndex = 6;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 500);
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnTiec);
             this.Controls.Add(this.btnKhachHang);
             this.Controls.Add(this.btnNhanVien);
@@ -100,6 +102,7 @@
             this.Name = "FormMain";
             this.Text = "Quản lý tiệc cưới";
             this.Load += new System.EventHandler(this.FormMain_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -110,8 +113,8 @@
         private System.Windows.Forms.Button btnNhanVien;
         private System.Windows.Forms.Button btnKhachHang;
         private System.Windows.Forms.Button btnDichVu;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dataGridView;
     }
 }
 

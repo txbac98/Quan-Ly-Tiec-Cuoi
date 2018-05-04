@@ -819,6 +819,7 @@
             this.btDatTiec.TabIndex = 5;
             this.btDatTiec.Text = "Đặt tiệc";
             this.btDatTiec.UseVisualStyleBackColor = true;
+            this.btDatTiec.Click += new System.EventHandler(this.btDatTiec_Click);
             // 
             // btHuy
             // 
