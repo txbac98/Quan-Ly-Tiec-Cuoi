@@ -1,2 +1,3 @@
-# Quan-Ly-Tiec-Cuoi
-Do an nhap mon CNPM
+https://www.uit.edu.vn/
+N|Solid
+
