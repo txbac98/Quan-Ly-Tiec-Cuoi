@@ -39,5 +39,11 @@ namespace QuanLyTiecCuoi
             dataGridView.AutoResizeColumns();
 
         }
+
+        DatTiec
+        private void btDatTiec_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

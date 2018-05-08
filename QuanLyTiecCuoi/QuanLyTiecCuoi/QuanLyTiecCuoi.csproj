@@ -61,6 +61,12 @@
     <Compile Include="Tiec\DatTiec.Designer.cs">
       <DependentUpon>DatTiec.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tiec\TimTiec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tiec\TimTiec.Designer.cs">
+      <DependentUpon>TimTiec.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,6 +81,9 @@
     </Compile>
     <EmbeddedResource Include="Tiec\DatTiec.resx">
       <DependentUpon>DatTiec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tiec\TimTiec.resx">
+      <DependentUpon>TimTiec.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
