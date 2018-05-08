@@ -24,5 +24,10 @@ namespace QuanLyTiecCuoi.Tiec
         {
             condb.ExecuteNonQuery("");
         }
+
+        private void cbbTrangTri_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

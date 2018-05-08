@@ -33,13 +33,13 @@ create table MONAN
 	TENMA varchar(20),
 	DONGIA decimal(10,0)
 )
-create table Sanh
+create table SANH
 (
     MASANH char(10) primary key,
 	TENSANH varchar(30),
 	SoLuongBan int,	
 )
-create table ChiTietSanh
+create table CHITIETSANH
 (
     MaSanh char(10) foreign key (MaSanh) references Sanh(MaSanh),
     SoLuongBan int,
@@ -48,7 +48,7 @@ create table ChiTietSanh
 	SoLuongXeDayDoAn int,
 	SoLuongNhanVienTrongSanh int,
 )
-create table HopDongDatTiec
+create table HOPDONGDATTIEC
 (
     MaHD char(10) primary key,
 	MaKhachHang char(10) foreign key (MaKhachHang) references KHACHHANG(MAKH),
@@ -57,7 +57,7 @@ create table HopDongDatTiec
 	TienCoc Decimal(10,0),
 	SoDT int,
 )
-create table PhieuDatTiec
+create table PHIEUDATTIEC
 (
     Maphieu char(10) primary key,
 	Makhachhang char(10) foreign key (Makhachhang) references KHACHHANG(MAKH),

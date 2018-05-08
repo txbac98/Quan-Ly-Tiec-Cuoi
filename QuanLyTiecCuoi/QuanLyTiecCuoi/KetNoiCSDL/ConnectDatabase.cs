@@ -19,7 +19,7 @@ namespace QuanLyTiecCuoi.KetNoiCSDL
         {
             if (conn == null)
                 
-                  conn = new SqlConnection(@"Data Source=DESKTOP-F13TQRH\SQLEXPRESS;Initial Catalog=QLNHTC;Integrated Security=True");
+                  conn = new SqlConnection(@"Data Source=DESKTOP-VM2VH3B\SQLEXPRESS;Initial Catalog=QLNHTC;Integrated Security=True");
 
             if (conn.State == ConnectionState.Closed)
 
