@@ -107,5 +107,15 @@ namespace QuanLyTiecCuoi
         {
             tcMonAn.Visible = true;
         }
+
+        private void cbSanh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

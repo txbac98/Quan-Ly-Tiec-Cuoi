@@ -19,3 +19,4 @@ C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi\QuanLyTiecC
 C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoi.Tiec.DatTiec.resources
 C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoi.Tiec.TimTiec.resources
 C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoi.csproj.GenerateResource.Cache
+D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoi.Tiec.TimTiec.resources

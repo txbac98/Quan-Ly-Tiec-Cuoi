@@ -15,17 +15,25 @@ namespace QuanLyTiecCuoi.KetNoiCSDL
 
         // mở kết nối
         public void connect()
-
         {
-            if (conn == null)
-                
-                  conn = new SqlConnection(@"Data Source=DESKTOP-VM2VH3B\SQLEXPRESS;Initial Catalog=QLNHTC;Integrated Security=True");
+            try
+            {
+                conn = new SqlConnection(@"Data Source=DESKTOP-F13TQRH\SQLEXPRESS;Initial Catalog=QLNHTC;Integrated Security=True");
 
-            if (conn.State == ConnectionState.Closed)
+                if (conn.State == ConnectionState.Closed)
 
-                conn.Open();
+                    conn.Open();
+            }
+            catch
+            {
+                MessageBox.Show("Không thể kết nối cơ sở dữ liệu");
+            }
+            finally
+            {
+                conn.Close();
+            }
 
-        }
+       }
 
         // đóng kết nối
 
@@ -68,7 +76,7 @@ namespace QuanLyTiecCuoi.KetNoiCSDL
 
             cmd.ExecuteNonQuery();
 
-            MessageBox.Show("Successfully!!");
+            MessageBox.Show("Thực hiện thành công");
 
             disconnect();
 
