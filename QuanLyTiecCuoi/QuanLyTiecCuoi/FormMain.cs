@@ -1,4 +1,5 @@
 ﻿using QuanLyTiecCuoi.KetNoiCSDL;
+using QuanLyTiecCuoi.Nhan_Vien;
 using QuanLyTiecCuoi.Tiec;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,9 @@ namespace QuanLyTiecCuoi
 
         DatTiec datTiec = new DatTiec();
         TimTiec timTiec = new TimTiec();
+        
+        
+     
        
         
         private void btThemTiec_Click(object sender, EventArgs e)
@@ -152,5 +156,36 @@ namespace QuanLyTiecCuoi
         {
 
         }
+
+
+        //Nhan vien
+
+        ThemNV ThemNhanVien = new ThemNV();
+
+        private void btDanhSach_Click(object sender, EventArgs e)
+        {
+            ThemNhanVien.Show();
+            ThemNhanVien = new ThemNV(); 
+        }
+
+
+        //Khach hang
+
+        private void btDanhSachKhachHang_Click(object sender, EventArgs e)
+        {
+            NapData(dgvKhachHang, "Select * from KHACHHANG");
+        }
+
+
+
+        void NapData(DataGridView dgv, string sql)
+        {
+            DataView dv = new DataView(condb.getDataTable(sql));
+
+            dgv.DataSource = dv;
+
+            dgv.AutoResizeColumns();
+        }
+        
     }
 }

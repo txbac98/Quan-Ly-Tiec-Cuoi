@@ -54,6 +54,12 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="KetNoiCSDL\ConnectDatabase.cs" />
+    <Compile Include="KhachHang\KhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KhachHang\KhachHang.Designer.cs">
+      <DependentUpon>KhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Nhan Vien\ThemNV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     </Compile>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhachHang\KhachHang.resx">
+      <DependentUpon>KhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nhan Vien\ThemNV.resx">
       <DependentUpon>ThemNV.cs</DependentUpon>

@@ -16,5 +16,15 @@ namespace QuanLyTiecCuoi.Nhan_Vien
         {
             InitializeComponent();
         }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btCapNhat_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
