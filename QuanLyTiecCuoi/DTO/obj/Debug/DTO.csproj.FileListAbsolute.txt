@@ -1,0 +1,5 @@
+D:\Github\Quan-Ly-Tiec-Cuoi - Copy\QuanLyTiecCuoi\DTO\bin\Debug\DTO.dll
+D:\Github\Quan-Ly-Tiec-Cuoi - Copy\QuanLyTiecCuoi\DTO\bin\Debug\DTO.pdb
+D:\Github\Quan-Ly-Tiec-Cuoi - Copy\QuanLyTiecCuoi\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
+D:\Github\Quan-Ly-Tiec-Cuoi - Copy\QuanLyTiecCuoi\DTO\obj\Debug\DTO.dll
+D:\Github\Quan-Ly-Tiec-Cuoi - Copy\QuanLyTiecCuoi\DTO\obj\Debug\DTO.pdb

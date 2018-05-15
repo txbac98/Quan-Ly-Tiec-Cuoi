@@ -24,3 +24,7 @@ C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi\QuanLyTiecC
 C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoi.KhachHang.KhachHang.resources
 D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoi.KhachHang.KhachHang.resources
 D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoi.Nhan_Vien.ThemNV.resources
+D:\Github\Quan-Ly-Tiec-Cuoi - Copy\QuanLyTiecCuoi\QuanLyTiecCuoi\bin\Debug\QuanLyTiecCuoi.exe.config
+D:\Github\Quan-Ly-Tiec-Cuoi - Copy\QuanLyTiecCuoi\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoi.exe
+D:\Github\Quan-Ly-Tiec-Cuoi - Copy\QuanLyTiecCuoi\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoi.pdb
+D:\Github\Quan-Ly-Tiec-Cuoi - Copy\QuanLyTiecCuoi\QuanLyTiecCuoi\bin\Debug\QuanLyTiecCuoiUI.exe.config

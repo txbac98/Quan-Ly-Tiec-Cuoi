@@ -1,0 +1,9 @@
+D:\Github\Quan-Ly-Tiec-Cuoi - Copy\QuanLyTiecCuoi\BUS\bin\Debug\BUS.dll
+D:\Github\Quan-Ly-Tiec-Cuoi - Copy\QuanLyTiecCuoi\BUS\bin\Debug\BUS.pdb
+D:\Github\Quan-Ly-Tiec-Cuoi - Copy\QuanLyTiecCuoi\BUS\bin\Debug\DAO.dll
+D:\Github\Quan-Ly-Tiec-Cuoi - Copy\QuanLyTiecCuoi\BUS\bin\Debug\DTO.dll
+D:\Github\Quan-Ly-Tiec-Cuoi - Copy\QuanLyTiecCuoi\BUS\bin\Debug\DAO.pdb
+D:\Github\Quan-Ly-Tiec-Cuoi - Copy\QuanLyTiecCuoi\BUS\bin\Debug\DTO.pdb
+D:\Github\Quan-Ly-Tiec-Cuoi - Copy\QuanLyTiecCuoi\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
+D:\Github\Quan-Ly-Tiec-Cuoi - Copy\QuanLyTiecCuoi\BUS\obj\Debug\BUS.dll
+D:\Github\Quan-Ly-Tiec-Cuoi - Copy\QuanLyTiecCuoi\BUS\obj\Debug\BUS.pdb
