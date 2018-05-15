@@ -520,6 +520,7 @@
             this.tpDichVu.TabIndex = 4;
             this.tpDichVu.Text = "Dịch vụ";
             this.tpDichVu.UseVisualStyleBackColor = true;
+            this.tpDichVu.Click += new System.EventHandler(this.tpDichVu_Click);
             // 
             // dgvDichVu
             // 

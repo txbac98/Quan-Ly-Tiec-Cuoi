@@ -42,9 +42,18 @@ namespace QuanLyTiecCuoiUI
             
         }
 
-        
-        
+        #region Nhanvien
 
+        #endregion
+
+
+        #region DichVu
+        void LoadDichVu()
+        {
+
+        }
+
+        #endregion
 
         #region Quan Ly Ca, Sanh
 
@@ -351,6 +360,11 @@ namespace QuanLyTiecCuoiUI
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpDichVu_Click(object sender, EventArgs e)
         {
 
         }
