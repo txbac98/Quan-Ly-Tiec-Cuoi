@@ -326,6 +326,8 @@ namespace QuanLyTiecCuoiUI
 
         #endregion
 
+
+        //Hien ket qua
         void ShowKetQua(string skq, bool kq)
         {
             lbKetQua.Text = skq;
@@ -333,6 +335,24 @@ namespace QuanLyTiecCuoiUI
             else lbKetQua.ForeColor = Color.Red;
         }
 
-        
+        private void tpQuanLy_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btDatTiec_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btDanhSachTiec_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
