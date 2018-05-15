@@ -1,4 +1,5 @@
-﻿using QuanLyTiecCuoi.KetNoiCSDL;
+﻿using QuanLyTiecCuoi.DAO;
+using QuanLyTiecCuoi.KetNoiCSDL;
 using QuanLyTiecCuoi.Nhan_Vien;
 using QuanLyTiecCuoi.Tiec;
 using System;
@@ -173,12 +174,78 @@ namespace QuanLyTiecCuoi
 
         private void btDanhSachKhachHang_Click(object sender, EventArgs e)
         {
-            NapData(dgvKhachHang, "Select * from KHACHHANG");
+            ShowData(dgvKhachHang, "Select * from KHACHHANG");
         }
 
 
 
-        void NapData(DataGridView dgv, string sql)
+       
+
+
+
+        //Ca 
+        private void tpTimCa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btCa_Click(object sender, EventArgs e)
+        {
+            tcCa.Visible = true;
+            tcSanh.Visible = false;
+            ShowData(dgvQuanLy, "select * from CA");
+        }
+
+        private void btSanh_Click(object sender, EventArgs e)
+        {
+            tcSanh.Location = tcCa.Location;
+            tcCa.Visible = false;
+            tcSanh.Visible = true;
+        }
+
+        private void dudPhutBatDau_Them_SelectedItemChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dudGioKetThucCa_Them_SelectedItemChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btThemCa_Click(object sender, EventArgs e)
+        {
+            QuanLyCa qlCa = new QuanLyCa();
+            string thoiGianBatDau, thoiGianKetThuc;
+            thoiGianBatDau = dudGioBatDauCa_Them.Text + ":" + dudPhutBatDauCa_Them.Text;
+            thoiGianKetThuc = dudGioKetThucCa_Them.Text + ":" + dudPhutKetThucCa_Them.Text;
+
+
+            //string sql = string.Format("INSERT into CA(MaCa,ThoiGianBatDau,ThoiGianKetThuc) VALUES('{0}','{1}','{2}')",bMaCa_Them.Text.ToString(),thoiGianBatDau,thoiGianKetThuctx);
+
+            
+            //sql = "insert into CA1 values(200)";
+
+            
+
+            QuanLyCa.ThemCa(txbMaCa_Them.Text, thoiGianBatDau, thoiGianKetThuc);
+
+            
+
+            
+            QuanLyCa.ShowData(dgvQuanLy,"Select * from CA1");
+        }
+
+
+
+
+
+
+
+
+
+        //Show data
+        void ShowData(DataGridView dgv, string sql)
         {
             DataView dv = new DataView(condb.getDataTable(sql));
 
@@ -186,6 +253,6 @@ namespace QuanLyTiecCuoi
 
             dgv.AutoResizeColumns();
         }
-        
+
     }
 }

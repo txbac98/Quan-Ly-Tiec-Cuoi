@@ -11,14 +11,14 @@ namespace QuanLyTiecCuoi.KetNoiCSDL
 {
     class ConnectDatabase
     {
-        SqlConnection conn;
+        public SqlConnection conn;
 
         // mở kết nối
         public void connect()
         {
             try
             {
-                conn = new SqlConnection(@"Data Source=DESKTOP-VM2VH3B\SQLEXPRESS;Initial Catalog=QLNHTC;Integrated Security=True");
+                conn = new SqlConnection(@"Data Source=DESKTOP-F13TQRH\SQLEXPRESS;Initial Catalog=QLNHTC;Integrated Security=True");
 
                 if (conn.State == ConnectionState.Closed)
 
@@ -72,15 +72,23 @@ namespace QuanLyTiecCuoi.KetNoiCSDL
         {
             connect();
 
-            SqlCommand cmd = new SqlCommand(sql, conn);
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
 
-            cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-            MessageBox.Show("Thực hiện thành công");
+                MessageBox.Show("Thực hiện thành công");
 
-            disconnect();
+                disconnect();
+            }
+            catch
+            {
+                MessageBox.Show("Không thể thực hiện");
+            }
+            
 
-        }
+            }
 
         // trả về DataReader
 
@@ -98,5 +106,6 @@ namespace QuanLyTiecCuoi.KetNoiCSDL
 
         }
         
+
     }
 }

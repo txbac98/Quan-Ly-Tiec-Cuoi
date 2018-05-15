@@ -22,3 +22,5 @@ C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi\QuanLyTiecC
 D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoi.Tiec.TimTiec.resources
 C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoi.Nhan_Vien.ThemNV.resources
 C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoi.KhachHang.KhachHang.resources
+D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoi.KhachHang.KhachHang.resources
+D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoi.Nhan_Vien.ThemNV.resources

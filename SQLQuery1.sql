@@ -1,11 +1,14 @@
 use master
 create database QLNHTC
 use QLNHTC
+
+--xoa database
+drop database QLNHTC
 create table KHACHHANG
 (
-    MAKH char(10) primary key,
-	HOTEN varchar(30),
-	DCHI varchar(50),
+    MaKH char(10) primary key,
+	HoTenVo varchar(30),
+	DiaChi varchar(50),
 	SDT int,
 	DOANHSO money,
 )
@@ -33,11 +36,28 @@ create table MONAN
 	TENMA varchar(20),
 	DONGIA decimal(10,0)
 )
+
+--code chuan 
+
+create table CA
+(
+	MaCa varchar(10) primary key,
+	ThoiGianBatDau varchar(10),
+	ThoiGianKetThuc varchar(10),
+)
+create table CA1
+(
+	MaCa int,
+)
+insert CA values('1','0:0','0:0')
+insert into CA values ('2','0:0','0:0')
+insert into CA1 values(100)
 create table SANH
 (
-    MASANH char(10) primary key,
-	TENSANH varchar(30),
-	SoLuongBan int,	
+    MaSanh char(10) primary key,
+	TenSanh varchar(30),
+	SoLuongBanToiDa int,	
+	SoLuongNhanVienToiDa int,
 )
 create table CHITIETSANH
 (

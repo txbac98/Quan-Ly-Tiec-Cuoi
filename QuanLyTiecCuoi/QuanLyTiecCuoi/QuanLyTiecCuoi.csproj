@@ -47,13 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\QuanLyCa.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="KetNoiCSDL\ConnectDatabase.cs" />
+    <Compile Include="DAO\ConnectDatabase.cs" />
     <Compile Include="KhachHang\KhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
