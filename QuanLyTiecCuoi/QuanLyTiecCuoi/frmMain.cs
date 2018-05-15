@@ -42,9 +42,7 @@ namespace QuanLyTiecCuoiUI
             
         }
 
-        #region Nhanvien
-
-        #endregion
+        
 
 
         #region DichVu
@@ -79,7 +77,7 @@ namespace QuanLyTiecCuoiUI
        
 
         
-
+    
 
 
         #region QuanLySanh
@@ -146,11 +144,11 @@ namespace QuanLyTiecCuoiUI
         }
         void LoadDuLieuSanh()
         {
-            BUS_QuanLySanh.Init();
+            BUS_ThongTinKhachHang.Init();
             //SetDisplayControls(MODE.NORMAL);
 
             
-            dgvQuanLy.DataSource = BUS_QuanLySanh.GetQLSanhTable();
+            dgvQuanLy.DataSource = BUS_ThongTinKhachHang.GetQLKhachHangTable();
 
             dgvQuanLy.Columns[0].Visible = false;
             dgvQuanLy.Columns[1].HeaderText = "Tên sảnh";
@@ -159,15 +157,15 @@ namespace QuanLyTiecCuoiUI
             dgvQuanLy.Columns[4].HeaderText = "Đơn giá bàn tối thiểu";
             dgvQuanLy.Columns[5].HeaderText = "Ghi chú";
 
-            if (BUS_QuanLySanh.mIsLoaiSanhDataEmpty)
+            if (BUS_ThongTinKhachHang.mIsLoaiSanhDataEmpty)
             {
                 MessageBox.Show("Không có dữ liệu loại sảnh, vui lòng kiểm tra");
             }
             else
             {
                 
-                cbbLoaiSanh.DataSource = BUS_QuanLySanh.GetListTenLoaiSanh();
-                cbbDonGiaBanTT.DataSource = BUS_QuanLySanh.GetListDonGiaBanTT();
+                cbbLoaiSanh.DataSource = BUS_ThongTinKhachHang.GetListTenLoaiSanh();
+                cbbDonGiaBanTT.DataSource = BUS_ThongTinKhachHang.GetListDonGiaBanTT();
             }
             
 
@@ -199,7 +197,7 @@ namespace QuanLyTiecCuoiUI
             int temp;
             if (!int.TryParse(txtSoLuongBanTD.Text, out temp))
             {
-                MessageBox.Show("'Số lượng bàn tối đa' phải là số nguyên, vui lòng nhập lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("'Số lượng bàn tối đa phải là số nguyên, vui lòng nhập lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSoLuongBanTD.Focus();
                 txtSoLuongBanTD.SelectAll();
                 return false;
@@ -212,42 +210,31 @@ namespace QuanLyTiecCuoiUI
         {
             if (KiemTraDuLieuNhapSanh())
             {
-                int maloaiSanh = int.Parse(BUS_QuanLySanh.GetListMaLoaiSanh()[cbbLoaiSanh.SelectedIndex]);
-
+                int maloaiSanh = int.Parse(BUS_ThongTinKhachHang.GetListMaLoaiSanh()[cbbLoaiSanh.SelectedIndex]);
                 DTO_Sanh sanh = new DTO_Sanh(txtTenSanh.Text, maloaiSanh, int.Parse(txtSoLuongBanTD.Text), txtGhiChu.Text);
-
-
-                if (BUS_QuanLySanh.InsertSanh(sanh))
+                if (BUS_ThongTinKhachHang.InsertSanh(sanh))
                 {
-                    ShowKetQua("Thêm thành công sảnh '" + sanh.tenSanh + "' !!", true);
-
+                    ShowKetQua("Thêm thành công sảnh '" + sanh.MaKH + "' !!", true);
                 }
                 else
                 {
-                    ShowKetQua("Sảnh '" +sanh.tenSanh+ "' đã tồn tại !!", false);
+                    ShowKetQua("Sảnh '" +sanh.MaKH+ "' đã tồn tại !!", false);
                 }
-                dgvQuanLy.DataSource = BUS_QuanLySanh.GetQLSanhTable();
-
-
-
+                dgvQuanLy.DataSource = BUS_ThongTinKhachHang.GetQLKhachHangTable();
                 XoaDuLieuNhapSanh();
             }
             else ShowKetQua("Vui lòng nhập đầy đủ thông tin",false);
                 
-            //SetDisplayControls(MODE.NORMAL);
-            
+            //SetDisplayControls(MODE.NORMAL);           
         }
-
         private void btnSuaSanh_Click(object sender, EventArgs e)
         {
-            int maloaiSanh = int.Parse(BUS_QuanLySanh.GetListMaLoaiSanh()[cbbLoaiSanh.SelectedIndex]);
+            int maloaiSanh = int.Parse(BUS_ThongTinKhachHang.GetListMaLoaiSanh()[cbbLoaiSanh.SelectedIndex]);
             DTO_Sanh sanh = new DTO_Sanh(txtTenSanh.Text, maloaiSanh, int.Parse(txtSoLuongBanTD.Text), txtGhiChu.Text);
             sanh.maSanh = int.Parse(dgvQuanLy.CurrentRow.Cells["MaSanh"].Value.ToString());
-            BUS_QuanLySanh.UpdateSanh(sanh);
-
-            dgvQuanLy.DataSource = BUS_QuanLySanh.GetQLSanhTable();
-
-            lbKetQua.Text = "Sửa thành công sảnh '" + sanh.tenSanh + "' !!";
+            BUS_ThongTinKhachHang.UpdateSanh(sanh);
+            dgvQuanLy.DataSource = BUS_ThongTinKhachHang.GetQLKhachHangTable();
+            lbKetQua.Text = "Sửa thành công sảnh '" + sanh.MaKH + "' !!";
             lbKetQua.ForeColor = Color.Green;
 
             XoaDuLieuNhapSanh();
@@ -265,10 +252,10 @@ namespace QuanLyTiecCuoiUI
                 int i = dgvQuanLy.CurrentCell.RowIndex;
                 DTO_Sanh sanh = new DTO_Sanh();
                 sanh.maSanh = int.Parse(dgvQuanLy.CurrentRow.Cells["MaSanh"].Value.ToString());
-                BUS_QuanLySanh.DeleteSanh(sanh);
-                dgvQuanLy.DataSource = BUS_QuanLySanh.GetQLSanhTable();
+                BUS_ThongTinKhachHang.DeleteSanh(sanh);
+                dgvQuanLy.DataSource = BUS_ThongTinKhachHang.GetQLKhachHangTable();
                 
-                lbKetQua.Text = "Xóa thành công sảnh '" + sanh.tenSanh + "' !!";
+                lbKetQua.Text = "Xóa thành công sảnh '" + sanh.MaKH + "' !!";
                 XoaDuLieuNhapSanh();
             }
         }
@@ -368,5 +355,195 @@ namespace QuanLyTiecCuoiUI
         {
 
         }
+
+        private void lblMaKhachHang_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbTenDichVu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTenDichVu_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btChucVu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grpThongTinKhachHang_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpKhachHang_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btSuaLoaiSanh_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btXoaLoaiSanh_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #region KhachHang
+       
+    
+        private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {           
+                int numrow;
+                numrow = e.RowIndex;
+                NapDuLieuKhachHang(numrow);              
+        }
+
+        void NapDuLieuKhachHang(int numrow)
+        {
+            txtMaKhachHang.Text = dgvKhachHang.Rows[numrow].Cells[1].Value.ToString();
+            txtTenChuRe.Text = dgvKhachHang.Rows[numrow].Cells[2].Value.ToString();
+            txtTenCoDau.Text = dgvKhachHang.Rows[numrow].Cells[3].Value.ToString();
+            txtDienThoai.Text = dgvKhachHang.Rows[numrow].Cells[4].Value.ToString();
+            txtDiaChi.Text = dgvKhachHang.Rows[numrow].Cells[5].Value.ToString();
+        }
+
+        private void grpThongTinKhachHang_SelectedIndexChanged(object sender, EventArgs e)
+        { 
+                LoadDuLieuSanh();                   
+        }
+
+        void LoadDuLieuKhachHang()
+        {
+            BUS_ThongTinKhachHang.Init();
+            //SetDisplayControls(MODE.NORMAL);
+
+
+            dgvQuanLy.DataSource = BUS_ThongTinKhachHang.GetQLKhachHangTable();
+
+            dgvKhachHang.Columns[0].Visible = false;
+            dgvKhachHang.Columns[1].HeaderText = "Mã Khách hàng";
+            dgvKhachHang.Columns[2].HeaderText = "Tên chú rể";
+            dgvKhachHang.Columns[3].HeaderText = "Tên cô dâu";
+            dgvKhachHang.Columns[4].HeaderText = "Địa chỉ";
+           
+
+            if (BUS_ThongTinKhachHang.mIsLoaiSanhDataEmpty)
+            {
+                MessageBox.Show("Không có dữ liệu khách hàng, vui lòng kiểm tra");
+            }
+            //else
+            //{
+
+            //    cbbLoaiSanh.DataSource = BUS_ThongTinKhachHang.GetListTenLoaiSanh();
+            //    cbbDonGiaBanTT.DataSource = BUS_ThongTinKhachHang.GetListDonGiaBanTT();
+            //}
+        }
+
+        void XoaDuLieuNhapKhachHang()
+        {
+            txtMaKhachHang.Text = "";
+            txtTenChuRe.Text = "";
+            txtTenCoDau.Text = "";
+            txtDienThoai.Text="";
+            txtDiaChi.Text = "";
+        }
+        bool KiemTraDuLieuNhapKhachHang()
+        {
+            if (txtMaKhachHang.Text == "") return false;
+            if (txtTenChuRe.Text == "") return false;
+            if (txtTenCoDau.Text == "") return false;            
+            if (txtDiaChi.Text == "") return false;            
+            int temp;
+            if (!int.TryParse(txtDienThoai.Text, out temp))
+            {
+                MessageBox.Show("'Số điện thoại phải là số nguyên, vui lòng nhập lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDienThoai.Focus();
+                txtDienThoai.SelectAll();
+                return false;
+            }
+            return true;
+        }
+
+
+        private void txtMaKhachHang_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMaKhachHang.Text == " ") txtMaKhachHang.Text = "";
+            else
+            {
+                //dgvQuanLy.DataSource= BUS_QuanLySanh.SearchSanhTableTheoTen(txtTenSanh.Text);
+
+            }
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            if (KiemTraDuLieuNhapKhachHang())
+            {              
+                DTO_KhachHang khachhang = new DTO_KhachHang(txtMaKhachHang.Text, txtTenChuRe.Text, txtTenCoDau.Text, txtDienThoai.Text,txtDiaChi.Text);
+                if (BUS_ThongTinKhachHang.InsertThongTinKhachHang(khachhang))
+                {
+                    ShowKetQua("Thêm thành công khách hàng '" + khachhang.MaKH + "' !!", true);
+                }
+                else
+                {
+                    ShowKetQua("Mã khách hàng '" + khachhang.MaKH + "' đã tồn tại !!", false);
+                }
+                dgvKhachHang.DataSource = BUS_ThongTinKhachHang.GetQLKhachHangTable();
+                XoaDuLieuNhapSanh();
+            }
+            else ShowKetQua("Vui lòng nhập đầy đủ thông tin", false);
+        }
+
+        private void btnCapNhat_Click(object sender, EventArgs e)
+        {
+            DTO_KhachHang khachhang = new DTO_KhachHang(txtMaKhachHang.Text, txtTenChuRe.Text, txtTenCoDau.Text, txtDienThoai.Text, txtDiaChi.Text);
+            khachhang.MaKH = int.Parse(dgvKhachHang.CurrentRow.Cells["tenSanh"].Value.ToString());
+            BUS_ThongTinKhachHang.UpdateKhachHang(khachhang);
+            dgvQuanLy.DataSource = BUS_ThongTinKhachHang.GetQLKhachHangTable();
+            lbKetQua.Text = "Sửa thành công khách hàng '" + khachhang.MaKH + "' !!";
+            lbKetQua.ForeColor = Color.Green;
+
+            XoaDuLieuNhapKhachHang();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            dgvKhachHang.Focus();
+            string tenSanh = dgvKhachHang.CurrentRow.Cells[1].Value.ToString();
+            DialogResult dr = MessageBox.Show("Bạn có muốn xóa khách hàng '" + tenSanh + "' không?", "Xóa khách hàng", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dr == DialogResult.Yes)
+            {
+                int i = dgvKhachHang.CurrentCell.RowIndex;
+                DTO_KhachHang khachhang = new DTO_Sanh();
+                khachhang.MaKH = int.Parse(dgvKhachHang.CurrentRow.Cells["MaSanh"].Value.ToString());
+                BUS_ThongTinKhachHang.DeleteSanh(khachhang);
+                dgvQuanLy.DataSource = BUS_ThongTinKhachHang.GetQLKhachHangTable();
+
+                lbKetQua.Text = "Xóa thành công sảnh '" + khachhang.MaKH + "' !!";
+                XoaDuLieuNhapSanh();
+            }
     }
 }
+
+
+
+        #endregion
+       
