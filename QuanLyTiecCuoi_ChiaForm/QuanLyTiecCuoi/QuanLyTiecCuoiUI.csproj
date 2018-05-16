@@ -54,11 +54,11 @@
     <Compile Include="FormFeature\QuanLy\frmQuanLyKhachHang.Designer.cs">
       <DependentUpon>frmQuanLyKhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormFeature\QuanLy\QuanLyTiecCuoi.cs">
+    <Compile Include="FormFeature\QuanLy\frmQuanLyMonAn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormFeature\QuanLy\QuanLyTiecCuoi.Designer.cs">
-      <DependentUpon>QuanLyTiecCuoi.cs</DependentUpon>
+    <Compile Include="FormFeature\QuanLy\frmQuanLyMonAn.Designer.cs">
+      <DependentUpon>frmQuanLyMonAn.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -67,46 +67,16 @@
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\ConnectDatabase.cs" />
-    <Compile Include="KhachHang\KhachHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="KhachHang\KhachHang.Designer.cs">
-      <DependentUpon>KhachHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Nhan Vien\ThemNV.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Nhan Vien\ThemNV.Designer.cs">
-      <DependentUpon>ThemNV.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tiec\DatTiec.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Tiec\DatTiec.Designer.cs">
-      <DependentUpon>DatTiec.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Tiec\TimTiec.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Tiec\TimTiec.Designer.cs">
-      <DependentUpon>TimTiec.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLyKhachHang.resx">
       <DependentUpon>frmQuanLyKhachHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormFeature\QuanLy\QuanLyTiecCuoi.resx">
-      <DependentUpon>QuanLyTiecCuoi.cs</DependentUpon>
+    <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLyMonAn.resx">
+      <DependentUpon>frmQuanLyMonAn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="KhachHang\KhachHang.resx">
-      <DependentUpon>KhachHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Nhan Vien\ThemNV.resx">
-      <DependentUpon>ThemNV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -118,12 +88,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Tiec\DatTiec.resx">
-      <DependentUpon>DatTiec.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tiec\TimTiec.resx">
-      <DependentUpon>TimTiec.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -138,7 +102,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DichVu\" />
     <Folder Include="FormFeature\ConfigDatabase\" />
   </ItemGroup>
   <ItemGroup>

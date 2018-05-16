@@ -35,8 +35,13 @@
             this.btCa = new System.Windows.Forms.Button();
             this.btnKhachHang = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lbDanhSachTiecTrongNgay = new System.Windows.Forms.Label();
+            this.grbQuanLy = new System.Windows.Forms.GroupBox();
+            this.grbChucNang = new System.Windows.Forms.GroupBox();
+            this.btnTiec = new System.Windows.Forms.Button();
+            this.btnNhanVien = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.grbQuanLy.SuspendLayout();
+            this.grbChucNang.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbKetQua
@@ -44,7 +49,7 @@
             this.lbKetQua.AutoSize = true;
             this.lbKetQua.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbKetQua.ForeColor = System.Drawing.Color.LawnGreen;
-            this.lbKetQua.Location = new System.Drawing.Point(429, 432);
+            this.lbKetQua.Location = new System.Drawing.Point(466, 377);
             this.lbKetQua.Name = "lbKetQua";
             this.lbKetQua.Size = new System.Drawing.Size(161, 16);
             this.lbKetQua.TabIndex = 9;
@@ -52,7 +57,7 @@
             // 
             // btSanh
             // 
-            this.btSanh.Location = new System.Drawing.Point(12, 64);
+            this.btSanh.Location = new System.Drawing.Point(20, 216);
             this.btSanh.Name = "btSanh";
             this.btSanh.Size = new System.Drawing.Size(75, 23);
             this.btSanh.TabIndex = 11;
@@ -61,7 +66,7 @@
             // 
             // btCa
             // 
-            this.btCa.Location = new System.Drawing.Point(12, 173);
+            this.btCa.Location = new System.Drawing.Point(20, 172);
             this.btCa.Name = "btCa";
             this.btCa.Size = new System.Drawing.Size(75, 23);
             this.btCa.TabIndex = 12;
@@ -70,7 +75,7 @@
             // 
             // btnKhachHang
             // 
-            this.btnKhachHang.Location = new System.Drawing.Point(12, 262);
+            this.btnKhachHang.Location = new System.Drawing.Point(16, 110);
             this.btnKhachHang.Name = "btnKhachHang";
             this.btnKhachHang.Size = new System.Drawing.Size(75, 23);
             this.btnKhachHang.TabIndex = 13;
@@ -81,36 +86,68 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(178, 137);
+            this.dataGridView1.Location = new System.Drawing.Point(152, 55);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(477, 276);
+            this.dataGridView1.Size = new System.Drawing.Size(465, 297);
             this.dataGridView1.TabIndex = 14;
             // 
-            // lbDanhSachTiecTrongNgay
+            // grbQuanLy
             // 
-            this.lbDanhSachTiecTrongNgay.AutoSize = true;
-            this.lbDanhSachTiecTrongNgay.Location = new System.Drawing.Point(178, 118);
-            this.lbDanhSachTiecTrongNgay.Name = "lbDanhSachTiecTrongNgay";
-            this.lbDanhSachTiecTrongNgay.Size = new System.Drawing.Size(132, 13);
-            this.lbDanhSachTiecTrongNgay.TabIndex = 15;
-            this.lbDanhSachTiecTrongNgay.Text = "Danh sách tiệc trong ngày";
+            this.grbQuanLy.Controls.Add(this.btnNhanVien);
+            this.grbQuanLy.Controls.Add(this.btSanh);
+            this.grbQuanLy.Controls.Add(this.btCa);
+            this.grbQuanLy.Location = new System.Drawing.Point(623, 46);
+            this.grbQuanLy.Name = "grbQuanLy";
+            this.grbQuanLy.Size = new System.Drawing.Size(134, 297);
+            this.grbQuanLy.TabIndex = 15;
+            this.grbQuanLy.TabStop = false;
+            this.grbQuanLy.Text = "Quản lý";
+            // 
+            // grbChucNang
+            // 
+            this.grbChucNang.Controls.Add(this.btnTiec);
+            this.grbChucNang.Controls.Add(this.btnKhachHang);
+            this.grbChucNang.Location = new System.Drawing.Point(12, 46);
+            this.grbChucNang.Name = "grbChucNang";
+            this.grbChucNang.Size = new System.Drawing.Size(134, 297);
+            this.grbChucNang.TabIndex = 16;
+            this.grbChucNang.TabStop = false;
+            this.grbChucNang.Text = "Chức năng";
+            // 
+            // btnTiec
+            // 
+            this.btnTiec.Location = new System.Drawing.Point(16, 45);
+            this.btnTiec.Name = "btnTiec";
+            this.btnTiec.Size = new System.Drawing.Size(75, 23);
+            this.btnTiec.TabIndex = 14;
+            this.btnTiec.Text = "Tiệc";
+            this.btnTiec.UseVisualStyleBackColor = true;
+            // 
+            // btnNhanVien
+            // 
+            this.btnNhanVien.Location = new System.Drawing.Point(20, 87);
+            this.btnNhanVien.Name = "btnNhanVien";
+            this.btnNhanVien.Size = new System.Drawing.Size(75, 23);
+            this.btnNhanVien.TabIndex = 15;
+            this.btnNhanVien.Text = "Nhân viên";
+            this.btnNhanVien.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(671, 453);
-            this.Controls.Add(this.lbDanhSachTiecTrongNgay);
+            this.ClientSize = new System.Drawing.Size(772, 413);
+            this.Controls.Add(this.grbChucNang);
+            this.Controls.Add(this.grbQuanLy);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnKhachHang);
-            this.Controls.Add(this.btCa);
-            this.Controls.Add(this.btSanh);
             this.Controls.Add(this.lbKetQua);
             this.Name = "frmMain";
             this.Text = "Quản lý tiệc cưới";
             this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.grbQuanLy.ResumeLayout(false);
+            this.grbChucNang.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,7 +160,10 @@
         private System.Windows.Forms.Button btCa;
         private System.Windows.Forms.Button btnKhachHang;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label lbDanhSachTiecTrongNgay;
+        private System.Windows.Forms.GroupBox grbQuanLy;
+        private System.Windows.Forms.Button btnNhanVien;
+        private System.Windows.Forms.GroupBox grbChucNang;
+        private System.Windows.Forms.Button btnTiec;
     }
 }
 
