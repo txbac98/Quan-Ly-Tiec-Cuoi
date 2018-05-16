@@ -1,0 +1,14 @@
+C:\Users\Bano\Downloads\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDAO\bin\Debug\DAO.dll
+C:\Users\Bano\Downloads\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDAO\bin\Debug\DAO.pdb
+C:\Users\Bano\Downloads\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDAO\bin\Debug\DTO.dll
+C:\Users\Bano\Downloads\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDAO\bin\Debug\DTO.pdb
+C:\Users\Bano\Downloads\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
+C:\Users\Bano\Downloads\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDAO\obj\Debug\DAO.dll
+C:\Users\Bano\Downloads\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDAO\obj\Debug\DAO.pdb
+D:\Github\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDAO\bin\Debug\DAO.dll
+D:\Github\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDAO\bin\Debug\DAO.pdb
+D:\Github\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDAO\bin\Debug\DTO.dll
+D:\Github\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDAO\bin\Debug\DTO.pdb
+D:\Github\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
+D:\Github\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDAO\obj\Debug\DAO.dll
+D:\Github\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDAO\obj\Debug\DAO.pdb
