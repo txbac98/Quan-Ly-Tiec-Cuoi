@@ -36,7 +36,7 @@ namespace DAO
         public static bool InsertSanh(DTO_Sanh sanh)
         {
             //string sqlCommand = @"SELECT * FROM LoaiSanh";
-            string sqlCommand = string.Format(@"INSERT INTO Sanh (TenSanh, MaLoaiSanh, SoLuongBanToiDa, GhiChu) VALUES (N'{0}', {1}, {2}, N'{3}')", sanh.MaKH, sanh.maLoaiSanh, sanh.soLuongBanToiDa, sanh.ghiChu);
+            string sqlCommand = string.Format(@"INSERT INTO Sanh (TenSanh, MaLoaiSanh, SoLuongBanToiDa, GhiChu) VALUES (N'{0}', {1}, {2}, N'{3}')", sanh.tenSanh, sanh.maLoaiSanh, sanh.soLuongBanToiDa, sanh.ghiChu);
 
             if (DatabaseHelper.ExcuteSql(sqlCommand) == 1)
                 return true;
@@ -46,7 +46,7 @@ namespace DAO
         public static int UpdateSanh(DTO_Sanh sanh)
         {
             string sqlCommand = String.Format(@"UPDATE Sanh SET TenSanh=N'{0}', MaLoaiSanh={1}, SoLuongBanToiDa={2}, GhiChu=N'{3}' WHERE MaSanh={4}",
-                sanh.MaKH, sanh.maLoaiSanh, sanh.soLuongBanToiDa, sanh.ghiChu, sanh.maSanh);
+                sanh.tenSanh, sanh.maLoaiSanh, sanh.soLuongBanToiDa, sanh.ghiChu, sanh.maSanh);
             return DatabaseHelper.ExcuteSql(sqlCommand);
         }
     }
