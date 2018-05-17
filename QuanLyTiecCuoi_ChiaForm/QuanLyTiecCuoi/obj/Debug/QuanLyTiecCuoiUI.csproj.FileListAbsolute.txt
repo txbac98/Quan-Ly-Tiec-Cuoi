@@ -80,3 +80,6 @@ D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\Qua
 D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.csproj.GenerateResource.Cache
 D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.frmQuanLyMonAn.resources
 D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.FormFeature.QuanLy.frmQuanLyNhanVien.resources
+C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\bin\Debug\QuanLyTiecCuoiUI.exe.config
+C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.exe
+C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.pdb
