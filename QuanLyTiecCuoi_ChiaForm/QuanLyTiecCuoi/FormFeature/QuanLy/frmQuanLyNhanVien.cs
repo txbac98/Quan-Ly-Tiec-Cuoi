@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,11 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
 
         private DataTable ResultTable;
 
+        //Duoi file hinh anh
+        private string ImageLocationPath = string.Empty;
 
+        //Ten file hinh anh
+        private string ImageInstance = string.Empty;
 
         //Convert Number to string for index
 
@@ -86,6 +91,7 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
             dtpNgaySinh.Value = new DateTime(1998, 2, 2, 0, 0, 0);
             txtDienThoai.Text = "";
             txtDiaChi.Text = "";
+            ptrHinhAnh.Image = QuanLyTiecCuoiUI.Properties.Resources.avatar;
         }
         void ShowKetQua(string skq, bool kq)
         {
@@ -103,7 +109,7 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
             btnCapNhat.Visible = false;
             btnXoa.Visible = false;
 
-            //Load ma khach hang
+            //Load ma nhan vien
             lblThongTinMaNhanVien.Text = GetNextID(ResultTable);
 
             ClearDuLieuNhap();
@@ -117,13 +123,102 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
                 ShowKetQua("Không thể thực hiện, vui lòng kiểm tra thông tin nhập.", false);
                 return;
             }
+
+            //Set gioi tinh
+            string gioiTinh,ngaySinh;
+            if (rbtNam.Checked)
+            {
+                gioiTinh = "Nam";
+            }
+            else gioiTinh = "Nữ";
+
+            //Set ngay sinh
+            if (dtpNgaySinh.Value.Day < 10)
+            {
+                ngaySinh = "0" + dtpNgaySinh.Value.Day.ToString();
+            }
+            else ngaySinh = dtpNgaySinh.Value.Day.ToString();
+
+            ngaySinh += "/";
+
+            if (dtpNgaySinh.Value.Month < 10)
+            {
+                ngaySinh += "0" + dtpNgaySinh.Value.Month.ToString();
+            }
+            else ngaySinh += dtpNgaySinh.Value.Month.ToString();
+
+            ngaySinh += "/";
+
+            ngaySinh += dtpNgaySinh.Value.Year.ToString();
+
+
             DTO_NhanVien nhanVien = new DTO_NhanVien();
+
+            if (lbThongTinHinhAnh.Text != "Unknow.png")
+            {
+                string newImage = ImageLocationPath;
+
+                string nameOfImage = (lblMaNhanVien.ToString() + Path.GetExtension(newImage));
+
+                //copy file
+                string desFileName = Path.Combine(@"DanhSachNhanVien\", nameOfImage);
+
+                File.Copy(newImage, desFileName);
+            }
+            else nhanVien.AnhDaiDien = "Unknow.png";
+
+            //Set thong tin nhan vien
+            nhanVien.MaNV = lblThongTinMaNhanVien.Text;
+            nhanVien.HoTen = txtTenNhanVien.Text;
+            nhanVien.GioiTinh = gioiTinh;
+            nhanVien.NgaySinh = ngaySinh;
+            nhanVien.DienThoai = txtDienThoai.Text;
+            nhanVien.DiaChi = txtDiaChi.Text;
+
+            if (BUS_QuanLyNhanVien.InsertNhanVien(nhanVien))
+            {
+                ShowKetQua("Thêm thành công nhân viên '" + nhanVien.MaNV + "' !!", true);
+                ClearDuLieuNhap();
+                UpDateDataGridView();
+            }
+            else ShowKetQua("Thất bại. Vui lòng kiểm tra lại.", false);
+
+
+
+            //DTO_NhanVien nhanVien = new DTO_NhanVien(lblThongTinMaNhanVien.Text, txtTenNhanVien,gioiTinh,ngaySinh,cbbChucVu.Text,txtDienThoai.Text,txtDiaChi.Text);
 
         }
 
 
+
         #endregion
 
+
+        #region Button group HinhAnh
+        private void btnChonAnh_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.InitialDirectory = @"C:\";
+            dialog.Filter = "Image Files(*.jpg,*.jpeg,*.png)|*.jpg;*.jpeg;*.png";
+            dialog.DefaultExt = ".png";
+            DialogResult result = dialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                ImageLocationPath = dialog.FileName;
+                lbThongTinHinhAnh.Text = dialog.SafeFileName;
+                ptrHinhAnh.ImageLocation = dialog.FileName;
+            }
+        }
+
+        private void btnXoaAnh_Click(object sender, EventArgs e)
+        {
+            lbThongTinHinhAnh.Text = string.Empty;
+            ptrHinhAnh.Image= ptrHinhAnh.Image = QuanLyTiecCuoiUI.Properties.Resources.avatar;
+            lbThongTinHinhAnh.Text = "Unkonw.png";
+        }
+        #endregion
+
+        
 
     }
 }

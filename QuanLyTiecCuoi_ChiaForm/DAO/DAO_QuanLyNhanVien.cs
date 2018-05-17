@@ -46,8 +46,8 @@ namespace DAO
 
         public static bool InsertNhanVien(DTO_NhanVien nhanvien)
         {
-            string sTruyVan = string.Format(@"Insert into NhanVien(HoTen, DiaChi, DienThoai, UserName, Password, MaChucVu, TinhTrang,AnhDaiDien) values(N'{0}',N'{1}',N'{2}',N'{3}',N'{4}',{5},N'{6}', N'{7}')",
-                nhanvien.HoTen, nhanvien.DiaChi, nhanvien.DienThoai, nhanvien.Username, nhanvien.Password, nhanvien.MaChucVu, nhanvien.TinhTrang, nhanvien.AnhDaiDien);
+            string sTruyVan = string.Format(@"Insert into NhanVien(MaNV, HoTen, GioiTinh, NgaySinh, ChucVu, DienThoai, DiaChi, AnhDaiDien) values(N'{0}',N'{1}',N'{2}',N'{3}',N'{4}',{5},N'{6}', N'{7}',N'{8}')",
+                nhanvien.MaNV,nhanvien.HoTen, nhanvien.GioiTinh, nhanvien.NgaySinh, nhanvien.ChucVu, nhanvien.DienThoai, nhanvien.DiaChi, nhanvien.AnhDaiDien);
             try
             {
                 int state = DatabaseHelper.ExcuteSql(sTruyVan);
@@ -64,8 +64,8 @@ namespace DAO
         }
         public static bool UpdateNhanVien(DTO_NhanVien nhanvien)
         {
-            string sTruyVan = string.Format(@"Update NHANVIEN set HoTen=N'{0}', DiaChi=N'{1}', DienThoai=N'{2}', MaChucVu={3}, TinhTrang=N'{4}' WHERE MaNV ={5}",
-                nhanvien.HoTen, nhanvien.DiaChi, nhanvien.DienThoai, nhanvien.MaChucVu, nhanvien.TinhTrang, nhanvien.MaNV);
+            string sTruyVan = string.Format(@"Update NHANVIEN set HoTen=N'{0}', GioiTinh=N'{1}', NgaySinh=N'{2}', ChucVu={3}, DienThoai=N'{4}',DiaChi=N'{5}', AnhDaiDien=N'{6}' WHERE MaNV ={7}",
+                nhanvien.HoTen, nhanvien.GioiTinh, nhanvien.NgaySinh, nhanvien.ChucVu, nhanvien.DienThoai,nhanvien.DiaChi,nhanvien.AnhDaiDien, nhanvien.MaNV);
             try
             {
                 int state = DatabaseHelper.ExcuteSql(sTruyVan);

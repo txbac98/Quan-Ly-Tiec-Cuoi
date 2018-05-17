@@ -130,7 +130,7 @@
             // rbtNu
             // 
             this.rbtNu.AutoSize = true;
-            this.rbtNu.Location = new System.Drawing.Point(247, 152);
+            this.rbtNu.Location = new System.Drawing.Point(242, 152);
             this.rbtNu.Name = "rbtNu";
             this.rbtNu.Size = new System.Drawing.Size(44, 21);
             this.rbtNu.TabIndex = 25;
@@ -141,7 +141,7 @@
             // rbtNam
             // 
             this.rbtNam.AutoSize = true;
-            this.rbtNam.Location = new System.Drawing.Point(186, 152);
+            this.rbtNam.Location = new System.Drawing.Point(181, 152);
             this.rbtNam.Name = "rbtNam";
             this.rbtNam.Size = new System.Drawing.Size(55, 21);
             this.rbtNam.TabIndex = 24;
@@ -152,7 +152,7 @@
             // dtpNgaySinh
             // 
             this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgaySinh.Location = new System.Drawing.Point(186, 210);
+            this.dtpNgaySinh.Location = new System.Drawing.Point(181, 207);
             this.dtpNgaySinh.MaxDate = new System.DateTime(2018, 12, 31, 0, 0, 0, 0);
             this.dtpNgaySinh.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
@@ -162,7 +162,7 @@
             // lblNgaySinh
             // 
             this.lblNgaySinh.AutoSize = true;
-            this.lblNgaySinh.Location = new System.Drawing.Point(183, 190);
+            this.lblNgaySinh.Location = new System.Drawing.Point(179, 187);
             this.lblNgaySinh.Name = "lblNgaySinh";
             this.lblNgaySinh.Size = new System.Drawing.Size(71, 17);
             this.lblNgaySinh.TabIndex = 22;
@@ -171,7 +171,7 @@
             // lblGioiTinh
             // 
             this.lblGioiTinh.AutoSize = true;
-            this.lblGioiTinh.Location = new System.Drawing.Point(183, 132);
+            this.lblGioiTinh.Location = new System.Drawing.Point(178, 132);
             this.lblGioiTinh.Name = "lblGioiTinh";
             this.lblGioiTinh.Size = new System.Drawing.Size(60, 17);
             this.lblGioiTinh.TabIndex = 21;
@@ -181,17 +181,19 @@
             // 
             this.lbThongTinHinhAnh.AutoSize = true;
             this.lbThongTinHinhAnh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbThongTinHinhAnh.Location = new System.Drawing.Point(44, 367);
+            this.lbThongTinHinhAnh.Location = new System.Drawing.Point(13, 311);
             this.lbThongTinHinhAnh.Name = "lbThongTinHinhAnh";
-            this.lbThongTinHinhAnh.Size = new System.Drawing.Size(0, 16);
+            this.lbThongTinHinhAnh.Size = new System.Drawing.Size(56, 16);
             this.lbThongTinHinhAnh.TabIndex = 20;
+            this.lbThongTinHinhAnh.Text = "Unknow";
             // 
             // ptrHinhAnh
             // 
             this.ptrHinhAnh.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ptrHinhAnh.Location = new System.Drawing.Point(9, 132);
+            this.ptrHinhAnh.Image = global::QuanLyTiecCuoiUI.Properties.Resources.avatar;
+            this.ptrHinhAnh.Location = new System.Drawing.Point(12, 132);
             this.ptrHinhAnh.Name = "ptrHinhAnh";
-            this.ptrHinhAnh.Size = new System.Drawing.Size(168, 190);
+            this.ptrHinhAnh.Size = new System.Drawing.Size(160, 176);
             this.ptrHinhAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptrHinhAnh.TabIndex = 19;
             this.ptrHinhAnh.TabStop = false;
@@ -201,24 +203,26 @@
             this.btnXoaAnh.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnXoaAnh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnXoaAnh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoaAnh.Location = new System.Drawing.Point(186, 288);
+            this.btnXoaAnh.Location = new System.Drawing.Point(181, 281);
             this.btnXoaAnh.Name = "btnXoaAnh";
-            this.btnXoaAnh.Size = new System.Drawing.Size(93, 34);
+            this.btnXoaAnh.Size = new System.Drawing.Size(93, 30);
             this.btnXoaAnh.TabIndex = 17;
             this.btnXoaAnh.Text = "Xoá ảnh";
             this.btnXoaAnh.UseVisualStyleBackColor = true;
+            this.btnXoaAnh.Click += new System.EventHandler(this.btnXoaAnh_Click);
             // 
             // btnChonAnh
             // 
             this.btnChonAnh.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnChonAnh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnChonAnh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChonAnh.Location = new System.Drawing.Point(186, 252);
+            this.btnChonAnh.Location = new System.Drawing.Point(181, 245);
             this.btnChonAnh.Name = "btnChonAnh";
             this.btnChonAnh.Size = new System.Drawing.Size(93, 30);
             this.btnChonAnh.TabIndex = 18;
             this.btnChonAnh.Text = "Chọn ảnh";
             this.btnChonAnh.UseVisualStyleBackColor = true;
+            this.btnChonAnh.Click += new System.EventHandler(this.btnChonAnh_Click);
             // 
             // cbbChucVu
             // 
@@ -299,7 +303,7 @@
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(83, 432);
+            this.txtDiaChi.Location = new System.Drawing.Point(94, 441);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(192, 23);
             this.txtDiaChi.TabIndex = 8;
