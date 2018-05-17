@@ -30,13 +30,19 @@ namespace DAO
             }
             return false;
         }
-        public static DataTable SearchKhachHang(string maKH, string tenChuRe, string tenCoDau)
+        public static DataTable SearchKhachHangTheoMa(string maKH)
         {
-            string sTruyVan = string.Format("Select * from KHACHHANG where MaKH like N'{0}'", maKH);
+            string sTruyVan = string.Format("Select * from KHACHHANG where MaKH like N'%{0}%'", maKH);
             return DatabaseHelper.GetData(sTruyVan);
 
         }
 
+        public static DataTable SearchKhachHangTheoTen(string tenChuRe, string tenCoDau)
+        {
+            string sTruyVan = string.Format("Select * from KHACHHANG where dbo.BoDau(tenChuRe) like N'%{0}%' and dbo.BoDau(TenCoDau) like N'%{1}%'", tenChuRe, tenCoDau);
+            return DatabaseHelper.GetData(sTruyVan);
+
+        }
         public static bool UpdateKhachHang(DTO_KhachHang khachhang)
         {
             string sTruyVan = string.Format("Update KhachHang set TenChuRe=N'{0}', TenCoDau=N'{1}', DienThoai=N'{2}', DiaChi=N'{3}' where MaKH=N'{4}'", khachhang.TenChuRe, khachhang.TenCoDau, khachhang.DienThoai, khachhang.DiaChi, khachhang.MaKH);

@@ -18,6 +18,10 @@ namespace BUS
         {
             return DAO_QuanLyNhanVien.LoadDanhSachNhanVien();
         }
+        public static DataTable GetDataTable()
+        {
+            return DAO_QuanLyNhanVien.GetDataTable();
+        }
         public static bool CheckUserNameNotExists(DTO_NhanVien nhanvien)
         {
             return DAO_QuanLyNhanVien.CheckUserNameNotExists(nhanvien);

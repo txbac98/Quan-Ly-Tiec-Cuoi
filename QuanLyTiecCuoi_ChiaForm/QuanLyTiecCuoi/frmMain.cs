@@ -2,8 +2,7 @@
 using DTO;
 using QuanLyTiecCuoi.DAO;
 using QuanLyTiecCuoi.KetNoiCSDL;
-using QuanLyTiecCuoi.Nhan_Vien;
-using QuanLyTiecCuoi.Tiec;
+using QuanLyTiecCuoiUI.FormFeature.QuanLy;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,5 +58,10 @@ namespace QuanLyTiecCuoiUI
             frmQLKH.Show();
         }
 
+        private void btnNhanVien_Click(object sender, EventArgs e)
+        {
+            frmQuanLyNhanVien frmQLNV = new frmQuanLyNhanVien();
+            frmQLNV.Show();
+        }
     }
 }

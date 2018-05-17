@@ -16,9 +16,13 @@ namespace BUS
             return DAO_KhachHang.GetDataTable();
         }
 
-        public static DataTable SearchKhachHang(string maKH, string tenChuRe, string tenCoDau)
+        public static DataTable SearchKhachHangTheoMa(string maKH)
         {
-            return DAO_KhachHang.SearchKhachHang(maKH, tenChuRe, tenCoDau);
+            return DAO_KhachHang.SearchKhachHangTheoMa(maKH);
+        }
+        public static DataTable SearchKhachHangTheoTen(string tenChuRe, string tenCoDau)
+        {
+            return DAO_KhachHang.SearchKhachHangTheoTen(tenChuRe,tenCoDau);
         }
         public static bool InsertKhachHang(DTO_KhachHang khachhang)
         {

@@ -131,6 +131,7 @@
             this.btnNhanVien.TabIndex = 15;
             this.btnNhanVien.Text = "Nhân viên";
             this.btnNhanVien.UseVisualStyleBackColor = true;
+            this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
             // 
             // frmMain
             // 

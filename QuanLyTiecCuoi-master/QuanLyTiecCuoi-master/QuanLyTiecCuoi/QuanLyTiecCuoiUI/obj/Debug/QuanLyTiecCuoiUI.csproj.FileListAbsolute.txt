@@ -41,3 +41,6 @@ D:\Github\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecC
 D:\Github\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiUI\obj\Debug\QuanLyTiecCuoiUI.csproj.GenerateResource.Cache
 D:\Github\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiUI\obj\Debug\QuanLyTiecCuoiUI.exe
 D:\Github\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiUI\obj\Debug\QuanLyTiecCuoiUI.pdb
+D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiUI\bin\Debug\QuanLyTiecCuoiUI.exe.config
+D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiUI\obj\Debug\QuanLyTiecCuoiUI.exe
+D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiUI\obj\Debug\QuanLyTiecCuoiUI.pdb

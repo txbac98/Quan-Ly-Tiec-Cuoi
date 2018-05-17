@@ -10,6 +10,12 @@ namespace DAO
 {
     public class DAO_QuanLyNhanVien
     {
+
+        public static DataTable GetDataTable()
+        {
+            string sTruyVan = "Select * from NHANVIEN";
+            return DatabaseHelper.GetData(sTruyVan);
+        }
         public static DataTable LoadChucVu()
         {
             string sTruyVan = "Select * from CHUCVU";

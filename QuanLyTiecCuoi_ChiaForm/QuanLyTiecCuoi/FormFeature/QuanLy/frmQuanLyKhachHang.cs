@@ -79,9 +79,9 @@ namespace QuanLyTiecCuoiUI
             dgvDanhSachKhachHang.Columns[4].HeaderText = "Địa chỉ";
 
 
-            dgvDanhSachKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //dgvDanhSachKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDanhSachKhachHang.ReadOnly = true;
-            dgvDanhSachKhachHang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //dgvDanhSachKhachHang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDanhSachKhachHang.MultiSelect = false;
         }
 
@@ -108,24 +108,7 @@ namespace QuanLyTiecCuoiUI
             else lbKetQua.ForeColor = Color.Red;
         }
 
-        #region Tim kiem
-        private void txbMaKhachHang_TimKiem_TextChanged(object sender, EventArgs e)
-        {
-            if (txbMaKhachHang_TimKiem.Text == " ")
-            {
-                txbMaKhachHang_TimKiem.Text = "";
-                return;
-            }
-            dgvDanhSachKhachHang.DataSource= BUS_KhachHang.SearchKhachHang(txbMaKhachHang_TimKiem.Text, txbTenChuRe_TimKiem.Text, txbTenCoDau_TimKiem.Text);
-        }
-
-        private void txbTenChuRe_TimKiem_TextChanged(object sender, EventArgs e)
-        {
-            dgvDanhSachKhachHang.DataSource = BUS_KhachHang.SearchKhachHang(txbMaKhachHang_TimKiem.Text, txbTenChuRe_TimKiem.Text, txbTenCoDau_TimKiem.Text);
-        }
-
-        #endregion
-
+ 
         #region Them, Sua, Xoa
 
         private void llbThemMoi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -153,12 +136,6 @@ namespace QuanLyTiecCuoiUI
                 return;
             }
             DTO_KhachHang khachhang = new DTO_KhachHang(lblThongTinMaKhachHang.Text, txtTenChuRe.Text, txtTenCoDau.Text, txtDienThoai.Text, txtDiaChi.Text);
-
-            khachhang.MaKH = lblThongTinMaKhachHang.Text;
-            khachhang.TenChuRe = txtTenChuRe.Text;
-            khachhang.TenCoDau = txtTenCoDau.Text;
-            khachhang.DienThoai = txtDienThoai.Text;
-            khachhang.DiaChi = txtDiaChi.Text;
 
             if (BUS_KhachHang.InsertKhachHang(khachhang))
             {
@@ -235,8 +212,50 @@ namespace QuanLyTiecCuoiUI
 
         #endregion
 
+        #region Tim kiem
+        private void txbMaKhachHang_TimKiem_TextChanged(object sender, EventArgs e)
+        {
+            //Khong cho phep dien ten co dau, chu re
+            txbTenChuRe_TimKiem.Text = "";
+            txbTenCoDau_TimKiem.Text = "";
 
- 
+            if (txbMaKhachHang_TimKiem.Text == " ")
+            {
+                txbMaKhachHang_TimKiem.Text = "";
+                return;
+            }
+
+            dgvDanhSachKhachHang.DataSource = BUS_KhachHang.SearchKhachHangTheoMa(txbMaKhachHang_TimKiem.Text);
+        }
+
+        private void txbTenChuRe_TimKiem_TextChanged(object sender, EventArgs e)
+        {
+            //Khong cho phep dien ma
+            txbMaKhachHang_TimKiem.Text = "";
+
+            if (txbTenChuRe_TimKiem.Text == " ")
+            {
+                txbTenChuRe_TimKiem.Text = "";
+                return;
+            }
+            dgvDanhSachKhachHang.DataSource = BUS_KhachHang.SearchKhachHangTheoTen(txbTenChuRe_TimKiem.Text, txbTenCoDau_TimKiem.Text);
+        }
+        private void txbTenCoDau_TimKiem_TextChanged(object sender, EventArgs e)
+        {
+            //Khong cho phep dien ma
+            txbMaKhachHang_TimKiem.Text = "";
+
+            if (txbTenCoDau_TimKiem.Text == " ")
+            {
+                txbTenCoDau_TimKiem.Text = "";
+                return;
+            }
+            dgvDanhSachKhachHang.DataSource = BUS_KhachHang.SearchKhachHangTheoTen(txbTenChuRe_TimKiem.Text, txbTenCoDau_TimKiem.Text);
+        }
+        #endregion
+
+
+
 
         #region Xoa dau cach " "
         private void txtTenChuRe_TextChanged(object sender, EventArgs e)
@@ -258,6 +277,7 @@ namespace QuanLyTiecCuoiUI
         {
             if (txtDiaChi.Text == " ") txtDiaChi.Text = "";
         }
+
 
         #endregion
 

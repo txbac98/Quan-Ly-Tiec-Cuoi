@@ -51,8 +51,8 @@
             this.lblMaKhachHang = new System.Windows.Forms.Label();
             this.dgvDanhSachKhachHang = new System.Windows.Forms.DataGridView();
             this.grpThongTinKhachHang = new System.Windows.Forms.GroupBox();
-            this.lbKetQua = new System.Windows.Forms.Label();
             this.llbThemMoi = new System.Windows.Forms.LinkLabel();
+            this.lbKetQua = new System.Windows.Forms.Label();
             this.grbTimKiem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachKhachHang)).BeginInit();
             this.grpThongTinKhachHang.SuspendLayout();
@@ -196,7 +196,7 @@
             this.grbTimKiem.Controls.Add(this.label2);
             this.grbTimKiem.Location = new System.Drawing.Point(308, 12);
             this.grbTimKiem.Name = "grbTimKiem";
-            this.grbTimKiem.Size = new System.Drawing.Size(586, 94);
+            this.grbTimKiem.Size = new System.Drawing.Size(586, 112);
             this.grbTimKiem.TabIndex = 5;
             this.grbTimKiem.TabStop = false;
             this.grbTimKiem.Text = "Tìm kiếm";
@@ -204,7 +204,7 @@
             // lbMaKH
             // 
             this.lbMaKH.AutoSize = true;
-            this.lbMaKH.Location = new System.Drawing.Point(21, 29);
+            this.lbMaKH.Location = new System.Drawing.Point(21, 22);
             this.lbMaKH.Name = "lbMaKH";
             this.lbMaKH.Size = new System.Drawing.Size(82, 13);
             this.lbMaKH.TabIndex = 12;
@@ -212,7 +212,7 @@
             // 
             // txbMaKhachHang_TimKiem
             // 
-            this.txbMaKhachHang_TimKiem.Location = new System.Drawing.Point(24, 56);
+            this.txbMaKhachHang_TimKiem.Location = new System.Drawing.Point(24, 38);
             this.txbMaKhachHang_TimKiem.Name = "txbMaKhachHang_TimKiem";
             this.txbMaKhachHang_TimKiem.Size = new System.Drawing.Size(117, 20);
             this.txbMaKhachHang_TimKiem.TabIndex = 11;
@@ -220,10 +220,11 @@
             // 
             // txbTenCoDau_TimKiem
             // 
-            this.txbTenCoDau_TimKiem.Location = new System.Drawing.Point(272, 64);
+            this.txbTenCoDau_TimKiem.Location = new System.Drawing.Point(269, 57);
             this.txbTenCoDau_TimKiem.Name = "txbTenCoDau_TimKiem";
             this.txbTenCoDau_TimKiem.Size = new System.Drawing.Size(258, 20);
             this.txbTenCoDau_TimKiem.TabIndex = 10;
+            this.txbTenCoDau_TimKiem.TextChanged += new System.EventHandler(this.txbTenCoDau_TimKiem_TextChanged);
             // 
             // txbTenChuRe_TimKiem
             // 
@@ -236,7 +237,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(204, 67);
+            this.label1.Location = new System.Drawing.Point(204, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 8;
@@ -293,15 +294,6 @@
             this.grpThongTinKhachHang.TabStop = false;
             this.grpThongTinKhachHang.Text = "Thông tin khách hàng";
             // 
-            // lbKetQua
-            // 
-            this.lbKetQua.AutoSize = true;
-            this.lbKetQua.Location = new System.Drawing.Point(308, 445);
-            this.lbKetQua.Name = "lbKetQua";
-            this.lbKetQua.Size = new System.Drawing.Size(73, 13);
-            this.lbKetQua.TabIndex = 8;
-            this.lbKetQua.Text = "Show ket qua";
-            // 
             // llbThemMoi
             // 
             this.llbThemMoi.AutoSize = true;
@@ -312,6 +304,15 @@
             this.llbThemMoi.TabStop = true;
             this.llbThemMoi.Text = "Thêm mới";
             this.llbThemMoi.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbThemMoi_LinkClicked);
+            // 
+            // lbKetQua
+            // 
+            this.lbKetQua.AutoSize = true;
+            this.lbKetQua.Location = new System.Drawing.Point(308, 445);
+            this.lbKetQua.Name = "lbKetQua";
+            this.lbKetQua.Size = new System.Drawing.Size(73, 13);
+            this.lbKetQua.TabIndex = 8;
+            this.lbKetQua.Text = "Show ket qua";
             // 
             // frmQuanLyKhachHang
             // 

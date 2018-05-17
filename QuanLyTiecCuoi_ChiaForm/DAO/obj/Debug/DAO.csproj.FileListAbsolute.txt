@@ -19,3 +19,10 @@ D:\Github\Quan-Ly-Tiec-Cuoi - Copy (2)\QuanLyTiecCuoi\DAO\bin\Debug\DTO.pdb
 D:\Github\Quan-Ly-Tiec-Cuoi - Copy (2)\QuanLyTiecCuoi\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
 D:\Github\Quan-Ly-Tiec-Cuoi - Copy (2)\QuanLyTiecCuoi\DAO\obj\Debug\DAO.dll
 D:\Github\Quan-Ly-Tiec-Cuoi - Copy (2)\QuanLyTiecCuoi\DAO\obj\Debug\DAO.pdb
+D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\bin\Debug\DAO.dll
+D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\bin\Debug\DAO.pdb
+D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\bin\Debug\DTO.dll
+D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\bin\Debug\DTO.pdb
+D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
+D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\obj\Debug\DAO.dll
+D:\Github\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\obj\Debug\DAO.pdb
