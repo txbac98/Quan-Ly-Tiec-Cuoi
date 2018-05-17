@@ -57,16 +57,17 @@
             // 
             // btSanh
             // 
-            this.btSanh.Location = new System.Drawing.Point(20, 233);
+            this.btSanh.Location = new System.Drawing.Point(20, 156);
             this.btSanh.Name = "btSanh";
             this.btSanh.Size = new System.Drawing.Size(75, 25);
             this.btSanh.TabIndex = 11;
             this.btSanh.Text = "Sảnh";
             this.btSanh.UseVisualStyleBackColor = true;
+            this.btSanh.Click += new System.EventHandler(this.btSanh_Click);
             // 
             // btCa
             // 
-            this.btCa.Location = new System.Drawing.Point(20, 185);
+            this.btCa.Location = new System.Drawing.Point(20, 125);
             this.btCa.Name = "btCa";
             this.btCa.Size = new System.Drawing.Size(75, 25);
             this.btCa.TabIndex = 12;

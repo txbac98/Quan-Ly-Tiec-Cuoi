@@ -69,5 +69,11 @@ namespace QuanLyTiecCuoiUI
             frmCa frmca = new frmCa();
             frmca.Show();
         }
+
+        private void btSanh_Click(object sender, EventArgs e)
+        {
+            frmQuanLySanh frmQLSanh = new frmQuanLySanh();
+            frmQLSanh.Show();
+        }
     }
 }
