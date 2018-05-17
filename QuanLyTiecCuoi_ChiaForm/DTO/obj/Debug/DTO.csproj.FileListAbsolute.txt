@@ -18,3 +18,8 @@ C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DT
 C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
 C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DTO\obj\Debug\DTO.dll
 C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DTO\obj\Debug\DTO.pdb
+D:\Github\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DTO\bin\Debug\DTO.dll
+D:\Github\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DTO\bin\Debug\DTO.pdb
+D:\Github\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
+D:\Github\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DTO\obj\Debug\DTO.dll
+D:\Github\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DTO\obj\Debug\DTO.pdb

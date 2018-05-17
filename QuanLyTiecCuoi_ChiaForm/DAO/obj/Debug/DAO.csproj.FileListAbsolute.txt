@@ -33,3 +33,10 @@ C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DA
 C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\bin\Debug\DAO.pdb
 C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\bin\Debug\DTO.dll
 C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\bin\Debug\DTO.pdb
+D:\Github\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\bin\Debug\DAO.dll
+D:\Github\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\bin\Debug\DAO.pdb
+D:\Github\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\bin\Debug\DTO.dll
+D:\Github\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\bin\Debug\DTO.pdb
+D:\Github\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
+D:\Github\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\obj\Debug\DAO.dll
+D:\Github\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\obj\Debug\DAO.pdb

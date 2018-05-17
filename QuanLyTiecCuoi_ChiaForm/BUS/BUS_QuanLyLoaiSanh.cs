@@ -28,8 +28,8 @@ namespace BUS
         }
         public static bool UpdateLoaiSanh(DTO_LoaiSanh loaiSanh)
         {
-            if (DAO_QuanLyLoaiSanh.NumbersOfTenLoaiSanhInLoaiSanh(loaiSanh) > 0)
-                return false;
+            //if (DAO_QuanLyLoaiSanh.NumbersOfTenLoaiSanhInLoaiSanh(loaiSanh) > 0)
+            //    return false;
             DAO_QuanLyLoaiSanh.UpdateLoaiSanh(loaiSanh);
             return true;
         }
