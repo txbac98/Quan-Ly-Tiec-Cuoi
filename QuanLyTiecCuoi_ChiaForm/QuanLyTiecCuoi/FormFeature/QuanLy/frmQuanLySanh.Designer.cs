@@ -279,7 +279,6 @@
             this.txtTenSanh.Name = "txtTenSanh";
             this.txtTenSanh.Size = new System.Drawing.Size(101, 23);
             this.txtTenSanh.TabIndex = 0;
-            
             // 
             // btnXoa
             // 

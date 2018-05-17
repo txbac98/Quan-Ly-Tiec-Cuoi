@@ -99,12 +99,12 @@
             this.dgvTableShow.AllowUserToDeleteRows = false;
             this.dgvTableShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTableShow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvTableShow.Location = new System.Drawing.Point(3, 19);
+            this.dgvTableShow.Location = new System.Drawing.Point(3, 16);
             this.dgvTableShow.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTableShow.Name = "dgvTableShow";
             this.dgvTableShow.ReadOnly = true;
             this.dgvTableShow.RowHeadersVisible = false;
-            this.dgvTableShow.Size = new System.Drawing.Size(299, 129);
+            this.dgvTableShow.Size = new System.Drawing.Size(299, 132);
             this.dgvTableShow.TabIndex = 8;
             // 
             // groupBox2
