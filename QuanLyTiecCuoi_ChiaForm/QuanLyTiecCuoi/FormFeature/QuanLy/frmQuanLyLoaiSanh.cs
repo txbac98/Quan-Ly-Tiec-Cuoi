@@ -195,5 +195,10 @@ namespace QuanLyTiecCuoiUI
             btnXoa.Visible = false;
             btnThem.Visible = true;
         }
+
+        private void grpTinhNangQuanLy_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

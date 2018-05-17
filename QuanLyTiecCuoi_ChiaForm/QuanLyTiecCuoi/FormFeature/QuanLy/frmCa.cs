@@ -14,195 +14,183 @@ namespace QuanLyTiecCuoiUI
 {
     public partial class frmCa : Form
     {
-        private int mInsertOrEdit = 0; // Insert=1 , Edit=2
+       
         public frmCa()
         {
             InitializeComponent();
         }
-        enum DISPLAY
-        {
-            HOME,
-            INSERTING,
-            EDITING,
-            CELL_CLICKED
-        }
-        private void LoadDataGridView()
+
+        private void frmCa_Load(object sender, EventArgs e)
         {
             dgvTableShow.DataSource = BUS_Ca.GetDataTable();
+
             dgvTableShow.Columns["MaCa"].HeaderText = "Mã ca";
             dgvTableShow.Columns["TenCa"].HeaderText = "Tên ca";
             dgvTableShow.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvTableShow.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        }
-
-        private void SetDisplay(DISPLAY display)
+            }
+       
+        private void DisableAllInputs()
         {
-            if (display == DISPLAY.HOME)
-            {
-                btnThem.Enabled = true;
-                btnSua.Enabled = false;
-                btnXoa.Enabled = false;
-                txtTenCa.ReadOnly = true;
-                dgvTableShow.Enabled = true;
-            }
-            else if (display == DISPLAY.INSERTING)
-            {
-                btnThem.Enabled = false;
-                btnSua.Enabled = false;
-                btnXoa.Enabled = false;
-                txtTenCa.ReadOnly = false;
-                dgvTableShow.Enabled = false;
-            }
-            else if (display == DISPLAY.EDITING)
-            {
-                btnThem.Enabled = false;
-                btnSua.Enabled = false;
-                btnXoa.Enabled = false;
-                txtTenCa.ReadOnly = false;
-                dgvTableShow.Enabled = false;
-            }
-            else if (display == DISPLAY.CELL_CLICKED)
-            {
-                btnThem.Enabled = true;
-                btnSua.Enabled = true;
-                btnXoa.Enabled = true;
-                txtTenCa.ReadOnly = true;
-                dgvTableShow.Enabled = true;
-            }
+            txtMaCa.ReadOnly = true;
+            txtTenCa.ReadOnly = true;
         }
-
-        private void frmCa_Load(object sender, EventArgs e)
+        private void EnableAllInputs()
         {
-            SetDisplay(DISPLAY.HOME);
-            LoadDataGridView();
-            lblMaCa.Text = "-";
+            txtMaCa.ReadOnly = false;
+            txtTenCa.ReadOnly = false;
         }
-
-        private void btnThem_Click(object sender, EventArgs e)
+        private void ClearAllInputs()
         {
-            mInsertOrEdit = 1;
+            txtMaCa.Text = "";
             txtTenCa.Text = "";
-            SetDisplay(DISPLAY.INSERTING);
         }
-        private void InsertCa()
+
+        void ShowKetQua(string skq, bool kq)
         {
-            DTO_Ca ca = new DTO_Ca();
-            //verified infor
-            if (txtTenCa.Text == "")
-            {
-                MessageBox.Show("Tên ca còn trống. Vui lòng nhập lại.");
-                txtTenCa.Focus();
-                return;
-            }
-            //get infor to object
-            ca.TenCa = txtTenCa.Text;
 
-            DialogResult resultDialog = MessageBox.Show("Bạn có muốn lưu ca này lại không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            lbKetQua.Text = skq;
+            if (kq) lbKetQua.ForeColor = Color.Green;
+            else lbKetQua.ForeColor = Color.Red;
+        }
 
-            if (resultDialog == DialogResult.Yes)
+        #region Them, Sua, Xoa
+        private void btnThem_Click_1(object sender, EventArgs e)
+        {
+            if (KiemTraThongTin())
             {
-                bool InsertState = BUS_Ca.InsertCa(ca);
-                if (InsertState)
+                DTO_Ca ca = new DTO_Ca(txtMaCa.Text, txtTenCa.Text);
+                if (BUS_Ca.InsertCa(ca))
                 {
                     dgvTableShow.DataSource = BUS_Ca.GetDataTable();
-                    SetDisplay(DISPLAY.HOME);
-                    MessageBox.Show("Thêm thành công");
+                    ClearAllInputs();
+                    ShowKetQua("Thêm ca '" + ca.MaCa + "' thành công!", true);
+                }
+                else
+                {
+                    ShowKetQua("Ca '" + ca.MaCa + "' đã tồn tại. Vui lòng sửa lại.", false);
+                    txtMaCa.Focus();
+                    txtMaCa.SelectAll();
+                }
+
+                ClearAllInputs();
+                dgvTableShow.ClearSelection();
+            }
+        }
+
+        private void btnSua_Click_1(object sender, EventArgs e)
+        {
+            if (KiemTraThongTin())
+            {
+                DTO_Ca ca = new DTO_Ca(decimal.Parse(txtMaCa.Text), txtTenCa.Text);
+                ca.MaCa = int.Parse(dgvTableShow.CurrentRow.Cells["MaCa"].Value.ToString());
+                if (BUS_Ca.UpdateCa(ca))
+                {
+                    dgvTableShow.DataSource = BUS_Ca.GetDataTable();
+                    ClearAllInputs();
+                    ShowKetQua("Sửa ca '" + ca.MaCa + "' thành công!", true);
 
                 }
                 else
-                    MessageBox.Show("Thêm thất bại, thử lại");
+                {
+                    ShowKetQua("Ca '" + ca.MaCa + "' đã tồn tại. Vui lòng sửa lại.", false);
+                    txtMaCa.Focus();
+                    txtMaCa.SelectAll();
+                }
+                ClearAllInputs();
+                dgvTableShow.ClearSelection();
+            }
+        }
+        private void btnXoa_Click_1(object sender, EventArgs e)
+        {
+            dgvTableShow.Focus();
+
+            DTO_Ca ca = new DTO_Ca();
+            ca.MaCa = int.Parse(dgvTableShow.CurrentRow.Cells["MaCa"].Value.ToString());
+            ca.TenCa = dgvTableShow.CurrentRow.Cells["TenCa"].Value.ToString();
+            
+
+            DialogResult dr = MessageBox.Show(string.Format("Bạn có muốn xóa ca '{0}' không?", ca.MaCa), "Xóa ca", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dr == DialogResult.No)
+                return;
+            if (BUS_Ca.DeleteCa(ca))
+            {
+                dgvTableShow.DataSource = BUS_Ca.GetDataTable();
+                ShowKetQua("Xóa ca '" + ca.MaCa + "' thành công!", true);
+                ClearAllInputs();
             }
             else
-                return;
+                ShowKetQua(string.Format("Không thể xóa, vui lòng xóa dữ liệu liên qua đến ca '{0}' trong bảng 'Ca' trước.", ca.MaCa), false);
+        }
+        #endregion
+
+        bool KiemTraThongTin()
+        {
+            if (txtMaCa.Text == "" || txtTenCa.Text == "")
+            {
+                ShowKetQua("Vui lòng nhập đầy đủ thông tin.", false);
+                return false;
+            }
+            int temp;
+            if (!int.TryParse(txtMaCa.Text, out temp))
+            {
+                ShowKetQua("'Mã ca' phải là số nguyên, vui lòng nhập lại.", false);
+                txtMaCa.Focus();
+                txtMaCa.SelectAll();
+                return false;
+            }
+            return true;
+        }
+        private void txtMaCa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
+        private void txtTenCa_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTenCa.Text == " ")
+                txtTenCa.Text = "";
+        }
+
+        private void txtMaCa_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMaCa.Text == "0")
+                txtMaCa.Text = "";
+        }
         private void dgvTableShow_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            SetDisplay(DISPLAY.CELL_CLICKED);
-            int rowSelected = e.RowIndex;
-            lblMaCa.Text = dgvTableShow["MaCa", rowSelected].Value.ToString();
-            txtTenCa.Text = dgvTableShow["TenCa", rowSelected].Value.ToString();
-        }
 
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            int rowSelect = -1;
-            rowSelect = dgvTableShow.CurrentCell.RowIndex;
-            //rowSelect = dgvTableShow.GetCellCount(DataGridViewElementStates.Selected);
-            DTO_Ca ca = new DTO_Ca();
-            ca.MaCa = Int32.Parse(dgvTableShow["MaCa", rowSelect].Value.ToString());
-            DialogResult resultDialog = MessageBox.Show("Bạn có muốn xóa ca này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //Hien thi button Sua, Xoa
+            btnSua.Visible = true;
+            btnXoa.Visible = true;
+            btnThem.Visible = false;
 
-            if (resultDialog == DialogResult.Yes)
-            {
-                bool InsertState = BUS_Ca.DeleteCa(ca);
-                if (InsertState)
-                {
-                    dgvTableShow.DataSource = BUS_Ca.GetDataTable();
-                    SetDisplay(DISPLAY.HOME);
-                    MessageBox.Show("Xóa thành công");
-                }
-                else
-                    MessageBox.Show("Xóa thất bại, thử lại");
-            }
-            else
+            if (e.RowIndex == -1)
                 return;
+
+            //Lay du lieu
+            int row = e.RowIndex;
+            txtMaCa.Text = dgvTableShow[1, row].Value.ToString();
+            txtTenCa.Text = dgvTableShow[2, row].Value.ToString();
         }
-
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            mInsertOrEdit = 2;
-            SetDisplay(DISPLAY.EDITING);
-        }
-
-        private void UpdateCa()
-        {
-            int rowSelect = -1;
-            rowSelect = dgvTableShow.CurrentCell.RowIndex;
-            DTO_Ca ca = new DTO_Ca();
-            //verified infor 
-            if (txtTenCa.Text == "")
-            {
-                MessageBox.Show("Tên ca còn trống. Vui lòng nhập lại.");
-                return;
-            }
-            //get new object 
-            ca.TenCa = txtTenCa.Text;
-            ca.MaCa = Int32.Parse(dgvTableShow["MaCa", rowSelect].Value.ToString());
-            DialogResult resultDialog = MessageBox.Show("Bạn có muốn sửa dữ liệu ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (resultDialog == DialogResult.Yes)
-            {
-                bool UpdateState = BUS_Ca.UpdateCa(ca);
-                if (UpdateState)
-                {
-                    dgvTableShow.DataSource = BUS_Ca.GetDataTable();
-                    SetDisplay(DISPLAY.HOME);
-                    MessageBox.Show("Cập nhật thành công");
-                }
-                else
-                    MessageBox.Show("Cập nhật thất bại");
-            }
-            else
-                return;
-        }
-
-       
 
         private void dgvTableShow_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgvTableShow.ClearSelection();
         }
 
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-            if (mInsertOrEdit == 1)
-                InsertCa();
-            else if (mInsertOrEdit == 2)
-                UpdateCa();
 
-            txtTenCa.Text = "";
-            lblMaCa.Text = "-";
+        private void llbThemMoi_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //Xoa du lieu
+            ClearAllInputs();
+
+            //Hien thi button Them
+            btnSua.Visible = false;
+            btnXoa.Visible = false;
+            btnThem.Visible = true;
         }
+
+
     }
 }

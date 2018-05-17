@@ -28,70 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtTenCa = new System.Windows.Forms.TextBox();
-            this.lblMaCa = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.dgvTableShow = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblTenCa = new System.Windows.Forms.Label();
+            this.txtTenCa = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblMaCa = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtMaCa = new System.Windows.Forms.TextBox();
+            this.lbKetQua = new System.Windows.Forms.Label();
+            this.llbThemMoi = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTableShow)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 24);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 14);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Mã ca";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(149, 44);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 14);
-            this.label2.TabIndex = 4;
-            // 
-            // txtTenCa
-            // 
-            this.txtTenCa.Location = new System.Drawing.Point(67, 48);
-            this.txtTenCa.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTenCa.Name = "txtTenCa";
-            this.txtTenCa.Size = new System.Drawing.Size(231, 20);
-            this.txtTenCa.TabIndex = 5;
-            // 
-            // lblMaCa
-            // 
-            this.lblMaCa.AutoSize = true;
-            this.lblMaCa.Location = new System.Drawing.Point(64, 24);
-            this.lblMaCa.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMaCa.Name = "lblMaCa";
-            this.lblMaCa.Size = new System.Drawing.Size(11, 14);
-            this.lblMaCa.TabIndex = 6;
-            this.lblMaCa.Text = "-";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 51);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 14);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Tên ca";
             // 
             // dgvTableShow
             // 
@@ -129,6 +84,7 @@
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "     Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
             // 
             // btnXoa
             // 
@@ -140,6 +96,7 @@
             this.btnXoa.TabIndex = 1;
             this.btnXoa.Text = "     Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click_1);
             // 
             // btnSua
             // 
@@ -151,14 +108,62 @@
             this.btnSua.TabIndex = 2;
             this.btnSua.Text = "     Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click_1);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dgvTableShow);
+            this.groupBox3.Location = new System.Drawing.Point(12, 132);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(305, 151);
+            this.groupBox3.TabIndex = 16;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Danh sách ca";
+            // 
+            // lblTenCa
+            // 
+            this.lblTenCa.AutoSize = true;
+            this.lblTenCa.Location = new System.Drawing.Point(7, 51);
+            this.lblTenCa.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTenCa.Name = "lblTenCa";
+            this.lblTenCa.Size = new System.Drawing.Size(40, 14);
+            this.lblTenCa.TabIndex = 7;
+            this.lblTenCa.Text = "Tên ca";
+            // 
+            // txtTenCa
+            // 
+            this.txtTenCa.Location = new System.Drawing.Point(67, 48);
+            this.txtTenCa.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTenCa.Name = "txtTenCa";
+            this.txtTenCa.Size = new System.Drawing.Size(231, 20);
+            this.txtTenCa.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(149, 44);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 14);
+            this.label2.TabIndex = 4;
+            // 
+            // lblMaCa
+            // 
+            this.lblMaCa.AutoSize = true;
+            this.lblMaCa.Location = new System.Drawing.Point(7, 24);
+            this.lblMaCa.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMaCa.Name = "lblMaCa";
+            this.lblMaCa.Size = new System.Drawing.Size(36, 14);
+            this.lblMaCa.TabIndex = 3;
+            this.lblMaCa.Text = "Mã ca";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtMaCa);
+            this.groupBox1.Controls.Add(this.lblMaCa);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtTenCa);
-            this.groupBox1.Controls.Add(this.lblMaCa);
-            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.lblTenCa);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(305, 87);
@@ -166,21 +171,41 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin ca";
             // 
-            // groupBox3
+            // txtMaCa
             // 
-            this.groupBox3.Controls.Add(this.dgvTableShow);
-            this.groupBox3.Location = new System.Drawing.Point(12, 105);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(305, 151);
-            this.groupBox3.TabIndex = 16;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Danh sách ca";
+            this.txtMaCa.Location = new System.Drawing.Point(67, 18);
+            this.txtMaCa.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMaCa.Name = "txtMaCa";
+            this.txtMaCa.Size = new System.Drawing.Size(231, 20);
+            this.txtMaCa.TabIndex = 8;
+            // 
+            // lbKetQua
+            // 
+            this.lbKetQua.AutoSize = true;
+            this.lbKetQua.Location = new System.Drawing.Point(12, 286);
+            this.lbKetQua.Name = "lbKetQua";
+            this.lbKetQua.Size = new System.Drawing.Size(44, 14);
+            this.lbKetQua.TabIndex = 42;
+            this.lbKetQua.Text = "Kết quả";
+            // 
+            // llbThemMoi
+            // 
+            this.llbThemMoi.AutoSize = true;
+            this.llbThemMoi.Location = new System.Drawing.Point(257, 102);
+            this.llbThemMoi.Name = "llbThemMoi";
+            this.llbThemMoi.Size = new System.Drawing.Size(53, 14);
+            this.llbThemMoi.TabIndex = 49;
+            this.llbThemMoi.TabStop = true;
+            this.llbThemMoi.Text = "Thêm mới";
+            this.llbThemMoi.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbThemMoi_LinkClicked_1);
             // 
             // frmCa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(461, 309);
+            this.Controls.Add(this.llbThemMoi);
+            this.Controls.Add(this.lbKetQua);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
@@ -189,26 +214,28 @@
             this.Load += new System.EventHandler(this.frmCa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTableShow)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtTenCa;
-        private System.Windows.Forms.Label lblMaCa;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvTableShow;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label lblTenCa;
+        private System.Windows.Forms.TextBox txtTenCa;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblMaCa;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtMaCa;
+        private System.Windows.Forms.Label lbKetQua;
+        private System.Windows.Forms.LinkLabel llbThemMoi;
     }
 }
