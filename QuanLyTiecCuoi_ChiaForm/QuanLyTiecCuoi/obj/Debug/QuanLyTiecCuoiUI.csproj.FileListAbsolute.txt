@@ -100,3 +100,4 @@ C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\Qu
 C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.Properties.Resources.resources
 C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.csproj.GenerateResource.Cache
 C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.frmQuanLySanh.resources
+C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.frmQuanLyLoaiSanh.resources

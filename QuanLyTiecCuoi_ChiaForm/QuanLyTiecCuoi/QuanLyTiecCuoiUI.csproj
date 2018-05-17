@@ -60,6 +60,12 @@
     <Compile Include="FormFeature\QuanLy\frmQuanLyKhachHang.Designer.cs">
       <DependentUpon>frmQuanLyKhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormFeature\QuanLy\frmQuanLyLoaiSanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFeature\QuanLy\frmQuanLyLoaiSanh.Designer.cs">
+      <DependentUpon>frmQuanLyLoaiSanh.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormFeature\QuanLy\frmQuanLyMonAn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLyKhachHang.resx">
       <DependentUpon>frmQuanLyKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLyLoaiSanh.resx">
+      <DependentUpon>frmQuanLyLoaiSanh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLyMonAn.resx">
       <DependentUpon>frmQuanLyMonAn.cs</DependentUpon>

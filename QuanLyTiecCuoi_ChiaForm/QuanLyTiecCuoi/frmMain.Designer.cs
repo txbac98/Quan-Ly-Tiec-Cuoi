@@ -39,6 +39,7 @@
             this.btnNhanVien = new System.Windows.Forms.Button();
             this.grbChucNang = new System.Windows.Forms.GroupBox();
             this.btnTiec = new System.Windows.Forms.Button();
+            this.btLoaiSanh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.grbQuanLy.SuspendLayout();
             this.grbChucNang.SuspendLayout();
@@ -95,6 +96,7 @@
             // 
             // grbQuanLy
             // 
+            this.grbQuanLy.Controls.Add(this.btLoaiSanh);
             this.grbQuanLy.Controls.Add(this.btnNhanVien);
             this.grbQuanLy.Controls.Add(this.btSanh);
             this.grbQuanLy.Controls.Add(this.btCa);
@@ -135,6 +137,16 @@
             this.btnTiec.Text = "Tiệc";
             this.btnTiec.UseVisualStyleBackColor = true;
             // 
+            // btLoaiSanh
+            // 
+            this.btLoaiSanh.Location = new System.Drawing.Point(20, 187);
+            this.btLoaiSanh.Name = "btLoaiSanh";
+            this.btLoaiSanh.Size = new System.Drawing.Size(75, 25);
+            this.btLoaiSanh.TabIndex = 16;
+            this.btLoaiSanh.Text = "Loại Sảnh";
+            this.btLoaiSanh.UseVisualStyleBackColor = true;
+            this.btLoaiSanh.Click += new System.EventHandler(this.btLoaiSanh_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -167,6 +179,7 @@
         private System.Windows.Forms.Button btnNhanVien;
         private System.Windows.Forms.GroupBox grbChucNang;
         private System.Windows.Forms.Button btnTiec;
+        private System.Windows.Forms.Button btLoaiSanh;
     }
 }
 

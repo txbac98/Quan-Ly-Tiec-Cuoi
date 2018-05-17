@@ -75,5 +75,11 @@ namespace QuanLyTiecCuoiUI
             frmQuanLySanh frmQLSanh = new frmQuanLySanh();
             frmQLSanh.Show();
         }
+
+        private void btLoaiSanh_Click(object sender, EventArgs e)
+        {
+            frmQuanLyLoaiSanh frmQLLSanh = new frmQuanLyLoaiSanh();
+            frmQLLSanh.Show();
+        }
     }
 }
