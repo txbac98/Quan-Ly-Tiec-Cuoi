@@ -63,23 +63,5 @@ namespace QuanLyTiecCuoiUI
             frmQuanLyNhanVien frmQLNV = new frmQuanLyNhanVien();
             frmQLNV.Show();
         }
-
-        private void btCa_Click(object sender, EventArgs e)
-        {
-            frmCa frmca = new frmCa();
-            frmca.Show();
-        }
-
-        private void btSanh_Click(object sender, EventArgs e)
-        {
-            frmQuanLySanh frmQLSanh = new frmQuanLySanh();
-            frmQLSanh.Show();
-        }
-
-        private void btLoaiSanh_Click(object sender, EventArgs e)
-        {
-            frmQuanLyLoaiSanh frmQLLSanh = new frmQuanLyLoaiSanh();
-            frmQLLSanh.Show();
-        }
     }
 }

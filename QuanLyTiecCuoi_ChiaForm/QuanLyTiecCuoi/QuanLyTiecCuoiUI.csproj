@@ -48,23 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\QuanLyCa.cs" />
-    <Compile Include="FormFeature\QuanLy\frmCa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormFeature\QuanLy\frmCa.Designer.cs">
-      <DependentUpon>frmCa.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormFeature\QuanLy\frmQuanLyKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormFeature\QuanLy\frmQuanLyKhachHang.Designer.cs">
       <DependentUpon>frmQuanLyKhachHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormFeature\QuanLy\frmQuanLyLoaiSanh.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormFeature\QuanLy\frmQuanLyLoaiSanh.Designer.cs">
-      <DependentUpon>frmQuanLyLoaiSanh.cs</DependentUpon>
     </Compile>
     <Compile Include="FormFeature\QuanLy\frmQuanLyMonAn.cs">
       <SubType>Form</SubType>
@@ -78,12 +66,6 @@
     <Compile Include="FormFeature\QuanLy\frmQuanLyNhanVien.Designer.cs">
       <DependentUpon>frmQuanLyNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormFeature\QuanLy\frmQuanLySanh.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormFeature\QuanLy\frmQuanLySanh.Designer.cs">
-      <DependentUpon>frmQuanLySanh.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,23 +75,14 @@
     <Compile Include="DAO\ConnectDatabase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormFeature\QuanLy\frmCa.resx">
-      <DependentUpon>frmCa.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLyKhachHang.resx">
       <DependentUpon>frmQuanLyKhachHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLyLoaiSanh.resx">
-      <DependentUpon>frmQuanLyLoaiSanh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLyMonAn.resx">
       <DependentUpon>frmQuanLyMonAn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLyNhanVien.resx">
       <DependentUpon>frmQuanLyNhanVien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLySanh.resx">
-      <DependentUpon>frmQuanLySanh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
