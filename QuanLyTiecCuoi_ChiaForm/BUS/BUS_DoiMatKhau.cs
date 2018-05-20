@@ -9,9 +9,9 @@ namespace BUS
 {
     public class BUS_DoiMatKhau
     {
-        public static bool DoiMatKhau(DTO_NhanVien nhanvien)
-        {
-            return DAO_DoiMatKhau.DoiMatKhau(nhanvien);
-        }
+        //public static bool DoiMatKhau(DTO_NhanVien nhanvien)
+        //{
+        //    return DAO_DoiMatKhau.DoiMatKhau(nhanvien);
+        //}
     }
 }

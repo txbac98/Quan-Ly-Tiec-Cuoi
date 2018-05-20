@@ -21,6 +21,20 @@ namespace DAO
             string sTruyVan = "Select * from CHUCVU";
             return DatabaseHelper.GetData(sTruyVan);
         }
+        public static DataTable SearchNhanVienTheoMa(string maNV)
+        {
+            string sTruyVan = string.Format("Select * from NHANVIEN where MaNV like N'%{0}%'", maNV);
+            return DatabaseHelper.GetData(sTruyVan);
+
+        }
+
+        public static DataTable SearchNhanVienTheoThongTin(string tenNhanVien, string gioiTinh, string chucVu)
+        {
+            string sTruyVan = string.Format("Select * from NHANVIEN where dbo.BoDau(HoTen) like N'%{0}%' and GioiTinh like N'%{1}%' and ChucVu like N'%{2}%'", tenNhanVien,gioiTinh,chucVu);
+            return DatabaseHelper.GetData(sTruyVan);
+
+        }
+
         public static DataTable LoadDanhSachNhanVien()
         {
             string sTruyVan = "Select * from NHANVIEN, CHUCVU where NHANVIEN.MaChucVu = CHUCVU.MaChucVu";
@@ -28,7 +42,7 @@ namespace DAO
         }
         public static bool CheckUserNameNotExists(DTO_NhanVien nhanvien)
         {
-            string sTruyVan = string.Format(@"Select * from NHANVIEN where UserName=N'{0}'", nhanvien.Username);
+            string sTruyVan = string.Format(@"Select * from NHANVIEN where MaNV=N'{0}'", nhanvien.MaNV);
             try
             {
                 DataTable state = DatabaseHelper.GetData(sTruyVan);
@@ -46,8 +60,7 @@ namespace DAO
 
         public static bool InsertNhanVien(DTO_NhanVien nhanvien)
         {
-            string sTruyVan = string.Format(@"Insert into NhanVien(MaNV, HoTen, GioiTinh, NgaySinh, ChucVu, DienThoai, DiaChi, AnhDaiDien) values(N'{0}',N'{1}',N'{2}',N'{3}',N'{4}',{5},N'{6}', N'{7}',N'{8}')",
-                nhanvien.MaNV,nhanvien.HoTen, nhanvien.GioiTinh, nhanvien.NgaySinh, nhanvien.ChucVu, nhanvien.DienThoai, nhanvien.DiaChi, nhanvien.AnhDaiDien);
+            string sTruyVan = string.Format(@"Insert into NHANVIEN(MaNV, HoTen, GioiTinh, NgaySinh, ChucVu, DienThoai, DiaChi, AnhDaiDien) values(N'{0}',N'{1}',N'{2}',N'{3}',N'{4}',N'{5}',N'{6}', N'{7}')",nhanvien.MaNV,nhanvien.HoTen, nhanvien.GioiTinh, nhanvien.NgaySinh, nhanvien.ChucVu, nhanvien.DienThoai, nhanvien.DiaChi, nhanvien.AnhDaiDien);
             try
             {
                 int state = DatabaseHelper.ExcuteSql(sTruyVan);
@@ -64,8 +77,7 @@ namespace DAO
         }
         public static bool UpdateNhanVien(DTO_NhanVien nhanvien)
         {
-            string sTruyVan = string.Format(@"Update NHANVIEN set HoTen=N'{0}', GioiTinh=N'{1}', NgaySinh=N'{2}', ChucVu={3}, DienThoai=N'{4}',DiaChi=N'{5}', AnhDaiDien=N'{6}' WHERE MaNV ={7}",
-                nhanvien.HoTen, nhanvien.GioiTinh, nhanvien.NgaySinh, nhanvien.ChucVu, nhanvien.DienThoai,nhanvien.DiaChi,nhanvien.AnhDaiDien, nhanvien.MaNV);
+            string sTruyVan = string.Format(@"Update NHANVIEN set HoTen=N'{0}', GioiTinh=N'{1}', NgaySinh=N'{2}', ChucVu=N'{3}', DienThoai=N'{4}',DiaChi=N'{5}', AnhDaiDien='{6}' WHERE MaNV ='{7}'",nhanvien.HoTen, nhanvien.GioiTinh, nhanvien.NgaySinh, nhanvien.ChucVu, nhanvien.DienThoai, nhanvien.DiaChi, nhanvien.AnhDaiDien, nhanvien.MaNV);
             try
             {
                 int state = DatabaseHelper.ExcuteSql(sTruyVan);

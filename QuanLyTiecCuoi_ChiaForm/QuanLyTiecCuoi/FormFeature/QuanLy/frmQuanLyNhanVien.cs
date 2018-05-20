@@ -15,6 +15,7 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
 {
     public partial class frmQuanLyNhanVien : Form
     {
+        bool thayDoiAnh = false;
         private string IDTable = "NV";
 
         private DataTable ResultTable;
@@ -59,6 +60,7 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
             rbtNam.Checked = true;
             lblThongTinMaNhanVien.Text = GetNextID(ResultTable);
         }
+        #region Data
         private void LoadDataGridView()
         {
             ResultTable = BUS_QuanLyNhanVien.GetDataTable();
@@ -70,8 +72,10 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
             dgvDanhSachNhanVien.Columns[4].HeaderText = "Chức vụ";
             dgvDanhSachNhanVien.Columns[5].HeaderText = "Số điện thoại";
             dgvDanhSachNhanVien.Columns[6].HeaderText = "Địa chỉ";
+            dgvDanhSachNhanVien.Columns[7].Visible = false;
 
 
+            //Khong cho chinh sua tren dgv, khong cho chon nhieu hang
             dgvDanhSachNhanVien.ReadOnly = true;
             dgvDanhSachNhanVien.MultiSelect = false;
         }
@@ -82,17 +86,24 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
             ResultTable = BUS_QuanLyNhanVien.GetDataTable();
             dgvDanhSachNhanVien.DataSource = ResultTable;
         }
-
+        #endregion
         void ClearDuLieuNhap()
         {
-            
+            btnThem.Visible = true;
+            btnSua.Visible = false;
+            btnXoa.Visible = false;
+            lblThongTinMaNhanVien.Text = GetNextID(ResultTable);
             txtTenNhanVien.Text = "";
             rbtNam.Checked = true;
             dtpNgaySinh.Value = new DateTime(1998, 2, 2, 0, 0, 0);
             txtDienThoai.Text = "";
             txtDiaChi.Text = "";
-            ptrHinhAnh.Image = QuanLyTiecCuoiUI.Properties.Resources.avatar;
+            ptrHinhAnh.ImageLocation = @"DanhSachNhanVien/Unknow.png";
+            lbThongTinHinhAnh.Text = "Unknow.png";
+            //ptrHinhAnh.Image = QuanLyTiecCuoiUI.Properties.Resources.avatar;
         }
+
+
         void ShowKetQua(string skq, bool kq)
         {
 
@@ -105,32 +116,27 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
 
         private void llbThemMoi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            btnThem.Visible = true;
-            btnCapNhat.Visible = false;
-            btnXoa.Visible = false;
 
             //Load ma nhan vien
             lblThongTinMaNhanVien.Text = GetNextID(ResultTable);
-
             ClearDuLieuNhap();
         }
 
-        //Them
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            if (txtTenNhanVien.Text == "" || txtDienThoai.Text == "" || txtDiaChi.Text == "" )
-            {
-                ShowKetQua("Không thể thực hiện, vui lòng kiểm tra thông tin nhập.", false);
-                return;
-            }
 
-            //Set gioi tinh
-            string gioiTinh,ngaySinh;
+        //Get Gioi tinh, Ngay sinh
+        string GetGioiTinh()
+        {
             if (rbtNam.Checked)
             {
-                gioiTinh = "Nam";
+                return "Nam";
             }
-            else gioiTinh = "Nữ";
+            else return "Nữ";
+        }
+
+        string GetNgaySinh()
+        {
+
+            string ngaySinh;
 
             //Set ngay sinh
             if (dtpNgaySinh.Value.Day < 10)
@@ -151,29 +157,63 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
 
             ngaySinh += dtpNgaySinh.Value.Year.ToString();
 
+            return ngaySinh;
+        }
 
-            DTO_NhanVien nhanVien = new DTO_NhanVien();
+        //Set gioi tinh, ngay sinh
+        void SetGioiTinh(string gioiTinh)
+        {
+            if (gioiTinh == "Nam") rbtNam.Checked = true;
+            else rbtNu.Checked = true;
+        }
 
-            if (lbThongTinHinhAnh.Text != "Unknow.png")
+        void SetNgaySinh(string ngaySinh)
+        {
+            //Set ngay sinh
+            int ngay, thang, nam;
+            string sNgay, sThang, sNam;
+
+            //Loai bo dau "/"
+            sNgay = ngaySinh[0].ToString() + ngaySinh[1].ToString();
+            sThang = ngaySinh[3].ToString() + ngaySinh[4].ToString();
+            sNam = ngaySinh[6].ToString() + ngaySinh[7].ToString() + ngaySinh[8].ToString() + ngaySinh[9].ToString();
+
+            ngay = int.Parse(sNgay);
+            thang = int.Parse(sThang);
+            nam = int.Parse(sNam);
+
+            dtpNgaySinh.Value = new DateTime(nam, thang, ngay, 0, 0, 0);
+        }
+
+        //Them
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            if (txtTenNhanVien.Text == "" || txtDienThoai.Text == "" || txtDiaChi.Text == "")
+            {
+                ShowKetQua("Không thể thực hiện, vui lòng kiểm tra thông tin nhập.", false);
+                return;
+            }
+
+            DTO_NhanVien nhanVien = new DTO_NhanVien(lblThongTinMaNhanVien.Text, txtTenNhanVien.Text,
+                    GetGioiTinh(), GetNgaySinh(), cbbChucVu.Text, txtDienThoai.Text, txtDiaChi.Text, lbThongTinHinhAnh.Text);
+
+            if (thayDoiAnh)
             {
                 string newImage = ImageLocationPath;
+                string nameOfImage = (lblThongTinMaNhanVien.Text + Path.GetExtension(newImage));
 
-                string nameOfImage = (lblMaNhanVien.ToString() + Path.GetExtension(newImage));
-
-                //copy file
+                //Duong dan file                
                 string desFileName = Path.Combine(@"DanhSachNhanVien\", nameOfImage);
 
+                //Xoa anh cu neu da ton tai
+                if (!System.IO.Directory.Exists(desFileName))
+                {
+                    System.IO.File.Delete(desFileName);
+                }
+                //copy file
                 File.Copy(newImage, desFileName);
+                nhanVien.AnhDaiDien = nameOfImage;
             }
-            else nhanVien.AnhDaiDien = "Unknow.png";
-
-            //Set thong tin nhan vien
-            nhanVien.MaNV = lblThongTinMaNhanVien.Text;
-            nhanVien.HoTen = txtTenNhanVien.Text;
-            nhanVien.GioiTinh = gioiTinh;
-            nhanVien.NgaySinh = ngaySinh;
-            nhanVien.DienThoai = txtDienThoai.Text;
-            nhanVien.DiaChi = txtDiaChi.Text;
 
             if (BUS_QuanLyNhanVien.InsertNhanVien(nhanVien))
             {
@@ -184,13 +224,98 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
             else ShowKetQua("Thất bại. Vui lòng kiểm tra lại.", false);
 
 
-
-            //DTO_NhanVien nhanVien = new DTO_NhanVien(lblThongTinMaNhanVien.Text, txtTenNhanVien,gioiTinh,ngaySinh,cbbChucVu.Text,txtDienThoai.Text,txtDiaChi.Text);
-
         }
 
+        private void ShowDataCell(int row)
+        {
+            thayDoiAnh = false;
+            btnThem.Visible = false;
+            btnSua.Visible = true;
+            btnXoa.Visible = true;
+            lblThongTinMaNhanVien.Text = dgvDanhSachNhanVien[0, row].Value.ToString();
+            txtTenNhanVien.Text = dgvDanhSachNhanVien[1, row].Value.ToString();
 
+            //Lay gia tri gioi tinh, ngay sinh
+            SetGioiTinh(dgvDanhSachNhanVien[2, row].Value.ToString());
+            SetNgaySinh(dgvDanhSachNhanVien[3, row].Value.ToString());
 
+            cbbChucVu.Text = dgvDanhSachNhanVien[4, row].Value.ToString();
+            txtDienThoai.Text = dgvDanhSachNhanVien[5, row].Value.ToString();
+            txtDiaChi.Text = dgvDanhSachNhanVien[6, row].Value.ToString();
+
+            lbThongTinHinhAnh.Text = dgvDanhSachNhanVien[7, row].Value.ToString();
+            ptrHinhAnh.ImageLocation = @"DanhSachNhanVien/" + dgvDanhSachNhanVien[7, row].Value.ToString();
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+
+            //Cap nhat
+            if (txtTenNhanVien.Text == "" || cbbChucVu.Text == "" || txtDienThoai.Text == "" || txtDiaChi.Text == "")
+            {
+                ShowKetQua("Cập nhật thất bại, thông tin còn trống.", false);
+                return;
+            }
+
+            DTO_NhanVien nhanVien;
+
+            if (thayDoiAnh)
+            {
+                string newImage = ImageLocationPath;
+                string nameOfImage = (lblThongTinMaNhanVien.Text + Path.GetExtension(newImage));
+
+                //Duong dan file                
+                string desFileName = Path.Combine(@"DanhSachNhanVien\", nameOfImage);
+
+                //Xoa anh cu neu da ton tai
+                if (!System.IO.Directory.Exists(desFileName))
+                {
+                    System.IO.File.Delete(desFileName);
+                }
+                //copy file
+                File.Copy(newImage, desFileName);
+                nhanVien = new DTO_NhanVien(lblThongTinMaNhanVien.Text, txtTenNhanVien.Text,
+                     GetGioiTinh(), GetNgaySinh(), cbbChucVu.Text, txtDienThoai.Text, txtDiaChi.Text, nameOfImage);
+            }
+            else nhanVien = new DTO_NhanVien(lblThongTinMaNhanVien.Text, txtTenNhanVien.Text,
+                     GetGioiTinh(), GetNgaySinh(), cbbChucVu.Text, txtDienThoai.Text, txtDiaChi.Text, lbThongTinHinhAnh.Text);
+
+            if (BUS_QuanLyNhanVien.UpdateNhanVien(nhanVien))
+            {
+                UpDateDataGridView();
+                ShowKetQua("Cập nhật thành công nhân viên '" + nhanVien.MaNV + "' !!", true);
+            }
+            else
+                ShowKetQua("Cập nhật thất bại, vui lòng kiểm tra lại.", false);
+        }
+
+        //Xoa
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            DialogResult resultDialog = MessageBox.Show("Bạn có muốn xóa dữ liệu nhân viên", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultDialog == DialogResult.Yes)
+            {
+                DTO_NhanVien nhanVien = new DTO_NhanVien(lblThongTinMaNhanVien.Text, txtTenNhanVien.Text,
+                     GetGioiTinh(), GetNgaySinh(), cbbChucVu.Text, txtDienThoai.Text, txtDiaChi.Text, lbThongTinHinhAnh.Text);
+                if (BUS_QuanLyNhanVien.DeleteNhanVien(nhanVien))
+                {
+                    UpDateDataGridView();
+                    ClearDuLieuNhap();
+                    ShowKetQua("Xóa thành công nhân viên '" + nhanVien.MaNV + "' !!", true);
+                }
+                else ShowKetQua("Xóa không thành công. Vui lòng kiểm tra lại.", false);
+            }
+        }
+
+        //CHon hang tren datagridview
+        private void dgvDanhSachNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                ShowDataCell(e.RowIndex);
+            }
+        }
         #endregion
 
 
@@ -207,18 +332,70 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
                 ImageLocationPath = dialog.FileName;
                 lbThongTinHinhAnh.Text = dialog.SafeFileName;
                 ptrHinhAnh.ImageLocation = dialog.FileName;
+                thayDoiAnh = true;
             }
         }
 
         private void btnXoaAnh_Click(object sender, EventArgs e)
         {
-            lbThongTinHinhAnh.Text = string.Empty;
-            ptrHinhAnh.Image= ptrHinhAnh.Image = QuanLyTiecCuoiUI.Properties.Resources.avatar;
-            lbThongTinHinhAnh.Text = "Unkonw.png";
+            lbThongTinHinhAnh.Text = "Unknow.png";
+            ptrHinhAnh.ImageLocation = @"DanhSachNhanVien/Unknow.png";
+
         }
+
+
+
+
+
         #endregion
 
-        
 
+        #region Tim kiem
+        private void txtMaNV_TimKiem_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMaNV_TimKiem.Text == " ") txtMaNV_TimKiem.Text = "";
+
+            txtTenNhanVien_TimKiem.Text = "";
+            cbbChucVu.Text = "";
+            rbtRong.Checked = true;
+
+            dgvDanhSachNhanVien.DataSource = BUS_QuanLyNhanVien.SearchNhanVienTheoMa(txtMaNV_TimKiem.Text);
+        }
+        private void txtTenNhanVien_TimKiem_TextChanged(object sender, EventArgs e)
+        {
+            txtMaNV_TimKiem.Text = "";
+            if (txtTenNhanVien_TimKiem.Text == " ") txtTenNhanVien_TimKiem.Text = "";
+
+            string gioiTinh = "";
+            if (rbtNam_TimKiem.Checked == true) gioiTinh = "Nam";
+            if (rbtNu_TimKiem.Checked == true) gioiTinh = "Nữ";
+
+            dgvDanhSachNhanVien.DataSource = BUS_QuanLyNhanVien.SearchNhanVienTheoThongTin(txtTenNhanVien_TimKiem.Text, gioiTinh, cbbChucVu_TimKiem.Text);
+        }
+        private void cbbChucVu_TimKiem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtMaNV_TimKiem.Text = "";
+            if (cbbChucVu_TimKiem.Text == " ") cbbChucVu_TimKiem.Text = "";
+
+            string gioiTinh = "";
+            if (rbtNam_TimKiem.Checked == true) gioiTinh = "Nam";
+            if (rbtNu_TimKiem.Checked == true) gioiTinh = "Nữ";
+
+            dgvDanhSachNhanVien.DataSource = BUS_QuanLyNhanVien.SearchNhanVienTheoThongTin(txtTenNhanVien_TimKiem.Text, gioiTinh, cbbChucVu_TimKiem.Text);
+        }
+        private void rbtNam_TimKiem_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvDanhSachNhanVien.DataSource = BUS_QuanLyNhanVien.SearchNhanVienTheoThongTin(txtTenNhanVien_TimKiem.Text, "Nam", cbbChucVu_TimKiem.Text);
+        }
+        private void rbtNu_TimKiem_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvDanhSachNhanVien.DataSource = BUS_QuanLyNhanVien.SearchNhanVienTheoThongTin(txtTenNhanVien_TimKiem.Text, "Nữ", cbbChucVu_TimKiem.Text);
+        }
+        private void rbtRong_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvDanhSachNhanVien.DataSource = BUS_QuanLyNhanVien.SearchNhanVienTheoThongTin(txtTenNhanVien_TimKiem.Text, "", cbbChucVu_TimKiem.Text);
+        }
+
+        #endregion
     }
 }

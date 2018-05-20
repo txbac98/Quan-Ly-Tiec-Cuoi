@@ -14,10 +14,11 @@ namespace QuanLyTiecCuoiUI
 {
     public partial class frmQuanLyKhachHang : Form
     {
-        
+
         private string IDTable = "KH";
-        
+
         private DataTable ResultTable;
+
 
 
 
@@ -37,7 +38,7 @@ namespace QuanLyTiecCuoiUI
             {
                 return IDTable + (ConvertNumber(Int32.Parse(result.Rows[ResultTable.Rows.Count - 1].ItemArray[0].ToString().Substring(2)) + 1));
             }
-            catch 
+            catch
             {
                 return IDTable + "01";
             }
@@ -54,7 +55,7 @@ namespace QuanLyTiecCuoiUI
         public frmQuanLyKhachHang()
         {
             InitializeComponent();
-            
+
             LoadDataGridView();
 
             lblThongTinMaKhachHang.Text = GetNextID(ResultTable);
@@ -74,9 +75,11 @@ namespace QuanLyTiecCuoiUI
             dgvDanhSachKhachHang.DataSource = ResultTable;
             dgvDanhSachKhachHang.Columns[0].HeaderText = "Mã KH";
             dgvDanhSachKhachHang.Columns[1].HeaderText = "Tên chú rể";
-            dgvDanhSachKhachHang.Columns[2].HeaderText = "Tên cô dâu";
-            dgvDanhSachKhachHang.Columns[3].HeaderText = "Điện thoại";
-            dgvDanhSachKhachHang.Columns[4].HeaderText = "Địa chỉ";
+            dgvDanhSachKhachHang.Columns[2].HeaderText = "Năm sinh";
+            dgvDanhSachKhachHang.Columns[3].HeaderText = "Tên cô dâu";
+            dgvDanhSachKhachHang.Columns[4].HeaderText = "Năm sinh";
+            dgvDanhSachKhachHang.Columns[5].HeaderText = "Điện thoại";
+            dgvDanhSachKhachHang.Columns[6].HeaderText = "Địa chỉ";
 
 
             //dgvDanhSachKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -94,15 +97,20 @@ namespace QuanLyTiecCuoiUI
 
         void ClearDuLieuNhap()
         {
+            btnThem.Visible = true;
+            btnCapNhat.Visible = false;
+            btnXoa.Visible = false;
+
             txtTenChuRe.Text = "";
             txtTenCoDau.Text = "";
             txtDienThoai.Text = "";
             txtDiaChi.Text = "";
+            txtNamSinhCoDau.Text = "";
+            txtTenChuRe.Text = "";
         }
 
         void ShowKetQua(string skq, bool kq)
         {
-
             lbKetQua.Text = skq;
             if (kq) lbKetQua.ForeColor = Color.Green;
             else lbKetQua.ForeColor = Color.Red;
@@ -113,10 +121,7 @@ namespace QuanLyTiecCuoiUI
 
         private void llbThemMoi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            btnThem.Visible = true;
-            btnCapNhat.Visible = false;
-            btnXoa.Visible = false;
-
+            
             //Load ma khach hang
             lblThongTinMaKhachHang.Text = GetNextID(ResultTable);
 
@@ -126,8 +131,7 @@ namespace QuanLyTiecCuoiUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-             
-        
+                 
             //Them
 
             if (txtTenChuRe.Text == "" || txtTenCoDau.Text == "" || txtDienThoai.Text == "" || txtDiaChi.Text == "")
@@ -135,8 +139,17 @@ namespace QuanLyTiecCuoiUI
                 ShowKetQua("Không thể thực hiện, vui lòng kiểm tra thông tin nhập.", false);
                 return;
             }
-            DTO_KhachHang khachhang = new DTO_KhachHang(lblThongTinMaKhachHang.Text, txtTenChuRe.Text, txtTenCoDau.Text, txtDienThoai.Text, txtDiaChi.Text);
-
+            if (!BUS_KiemTraThongTin.KiemTraDienThoai(txtDienThoai.Text))
+            {
+                ShowKetQua("Không thể thực hiện, vui lòng kiểm tra thông tin nhập.", false);
+                return;
+            }
+            if (!BUS_KiemTraThongTin.KiemTraNamSinh(txtNamSinhChuRe.Text) || !BUS_KiemTraThongTin.KiemTraNamSinh(txtNamSinhCoDau.Text))
+            {
+                ShowKetQua("Không thể thực hiện, vui lòng kiểm tra thông tin nhập.", false);
+                return;
+            }
+            DTO_KhachHang khachhang = new DTO_KhachHang(lblThongTinMaKhachHang.Text, txtTenChuRe.Text, txtNamSinhChuRe.Text, txtTenCoDau.Text, txtNamSinhCoDau.Text, txtDienThoai.Text, txtDiaChi.Text);
             if (BUS_KhachHang.InsertKhachHang(khachhang))
             {
                  UpDateDataGridView();
@@ -158,7 +171,7 @@ namespace QuanLyTiecCuoiUI
                 ShowKetQua("Cập nhật thất bại, thông tin còn trống.", false);
                 return;
             }
-            DTO_KhachHang khachhang = new DTO_KhachHang(lblThongTinMaKhachHang.Text, txtTenChuRe.Text, txtTenCoDau.Text, txtDienThoai.Text, txtDiaChi.Text);
+            DTO_KhachHang khachhang = new DTO_KhachHang(lblThongTinMaKhachHang.Text, txtTenChuRe.Text, txtNamSinhChuRe.Text, txtTenCoDau.Text, txtNamSinhCoDau.Text, txtDienThoai.Text, txtDiaChi.Text);
 
             if (BUS_KhachHang.UpdateKhachHang(khachhang))
             {
@@ -173,7 +186,7 @@ namespace QuanLyTiecCuoiUI
         {
             
 
-            DTO_KhachHang khachhang =  new DTO_KhachHang(lblThongTinMaKhachHang.Text, txtTenChuRe.Text, txtTenCoDau.Text, txtDienThoai.Text, txtDiaChi.Text);
+            DTO_KhachHang khachhang =  new DTO_KhachHang(lblThongTinMaKhachHang.Text, txtTenChuRe.Text,txtNamSinhChuRe.Text, txtTenCoDau.Text,txtNamSinhCoDau.Text, txtDienThoai.Text, txtDiaChi.Text);
             
             DialogResult resultDialog = MessageBox.Show("Bạn có muốn xóa dữ liệu khách hàng", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -197,9 +210,11 @@ namespace QuanLyTiecCuoiUI
             btnXoa.Visible = true;
             lblThongTinMaKhachHang.Text = dgvDanhSachKhachHang[0, row].Value.ToString();
             txtTenChuRe.Text = dgvDanhSachKhachHang[1, row].Value.ToString();
-            txtTenCoDau.Text = dgvDanhSachKhachHang[2, row].Value.ToString();
-            txtDienThoai.Text = dgvDanhSachKhachHang[3, row].Value.ToString();
-            txtDiaChi.Text = dgvDanhSachKhachHang[4, row].Value.ToString();
+            txtNamSinhChuRe.Text = dgvDanhSachKhachHang[2, row].Value.ToString();
+            txtTenCoDau.Text = dgvDanhSachKhachHang[3, row].Value.ToString();
+            txtNamSinhCoDau.Text = dgvDanhSachKhachHang[4, row].Value.ToString();
+            txtDienThoai.Text = dgvDanhSachKhachHang[5, row].Value.ToString();
+            txtDiaChi.Text = dgvDanhSachKhachHang[6, row].Value.ToString();
         }
         private void dgvDanhSachKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -257,7 +272,7 @@ namespace QuanLyTiecCuoiUI
 
 
 
-        #region Xoa dau cach " "
+        #region Kiem tra du lieu nhap
         private void txtTenChuRe_TextChanged(object sender, EventArgs e)
         {
             if (txtTenChuRe.Text == " ") txtTenChuRe.Text = "";
@@ -271,18 +286,53 @@ namespace QuanLyTiecCuoiUI
         private void txtDienThoai_TextChanged(object sender, EventArgs e)
         {
             if (txtDienThoai.Text == " ") txtDienThoai.Text = "";
+
+            if (txtDienThoai.Text != "")
+            {
+                if (BUS_KiemTraThongTin.KiemTraDienThoai(txtDienThoai.Text))
+                    txtDienThoai.ForeColor = Color.Black;
+                else txtDienThoai.ForeColor = Color.Red;
+            }
+ 
         }
 
         private void txtDiaChi_TextChanged(object sender, EventArgs e)
         {
             if (txtDiaChi.Text == " ") txtDiaChi.Text = "";
+            
         }
 
+        private void txtNamSinhChuRe_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNamSinhChuRe.Text == " ") txtNamSinhChuRe.Text = "";
+            if (txtNamSinhChuRe.Text != "")
+            {
+                if (BUS_KiemTraThongTin.KiemTraNamSinh(txtNamSinhChuRe.Text))
+                    txtNamSinhChuRe.ForeColor = Color.Black;
+                else txtNamSinhChuRe.ForeColor = Color.Red;
+            }
+
+
+        }
+
+        private void txtNamSinhCoDau_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNamSinhCoDau.Text == " ") txtNamSinhCoDau.Text = "";
+            if (txtNamSinhCoDau.Text != "")
+            {
+                if (BUS_KiemTraThongTin.KiemTraNamSinh(txtNamSinhCoDau.Text))
+                    txtNamSinhCoDau.ForeColor = Color.Black;
+                else txtNamSinhCoDau.ForeColor = Color.Red;
+            }
+            else txtNamSinhCoDau.ForeColor = Color.Black;
+
+        }
 
 
         #endregion
 
-        
+
+
     }
 }
 

@@ -22,7 +22,7 @@ namespace BUS
         }
         public static DataTable SearchKhachHangTheoTen(string tenChuRe, string tenCoDau)
         {
-            return DAO_KhachHang.SearchKhachHangTheoTen(tenChuRe,tenCoDau);
+            return DAO_KhachHang.SearchKhachHangTheoTen(BUS_BoDau.RemoveUnicode(tenChuRe),BUS_BoDau.RemoveUnicode(tenCoDau));
         }
         public static bool InsertKhachHang(DTO_KhachHang khachhang)
         {

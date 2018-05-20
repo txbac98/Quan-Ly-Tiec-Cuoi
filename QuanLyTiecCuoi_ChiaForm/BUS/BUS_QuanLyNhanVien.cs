@@ -18,6 +18,14 @@ namespace BUS
         {
             return DAO_QuanLyNhanVien.LoadDanhSachNhanVien();
         }
+        public static DataTable SearchNhanVienTheoMa(string maNV)
+        {
+            return DAO_QuanLyNhanVien.SearchNhanVienTheoMa(maNV);
+        }
+        public static DataTable SearchNhanVienTheoThongTin(string tenNhanVien, string gioiTinh, string chucVu)
+        {
+            return DAO_QuanLyNhanVien.SearchNhanVienTheoThongTin(BUS_BoDau.RemoveUnicode(tenNhanVien),gioiTinh,chucVu);
+        }
         public static DataTable GetDataTable()
         {
             return DAO_QuanLyNhanVien.GetDataTable();

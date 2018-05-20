@@ -8,25 +8,24 @@ namespace DTO
 {
     public class DTO_KhachHang
     {
-        private string text1;
-        private string text2;
-        private string text3;
-        private string text4;
-        private string text5;
 
         public string MaKH { get; set; }
         public string TenChuRe { get; set; }
+        public string NamSinhChuRe { get; set; }
         public string TenCoDau { get; set; }
+        public string NamSinhCoDau { get; set; }
         public string DienThoai { get; set; }
         public string DiaChi { get; set; }
 
-        public DTO_KhachHang(string text1, string text2, string text3, string text4, string text5)
+        public DTO_KhachHang(string maKH, string tenChuRe, string namSinhChuRe, string tenCoDau, string namSinhCoDau,string dienThoai, string diaChi)
         {
-            MaKH = text1;
-            TenChuRe = text2;
-            TenCoDau = text3;
-            DienThoai = text4;
-            DiaChi = text5;
+            MaKH = maKH;
+            TenChuRe = tenChuRe;
+            NamSinhChuRe = namSinhChuRe;
+            TenCoDau = tenCoDau;
+            NamSinhCoDau = namSinhCoDau;
+            DienThoai = dienThoai;
+            DiaChi = diaChi;
         }
 
         

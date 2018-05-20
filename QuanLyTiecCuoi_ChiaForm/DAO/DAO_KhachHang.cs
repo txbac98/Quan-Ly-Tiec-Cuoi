@@ -17,7 +17,7 @@ namespace DAO
         }
         public static bool InsertKhachHang(DTO_KhachHang khachhang)
         {
-            string sTruyVan = string.Format("Insert into KHACHHANG(MaKH,TenChuRe,TenCoDau,DienThoai,DiaChi) values (N'{0}',N'{1}',N'{2}',N'{3}',N'{4}')", khachhang.MaKH, khachhang.TenChuRe, khachhang.TenCoDau, khachhang.DienThoai, khachhang.DiaChi);
+            string sTruyVan = string.Format("Insert into KHACHHANG(MaKH,TenChuRe,NamSinhChuRe,TenCoDau,NamSinhCoDau,DienThoai,DiaChi) values (N'{0}',N'{1}',N'{2}',N'{3}',N'{4}',N'{5}',N'{6}')", khachhang.MaKH, khachhang.TenChuRe,khachhang.NamSinhChuRe, khachhang.TenCoDau,khachhang.NamSinhCoDau, khachhang.DienThoai, khachhang.DiaChi);
             try
             {
                 int state = DatabaseHelper.ExcuteSql(sTruyVan);
@@ -45,7 +45,7 @@ namespace DAO
         }
         public static bool UpdateKhachHang(DTO_KhachHang khachhang)
         {
-            string sTruyVan = string.Format("Update KhachHang set TenChuRe=N'{0}', TenCoDau=N'{1}', DienThoai=N'{2}', DiaChi=N'{3}' where MaKH=N'{4}'", khachhang.TenChuRe, khachhang.TenCoDau, khachhang.DienThoai, khachhang.DiaChi, khachhang.MaKH);
+            string sTruyVan = string.Format("Update KhachHang set TenChuRe=N'{0}', NamSinhChuRe=N'{1}', TenCoDau=N'{2}', NamSinhCoDau=N'{3}', DienThoai=N'{4}', DiaChi=N'{5}' where MaKH=N'{6}'", khachhang.TenChuRe,khachhang.NamSinhChuRe, khachhang.TenCoDau,khachhang.NamSinhCoDau, khachhang.DienThoai, khachhang.DiaChi, khachhang.MaKH);
             try
             {
                 int state = DatabaseHelper.ExcuteSql(sTruyVan);

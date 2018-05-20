@@ -44,7 +44,7 @@
             this.lbChucVu = new System.Windows.Forms.Label();
             this.llbThemMoi = new System.Windows.Forms.LinkLabel();
             this.btnXoa = new System.Windows.Forms.Button();
-            this.btnCapNhat = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.lblThongTinMaNhanVien = new System.Windows.Forms.Label();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
@@ -92,6 +92,7 @@
             this.dgvDanhSachNhanVien.Name = "dgvDanhSachNhanVien";
             this.dgvDanhSachNhanVien.Size = new System.Drawing.Size(586, 291);
             this.dgvDanhSachNhanVien.TabIndex = 11;
+            this.dgvDanhSachNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachNhanVien_CellClick);
             // 
             // grpThongTinNhanVien
             // 
@@ -109,7 +110,7 @@
             this.grpThongTinNhanVien.Controls.Add(this.lbChucVu);
             this.grpThongTinNhanVien.Controls.Add(this.llbThemMoi);
             this.grpThongTinNhanVien.Controls.Add(this.btnXoa);
-            this.grpThongTinNhanVien.Controls.Add(this.btnCapNhat);
+            this.grpThongTinNhanVien.Controls.Add(this.btnSua);
             this.grpThongTinNhanVien.Controls.Add(this.btnThem);
             this.grpThongTinNhanVien.Controls.Add(this.lblThongTinMaNhanVien);
             this.grpThongTinNhanVien.Controls.Add(this.txtDiaChi);
@@ -183,9 +184,9 @@
             this.lbThongTinHinhAnh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbThongTinHinhAnh.Location = new System.Drawing.Point(13, 311);
             this.lbThongTinHinhAnh.Name = "lbThongTinHinhAnh";
-            this.lbThongTinHinhAnh.Size = new System.Drawing.Size(56, 16);
+            this.lbThongTinHinhAnh.Size = new System.Drawing.Size(82, 16);
             this.lbThongTinHinhAnh.TabIndex = 20;
-            this.lbThongTinHinhAnh.Text = "Unknow";
+            this.lbThongTinHinhAnh.Text = "Unknow.png";
             // 
             // ptrHinhAnh
             // 
@@ -227,6 +228,8 @@
             // cbbChucVu
             // 
             this.cbbChucVu.FormattingEnabled = true;
+            this.cbbChucVu.Items.AddRange(new object[] {
+            "Sếp"});
             this.cbbChucVu.Location = new System.Drawing.Point(88, 347);
             this.cbbChucVu.Name = "cbbChucVu";
             this.cbbChucVu.Size = new System.Drawing.Size(192, 24);
@@ -264,19 +267,21 @@
             this.btnXoa.Text = "     Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Visible = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
-            // btnCapNhat
+            // btnSua
             // 
-            this.btnCapNhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCapNhat.Location = new System.Drawing.Point(100, 470);
-            this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(60, 30);
-            this.btnCapNhat.TabIndex = 2;
-            this.btnCapNhat.Text = "     Sửa";
-            this.btnCapNhat.UseVisualStyleBackColor = true;
-            this.btnCapNhat.Visible = false;
+            this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSua.Location = new System.Drawing.Point(100, 470);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(60, 30);
+            this.btnSua.TabIndex = 2;
+            this.btnSua.Text = "     Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Visible = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
@@ -364,6 +369,7 @@
             this.txtMaNV_TimKiem.Name = "txtMaNV_TimKiem";
             this.txtMaNV_TimKiem.Size = new System.Drawing.Size(117, 20);
             this.txtMaNV_TimKiem.TabIndex = 11;
+            this.txtMaNV_TimKiem.TextChanged += new System.EventHandler(this.txtMaNV_TimKiem_TextChanged);
             // 
             // txtTenNhanVien_TimKiem
             // 
@@ -371,6 +377,7 @@
             this.txtTenNhanVien_TimKiem.Name = "txtTenNhanVien_TimKiem";
             this.txtTenNhanVien_TimKiem.Size = new System.Drawing.Size(208, 20);
             this.txtTenNhanVien_TimKiem.TabIndex = 9;
+            this.txtTenNhanVien_TimKiem.TextChanged += new System.EventHandler(this.txtTenNhanVien_TimKiem_TextChanged);
             // 
             // lbTenNV_TimKiem
             // 
@@ -421,6 +428,7 @@
             this.cbbChucVu_TimKiem.Name = "cbbChucVu_TimKiem";
             this.cbbChucVu_TimKiem.Size = new System.Drawing.Size(181, 21);
             this.cbbChucVu_TimKiem.TabIndex = 19;
+            this.cbbChucVu_TimKiem.SelectedIndexChanged += new System.EventHandler(this.cbbChucVu_TimKiem_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -450,6 +458,7 @@
             this.rbtRong.TabIndex = 17;
             this.rbtRong.TabStop = true;
             this.rbtRong.UseVisualStyleBackColor = true;
+            this.rbtRong.CheckedChanged += new System.EventHandler(this.rbtRong_CheckedChanged);
             // 
             // rbtNu_TimKiem
             // 
@@ -461,6 +470,7 @@
             this.rbtNu_TimKiem.TabStop = true;
             this.rbtNu_TimKiem.Text = "Nữ";
             this.rbtNu_TimKiem.UseVisualStyleBackColor = true;
+            this.rbtNu_TimKiem.CheckedChanged += new System.EventHandler(this.rbtNu_TimKiem_CheckedChanged);
             // 
             // rbtNam_TimKiem
             // 
@@ -472,6 +482,7 @@
             this.rbtNam_TimKiem.TabStop = true;
             this.rbtNam_TimKiem.Text = "Nam";
             this.rbtNam_TimKiem.UseVisualStyleBackColor = true;
+            this.rbtNam_TimKiem.CheckedChanged += new System.EventHandler(this.rbtNam_TimKiem_CheckedChanged);
             // 
             // grbMaNV
             // 
@@ -521,7 +532,7 @@
         private System.Windows.Forms.Label lbChucVu;
         private System.Windows.Forms.LinkLabel llbThemMoi;
         private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnCapNhat;
+        private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Label lblThongTinMaNhanVien;
         private System.Windows.Forms.TextBox txtDiaChi;

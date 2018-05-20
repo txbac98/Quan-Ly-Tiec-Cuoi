@@ -51,6 +51,10 @@
             this.lblMaKhachHang = new System.Windows.Forms.Label();
             this.dgvDanhSachKhachHang = new System.Windows.Forms.DataGridView();
             this.grpThongTinKhachHang = new System.Windows.Forms.GroupBox();
+            this.lblNamSinhCoDau = new System.Windows.Forms.Label();
+            this.lblNamSinhChuRe = new System.Windows.Forms.Label();
+            this.txtNamSinhCoDau = new System.Windows.Forms.TextBox();
+            this.txtNamSinhChuRe = new System.Windows.Forms.TextBox();
             this.llbThemMoi = new System.Windows.Forms.LinkLabel();
             this.lbKetQua = new System.Windows.Forms.Label();
             this.grbTimKiem.SuspendLayout();
@@ -97,7 +101,7 @@
             // 
             this.txtTenCoDau.Location = new System.Drawing.Point(7, 139);
             this.txtTenCoDau.Name = "txtTenCoDau";
-            this.txtTenCoDau.Size = new System.Drawing.Size(284, 23);
+            this.txtTenCoDau.Size = new System.Drawing.Size(195, 23);
             this.txtTenCoDau.TabIndex = 6;
             this.txtTenCoDau.TextChanged += new System.EventHandler(this.txtTenCoDau_TextChanged);
             // 
@@ -105,7 +109,7 @@
             // 
             this.txtTenChuRe.Location = new System.Drawing.Point(6, 84);
             this.txtTenChuRe.Name = "txtTenChuRe";
-            this.txtTenChuRe.Size = new System.Drawing.Size(285, 23);
+            this.txtTenChuRe.Size = new System.Drawing.Size(196, 23);
             this.txtTenChuRe.TabIndex = 5;
             this.txtTenChuRe.TextChanged += new System.EventHandler(this.txtTenChuRe_TextChanged);
             // 
@@ -272,6 +276,10 @@
             // 
             // grpThongTinKhachHang
             // 
+            this.grpThongTinKhachHang.Controls.Add(this.lblNamSinhCoDau);
+            this.grpThongTinKhachHang.Controls.Add(this.lblNamSinhChuRe);
+            this.grpThongTinKhachHang.Controls.Add(this.txtNamSinhCoDau);
+            this.grpThongTinKhachHang.Controls.Add(this.txtNamSinhChuRe);
             this.grpThongTinKhachHang.Controls.Add(this.llbThemMoi);
             this.grpThongTinKhachHang.Controls.Add(this.btnXoa);
             this.grpThongTinKhachHang.Controls.Add(this.btnCapNhat);
@@ -293,6 +301,40 @@
             this.grpThongTinKhachHang.TabIndex = 4;
             this.grpThongTinKhachHang.TabStop = false;
             this.grpThongTinKhachHang.Text = "Thông tin khách hàng";
+            // 
+            // lblNamSinhCoDau
+            // 
+            this.lblNamSinhCoDau.AutoSize = true;
+            this.lblNamSinhCoDau.Location = new System.Drawing.Point(208, 119);
+            this.lblNamSinhCoDau.Name = "lblNamSinhCoDau";
+            this.lblNamSinhCoDau.Size = new System.Drawing.Size(67, 17);
+            this.lblNamSinhCoDau.TabIndex = 14;
+            this.lblNamSinhCoDau.Text = "Năm sinh";
+            // 
+            // lblNamSinhChuRe
+            // 
+            this.lblNamSinhChuRe.AutoSize = true;
+            this.lblNamSinhChuRe.Location = new System.Drawing.Point(208, 64);
+            this.lblNamSinhChuRe.Name = "lblNamSinhChuRe";
+            this.lblNamSinhChuRe.Size = new System.Drawing.Size(67, 17);
+            this.lblNamSinhChuRe.TabIndex = 13;
+            this.lblNamSinhChuRe.Text = "Năm sinh";
+            // 
+            // txtNamSinhCoDau
+            // 
+            this.txtNamSinhCoDau.Location = new System.Drawing.Point(208, 139);
+            this.txtNamSinhCoDau.Name = "txtNamSinhCoDau";
+            this.txtNamSinhCoDau.Size = new System.Drawing.Size(83, 23);
+            this.txtNamSinhCoDau.TabIndex = 12;
+            this.txtNamSinhCoDau.TextChanged += new System.EventHandler(this.txtNamSinhCoDau_TextChanged);
+            // 
+            // txtNamSinhChuRe
+            // 
+            this.txtNamSinhChuRe.Location = new System.Drawing.Point(208, 84);
+            this.txtNamSinhChuRe.Name = "txtNamSinhChuRe";
+            this.txtNamSinhChuRe.Size = new System.Drawing.Size(83, 23);
+            this.txtNamSinhChuRe.TabIndex = 11;
+            this.txtNamSinhChuRe.TextChanged += new System.EventHandler(this.txtNamSinhChuRe_TextChanged);
             // 
             // llbThemMoi
             // 
@@ -363,5 +405,9 @@
         private System.Windows.Forms.Label lbMaKH;
         private System.Windows.Forms.TextBox txbMaKhachHang_TimKiem;
         private System.Windows.Forms.LinkLabel llbThemMoi;
+        private System.Windows.Forms.Label lblNamSinhCoDau;
+        private System.Windows.Forms.Label lblNamSinhChuRe;
+        private System.Windows.Forms.TextBox txtNamSinhCoDau;
+        private System.Windows.Forms.TextBox txtNamSinhChuRe;
     }
 }

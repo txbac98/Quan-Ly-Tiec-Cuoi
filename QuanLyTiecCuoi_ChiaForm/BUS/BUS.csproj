@@ -42,12 +42,14 @@
   <ItemGroup>
     <Compile Include="BUS_BaoCaoNgay.cs" />
     <Compile Include="BUS_BaoCaoThang.cs" />
+    <Compile Include="BUS_BoDau.cs" />
     <Compile Include="BUS_Ca.cs" />
     <Compile Include="BUS_DangNhap.cs" />
     <Compile Include="BUS_DichVu.cs" />
     <Compile Include="BUS_DoiMatKhau.cs" />
     <Compile Include="BUS_HoaDon.cs" />
     <Compile Include="BUS_KhachHang.cs" />
+    <Compile Include="BUS_KiemTraThongTin.cs" />
     <Compile Include="BUS_LapBaoCaoThang.cs" />
     <Compile Include="BUS_LapHoaDonThang.cs" />
     <Compile Include="BUS_MonAn.cs" />
