@@ -52,7 +52,7 @@ namespace QuanLyTiecCuoiUI
             if (kq) lbKetQua.ForeColor = Color.Green;
             else lbKetQua.ForeColor = Color.Red;
         }
-
+        #region Them, sua, xoa
 
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -105,26 +105,27 @@ namespace QuanLyTiecCuoiUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            dgvTableShow.Focus();
             DTO_Ca ca = new DTO_Ca(txtMaCa.Text, txtTenCa.Text);
+            ca.TenCa = dgvTableShow.CurrentRow.Cells["TenCa"].Value.ToString();
+            ca.MaCa = dgvTableShow.CurrentRow.Cells["MaCa"].Value.ToString();
 
-            DialogResult resultDialog = MessageBox.Show("Bạn có muốn xóa dữ liệu ca", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (resultDialog == DialogResult.Yes)
+            DialogResult dr = MessageBox.Show(string.Format("Bạn có muốn xóa ca '{0}' không?", ca.MaCa), "Xóa loại sảnh", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dr == DialogResult.No)
+                return;
+            if (BUS_Ca.DeleteCa(ca))
             {
-                if (BUS_Ca.DeleteCa(ca))
-                {
-                   
-
-
-                    ShowKetQua("Xóa thành công ca '" + ca.MaCa + "' !!", true);
-                }
-                else
-                    ShowKetQua("Xóa ca '" + ca.MaCa + "' thất bại, vui lòng thử lại.", false);
+                dgvTableShow.DataSource = BUS_Ca.GetDataTable();
+                ShowKetQua("Xóa ca '" + ca.MaCa+ "' thành công!", true);
+                ClearAllInputs();
             }
+            else
+                ShowKetQua(string.Format("Không thể xóa, vui lòng xóa dữ liệu liên qua đến ca",
+                    ca.MaCa),  false);
 
         }
 
-
+        #endregion
         bool KiemTraThongTin()
         {
             if (txtMaCa.Text == "" || txtTenCa.Text == "")
@@ -145,20 +146,20 @@ namespace QuanLyTiecCuoiUI
         }
 
 
-       
+        private void txtMaCa_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMaCa.Text == "0")
+                txtMaCa.Text = "";
+        }
         private void txtTenCa_TextChanged(object sender, EventArgs e)
         {
             if (txtTenCa.Text == " ")
                 txtTenCa.Text = "";
         }
 
-        private void txtMaCa_TextChanged(object sender, EventArgs e)
-        {
-            if (txtMaCa.Text == "0")
-                txtMaCa.Text = "";
-        }
+       
 
-        private void dgvQuanLyLoaiSanh_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvTableShow_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
             //Hien thi button Sua, Xoa

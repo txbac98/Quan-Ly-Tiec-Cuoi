@@ -99,7 +99,7 @@
             this.dgvTableShow.RowHeadersVisible = false;
             this.dgvTableShow.Size = new System.Drawing.Size(299, 132);
             this.dgvTableShow.TabIndex = 8;
-            this.dgvTableShow.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTableShow_CellContentClick);
+            
             // 
             // groupBox2
             // 
