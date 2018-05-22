@@ -126,13 +126,14 @@ namespace QuanLyTiecCuoiUI
             txtSoLuongBanTD.ReadOnly = false;
             txtGhiChu.ReadOnly = false;
         }
-
+        #region Them,Sua, Xoa
         private void btnThem_Click(object sender, EventArgs e)
         {
-            SetDisplayControls(MODE.INSERT);
-            ClearAllInputs();
-            dgvQuanLySanh.ClearSelection();
-            mCurrentMode = MODE.INSERT;
+            //    SetDisplayControls(MODE.INSERT);
+            //    ClearAllInputs();
+            //    dgvQuanLySanh.ClearSelection();
+            //    mCurrentMode = MODE.INSERT;
+            //}
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -189,7 +190,7 @@ namespace QuanLyTiecCuoiUI
             //DialogResult dr = MessageBox.Show("Bạn có muốn lưu không?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             //if (dr == DialogResult.No)
             //    return;
-
+            #endregion
             switch (mCurrentMode)
             {
                 case MODE.INSERT:
@@ -290,6 +291,14 @@ namespace QuanLyTiecCuoiUI
         private void grpThongTinSanh_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnThem_Click_1(object sender, EventArgs e)
+        {
+            SetDisplayControls(MODE.INSERT);
+            ClearAllInputs();
+            dgvQuanLySanh.ClearSelection();
+            mCurrentMode = MODE.INSERT;
         }
     }
 }

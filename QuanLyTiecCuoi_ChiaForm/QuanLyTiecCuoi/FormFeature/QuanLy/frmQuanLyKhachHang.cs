@@ -329,10 +329,14 @@ namespace QuanLyTiecCuoiUI
         }
 
 
+
+
         #endregion
 
+        private void frmQuanLyKhachHang_Load_1(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }
 

@@ -195,5 +195,10 @@ namespace QuanLyTiecCuoiUI
             btnXoa.Visible = false;
             btnThem.Visible = true;
         }
+
+        private void lbKetQua_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

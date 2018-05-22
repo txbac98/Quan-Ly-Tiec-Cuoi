@@ -31,7 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTenCa = new System.Windows.Forms.TextBox();
-            this.lblMaCa = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvTableShow = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -39,7 +38,10 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtMaCa = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.llbThemMoi = new System.Windows.Forms.LinkLabel();
+            this.lbKetQua = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTableShow)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -72,16 +74,7 @@
             this.txtTenCa.Name = "txtTenCa";
             this.txtTenCa.Size = new System.Drawing.Size(231, 20);
             this.txtTenCa.TabIndex = 5;
-            // 
-            // lblMaCa
-            // 
-            this.lblMaCa.AutoSize = true;
-            this.lblMaCa.Location = new System.Drawing.Point(64, 24);
-            this.lblMaCa.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMaCa.Name = "lblMaCa";
-            this.lblMaCa.Size = new System.Drawing.Size(11, 14);
-            this.lblMaCa.TabIndex = 6;
-            this.lblMaCa.Text = "-";
+            this.txtTenCa.TextChanged += new System.EventHandler(this.txtTenCa_TextChanged);
             // 
             // label3
             // 
@@ -106,6 +99,7 @@
             this.dgvTableShow.RowHeadersVisible = false;
             this.dgvTableShow.Size = new System.Drawing.Size(299, 132);
             this.dgvTableShow.TabIndex = 8;
+            this.dgvTableShow.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTableShow_CellContentClick);
             // 
             // groupBox2
             // 
@@ -129,6 +123,7 @@
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "     Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnXoa
             // 
@@ -140,6 +135,7 @@
             this.btnXoa.TabIndex = 1;
             this.btnXoa.Text = "     Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -151,13 +147,14 @@
             this.btnSua.TabIndex = 2;
             this.btnSua.Text = "     Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtMaCa);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtTenCa);
-            this.groupBox1.Controls.Add(this.lblMaCa);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -165,6 +162,15 @@
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin ca";
+            // 
+            // txtMaCa
+            // 
+            this.txtMaCa.Location = new System.Drawing.Point(67, 18);
+            this.txtMaCa.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMaCa.Name = "txtMaCa";
+            this.txtMaCa.Size = new System.Drawing.Size(231, 20);
+            this.txtMaCa.TabIndex = 8;
+            this.txtMaCa.TextChanged += new System.EventHandler(this.txtMaCa_TextChanged);
             // 
             // groupBox3
             // 
@@ -175,12 +181,36 @@
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Danh sách ca";
+         
+            // 
+            // llbThemMoi
+            // 
+            this.llbThemMoi.AutoSize = true;
+            this.llbThemMoi.Location = new System.Drawing.Point(257, 259);
+            this.llbThemMoi.Name = "llbThemMoi";
+            this.llbThemMoi.Size = new System.Drawing.Size(53, 14);
+            this.llbThemMoi.TabIndex = 11;
+            this.llbThemMoi.TabStop = true;
+            this.llbThemMoi.Text = "Thêm mới";
+            this.llbThemMoi.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbThemMoi_LinkClicked);
+            // 
+            // lbKetQua
+            // 
+            this.lbKetQua.AutoSize = true;
+            this.lbKetQua.Location = new System.Drawing.Point(13, 268);
+            this.lbKetQua.Name = "lbKetQua";
+            this.lbKetQua.Size = new System.Drawing.Size(74, 14);
+            this.lbKetQua.TabIndex = 17;
+            this.lbKetQua.Text = "Show ket qua";
+            this.lbKetQua.Click += new System.EventHandler(this.lbKetQua_Click);
             // 
             // frmCa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(461, 309);
+            this.Controls.Add(this.lbKetQua);
+            this.Controls.Add(this.llbThemMoi);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
@@ -193,6 +223,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -201,7 +232,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtTenCa;
-        private System.Windows.Forms.Label lblMaCa;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvTableShow;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -210,5 +240,8 @@
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.LinkLabel llbThemMoi;
+        private System.Windows.Forms.Label lbKetQua;
+        private System.Windows.Forms.TextBox txtMaCa;
     }
 }

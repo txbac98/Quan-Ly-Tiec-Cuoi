@@ -123,3 +123,4 @@ D:\Github\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debu
 D:\Github\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.Properties.Resources.resources
 D:\Github\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.csproj.GenerateResource.Cache
 D:\Github\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.FormFeature.QuanLy.frmQuanLyChucVu.resources
+C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.FormFeature.QuanLy.frmQuanLyChucVu.resources

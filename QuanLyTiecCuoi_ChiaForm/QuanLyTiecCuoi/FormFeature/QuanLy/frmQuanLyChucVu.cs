@@ -16,5 +16,10 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
         {
             InitializeComponent();
         }
+
+        private void frmQuanLyChucVu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

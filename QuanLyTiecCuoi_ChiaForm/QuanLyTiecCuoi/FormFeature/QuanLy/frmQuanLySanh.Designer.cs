@@ -69,6 +69,7 @@
             this.btnThem.Text = "     Thêm";
             this.myToolTip.SetToolTip(this.btnThem, "Thêm sảnh mới");
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
             // 
             // grpDanhSachSanh
             // 
