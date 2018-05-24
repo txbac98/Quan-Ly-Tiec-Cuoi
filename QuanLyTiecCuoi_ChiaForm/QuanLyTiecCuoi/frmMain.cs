@@ -72,14 +72,19 @@ namespace QuanLyTiecCuoiUI
 
         private void btSanh_Click(object sender, EventArgs e)
         {
-            frmQuanLySanh frmQLSanh = new frmQuanLySanh();
-            frmQLSanh.Show();
+           
         }
 
         private void btLoaiSanh_Click(object sender, EventArgs e)
         {
             frmQuanLyLoaiSanh frmQLLSanh = new frmQuanLyLoaiSanh();
             frmQLLSanh.Show();
+        }
+
+        private void btnDatTiec_Click(object sender, EventArgs e)
+        {
+            frmNhanDatTiecCuoi frmNDTC = new frmNhanDatTiecCuoi();
+            frmNDTC.Show();
         }
     }
 }

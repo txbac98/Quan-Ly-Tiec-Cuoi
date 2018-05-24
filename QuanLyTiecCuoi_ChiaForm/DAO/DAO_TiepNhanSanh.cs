@@ -17,8 +17,8 @@ namespace DAO
         }
         public static bool InsertSanh(DTO_Sanh sanh)
         {
-            string sqlCommand = string.Format(@"INSERT INTO Sanh (TenSanh, MaLoaiSanh, SoLuongBanToiDa, GhiChu) VALUES (N'{0}', {1}, {2}, N'{3}')"
-                , sanh.tenSanh, sanh.maLoaiSanh, sanh.soLuongBanToiDa, sanh.ghiChu);
+            string sqlCommand = string.Format(@"INSERT INTO Sanh (MaSanh,TenSanh, SoLuongBanToiDa, DonGiaBan, GhiChu) VALUES (N'{0}', N'{1}', {2}, {3},N'{4}')"
+               ,sanh.maSanh , sanh.tenSanh, sanh.soLuongBanToiDa,sanh.donGiaBan, sanh.ghiChu);
 
             if (DatabaseHelper.ExcuteSql(sqlCommand) == 1)
                 return true;

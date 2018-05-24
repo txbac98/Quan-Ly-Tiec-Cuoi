@@ -12,7 +12,7 @@ namespace DAO
     {
         public static DataTable GetSanh()
         {
-            string sTruyVan = "Select MaSanh, TenSanh, DonGiaBanToiThieu,SoLuongBanToiDa from Sanh, LoaiSanh where Sanh.MaLoaiSanh = LoaiSanh.MaLoaiSanh";
+            string sTruyVan = "Select TenSanh from Sanh";
             return DatabaseHelper.GetData(sTruyVan);
         }
         public static DataTable GetCa()

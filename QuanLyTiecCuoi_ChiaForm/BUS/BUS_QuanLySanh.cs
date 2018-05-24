@@ -11,13 +11,12 @@ namespace BUS
 {
     public class BUS_QuanLySanh
     {
-        private static List<string> mListTenLoaiSanh;
-        private static List<string> mListDonGiaBanTT;
-        private static List<string> mListMaLoaiSanh;
-        public static bool mIsLoaiSanhDataEmpty;
+
+        private static List<string> mListMaSanh;
+        public static bool mIsSanhDataEmpty;
         public static void Init()
         {
-            GetListsInTableLoaiSanh();
+            GetListsInTableSanh();
         }
         public static DataTable GetQLSanhTable()
         {
@@ -27,42 +26,27 @@ namespace BUS
         {
             DAO_QuanLySanh.DeleteSanh(sanh);
         }
-        public static DataTable GetLoaiSanhTable()
+        private static void GetListsInTableSanh()
         {
-            return DAO_QuanLySanh.GetLoaiSanhTable();
-        }
-        private static void GetListsInTableLoaiSanh()
-        {
-            DataTable dt = GetLoaiSanhTable();
+            DataTable dt = GetQLSanhTable();
             if (dt.Rows.Count == 0)
             {
-                mIsLoaiSanhDataEmpty = true;
+                mIsSanhDataEmpty = true;
                 return;
             }
-            mIsLoaiSanhDataEmpty = false;
-            mListTenLoaiSanh = new List<string>();
-            mListDonGiaBanTT = new List<string>();
-            mListMaLoaiSanh = new List<string>();
+            mIsSanhDataEmpty = false;
+            mListMaSanh = new List<string>();
 
             foreach (DataRow item in dt.Rows)
             {
-                mListMaLoaiSanh.Add(item[0].ToString());
-                mListTenLoaiSanh.Add(item[1].ToString());
-                mListDonGiaBanTT.Add(item[2].ToString());
+                mListMaSanh.Add(item[0].ToString());
             }
         }
-        public static List<string> GetListMaLoaiSanh()
+        public static List<string> GetListMaSanh()
         {
-            return mListMaLoaiSanh;
+            return mListMaSanh;
         }
-        public static List<string> GetListTenLoaiSanh()
-        {
-            return mListTenLoaiSanh;
-        }
-        public static List<string> GetListDonGiaBanTT()
-        {
-            return mListDonGiaBanTT;
-        }
+
 
         public static bool InsertSanh(DTO_Sanh sanh)
         {
