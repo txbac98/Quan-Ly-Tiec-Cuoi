@@ -22,8 +22,8 @@ namespace QuanLyTiecCuoiUI
 
         private List<Decimal> lstGiaSanh = new List<decimal>();
         private List<int> lstSoLuongBanToiDaSanh = new List<int>();
-        private string donGiaBanToiThieu, soLuongBanToiDa;
-        private int SoLuongBanToiDa = 0;
+
+        private string soLuongBanToiDa , donGiaBan;
 
         //Convert Number to string for index
 
@@ -52,6 +52,7 @@ namespace QuanLyTiecCuoiUI
 
             BUS_Ca.Init();
             BUS_QuanLySanh.Init();
+            BUS_DichVu.Init();
             
             //Load id khach hang
             KhachHangTable = BUS_KhachHang.GetDataTable();
@@ -67,6 +68,7 @@ namespace QuanLyTiecCuoiUI
             //LoadSanhAndCa();
             LoadCa();
             LoadSanh();
+            LoadDichVu();
         }
 
        
@@ -88,7 +90,8 @@ namespace QuanLyTiecCuoiUI
 
         private void cboSanh_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            soLuongBanToiDa = BUS_QuanLySanh.GetSoLuongBanToiDa(cboSanh.Text);
+            donGiaBan = BUS_QuanLySanh.GetDonGiaBanToiThieu(cboSanh.Text);
         }
 
         //private void LoadMonAn()
@@ -107,22 +110,17 @@ namespace QuanLyTiecCuoiUI
 
         //    }
         //}
-        //private void LoadDichVu()
-        //{
-        //    try
-        //    {
-        //        dtDichVu = new DataTable();
-        //        dtDichVu = BUS_DichVu.GetDataTableDichVu();
-        //        cboDanhSachDichVu.DataSource = dtDichVu;
-        //        cboDanhSachDichVu.DisplayMember = dtDichVu.Columns["TenDichVu"].ToString();
-        //        cboDanhSachDichVu.ValueMember = dtDichVu.Columns["MaDichVu"].ToString();
-        //        cboDanhSachDichVu.SelectedIndex = 0;
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //    }
-        //}
+        private void LoadDichVu()
+        {
+            try
+            {
+                cbbDichVu.DataSource = BUS_DichVu.GetListDichVu();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Không thể tải danh sách dịch vụ. Vui lòng kiểm tra lại.", "Thông báo");
+            }
+        }
 
         //private void LoadSanhAndCa()
         //{

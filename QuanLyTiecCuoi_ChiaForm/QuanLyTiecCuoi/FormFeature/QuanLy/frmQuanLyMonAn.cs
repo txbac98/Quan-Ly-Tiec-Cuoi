@@ -15,76 +15,87 @@ namespace QuanLyTiecCuoiUI
 {
     public partial class frmQuanLyMonAn : Form
     {
-        private STATE currentState;
+
         private DataTable ResultTable;
-        private ImageList imgListMonAn = new ImageList();
-        private int itemSelect = -2;
         private string ImageLocationPath = string.Empty;
-        private string ImageInstance = string.Empty;
-        enum STATE
+        //private string ImageInstance = string.Empty;
+        private string IDTable = "MA";
+        bool thayDoiAnh;
+
+        //Convert Number to string for index
+
+        private string ConvertNumber(int state)
         {
-            WAITING,
-            INSERT,
-            EDIT,
-            CELLSELECTED
+            if (state <= 9) return '0' + state.ToString();
+            else
+                return state.ToString();
+        }
+
+        //Get next index in table
+        private string GetNextID(DataTable result)
+        {
+            try
+            {
+                return IDTable + (ConvertNumber(Int32.Parse(result.Rows[ResultTable.Rows.Count - 1].ItemArray[0].ToString().Substring(2)) + 1));
+            }
+            catch
+            {
+                return IDTable + "01";
+            }
         }
 
         public frmQuanLyMonAn()
         {
             InitializeComponent();
+            LoadDanhSachMonAn();
+            ClearInputs();
+            
         }
         private void frmQuanLyMonAn_Load(object sender, EventArgs e)
         {
             //Setup UI
-            SetupImageListView();
-            this.currentState = STATE.WAITING;
-            EnableFunctionsControl();
+            //LoadDanhSachMonAn();
+            
         }
+        void LoadDanhSachMonAn()
+        {
+            dgvDanhSachMonAn.ReadOnly = true;
+            dgvDanhSachMonAn.MultiSelect = false;
+            ResultTable = BUS_MonAn.GetDataTableMonAn();
+            dgvDanhSachMonAn.DataSource = ResultTable;
+            dgvDanhSachMonAn.Columns[0].Visible = false;
+            dgvDanhSachMonAn.Columns[1].HeaderText = "Tên món ăn";
+            dgvDanhSachMonAn.Columns[2].HeaderText = "Loại món ăn";
+            dgvDanhSachMonAn.Columns[3].HeaderText = "Đơn giá";
+            dgvDanhSachMonAn.Columns[4].HeaderText = "Ghi chú";
+            dgvDanhSachMonAn.Columns[5].Visible=false;
+            lblThongTinMaMonAn.Text = GetNextID(ResultTable);
+            ShowKetQua("Kết nối thành công.", true);
+        }
+        void UpdateDanhSachMonAn()
+        {
+            ResultTable = BUS_MonAn.GetDataTableMonAn();
+            dgvDanhSachMonAn.DataSource = ResultTable;
+            lblThongTinMaMonAn.Text = GetNextID(ResultTable);
+        }
+        void ShowKetQua(string skq, bool kq)
+        {
 
+            lblKetQua.Text = skq;
+            if (kq) lblKetQua.ForeColor = Color.Green;
+            else lblKetQua.ForeColor = Color.Red;
+        }
         #region Function
-        private void EnableInputsControl(bool flag)
-        {
-            //txtGhiChu.ReadOnly = txtDonGia.ReadOnly = txtTenMonAn.ReadOnly = !flag;
-            txtTenMonAn.Enabled = txtDonGia.Enabled = txtGhiChu.Enabled = flag;
-        }
-        private void EnableFunctionsControl()
-        {
-            if (this.currentState == STATE.WAITING)
-            {
-                lstHinhAnh.SelectedIndices.Clear();
-                btnThem.Enabled = true;
-                btnLuu.Enabled = btnHuy.Enabled = btnSua.Enabled = btnXoa.Enabled = btnChonAnh.Enabled = btnXoaAnh.Enabled = false;
-                EnableInputsControl(false);
-                ClearInputs();
-            }
-            else if (currentState == STATE.INSERT)
-            {
-                lstHinhAnh.SelectedIndices.Clear();
-                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
-                btnLuu.Enabled = btnHuy.Enabled = btnChonAnh.Enabled = btnXoaAnh.Enabled = true;
-                EnableInputsControl(true);
-                ClearInputs();
-            }
-            else if (this.currentState == STATE.EDIT)
-            {
-                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
-                btnLuu.Enabled = btnHuy.Enabled = true;
-                btnChonAnh.Enabled = btnXoaAnh.Enabled = true;
-                EnableInputsControl(true);
-            }
-            else if (this.currentState == STATE.CELLSELECTED)
-            {
-                btnLuu.Enabled = false;
-                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnHuy.Enabled = true;
-                EnableInputsControl(false);
-            }
-        }
+
         private void ClearInputs()
         {
+            btnThem.Visible = true;
+            btnSua.Visible = false;
+            btnXoa.Visible = false;
             txtDonGia.Text = txtTenMonAn.Text = txtGhiChu.Text = string.Empty;
-            ptrHinhAnh.Image = null;
-            lbThongTinHinhAnh.Text = string.Empty;
-            ptrHinhAnh.ImageLocation = string.Empty;
+            ptrHinhAnh.ImageLocation = @"DanhSachMonAn\Unknow.png";
+            lbThongTinHinhAnh.Text = "Unknow.png";
+            cbbLoaiMonAn.SelectedIndex = 0;
         }
         private bool InputsAreNull()
         {
@@ -105,18 +116,110 @@ namespace QuanLyTiecCuoiUI
         #region Button event
         private void btnThem_Click(object sender, EventArgs e)
         {
-            //Set state btnThem
-            this.currentState = STATE.INSERT;
-            EnableFunctionsControl();
-            txtTenMonAn.Focus();
+            //Check txtDonGia
+            double parsedValue;
+            if (!double.TryParse(txtDonGia.Text, out parsedValue))
+            {
+                ShowKetQua("Đơn giá - chỉ chấp nhận định dạng số!",false);
+                txtDonGia.ResetText();
+                return;
+            }
+            else if (txtDonGia.Text.Length > 18)
+            {
+                ShowKetQua("Đơn giá - không vượt quá 18 chữ số!",false);
+                txtDonGia.ResetText();
+                return;
+            }
+
+            //DTO Information
+            DTO_MonAn monAn;
+            if (thayDoiAnh)
+            {
+                string newImage = ImageLocationPath;
+                string nameOfImage = (lblThongTinMaMonAn.Text + Path.GetExtension(newImage));
+
+                //Duong dan file                
+                string desFileName = Path.Combine(@"DanhSachMonAn\", nameOfImage);
+
+                //Xoa anh cu neu da ton tai
+                if (!System.IO.Directory.Exists(desFileName))
+                {
+                    System.IO.File.Delete(desFileName);
+                }
+                //copy file
+                File.Copy(newImage, desFileName);
+                monAn = new DTO_MonAn(lblThongTinMaMonAn.Text, txtTenMonAn.Text, cbbLoaiMonAn.Text, txtDonGia.Text, txtGhiChu.Text, nameOfImage);
+            }
+            else monAn = new DTO_MonAn(lblThongTinMaMonAn.Text, txtTenMonAn.Text, cbbLoaiMonAn.Text, txtDonGia.Text, txtGhiChu.Text, lbThongTinHinhAnh.Text);
+
+            //INSERT
+
+            if (BUS_MonAn.InsertMonAn(monAn))
+            {
+                //lstHinhAnh.Refresh();
+                ClearInputs();
+                UpdateDanhSachMonAn();
+                ShowKetQua("Thêm thành công món ăn '" +txtTenMonAn.Text+"' !!",true);
+            }
+            else
+                ShowKetQua("Thêm thất bại. Vui lòng kiểm tra lại.",false);
+
+            
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-            //Set state Button
-            this.currentState = STATE.EDIT;
-            EnableFunctionsControl();
-            ImageInstance = ResultTable.Rows[itemSelect][3].ToString();
-        }
+
+            //Check txtDonGia - Number only
+            long parsedValue;
+            if (!long.TryParse(txtDonGia.Text, out parsedValue))
+            {
+                ShowKetQua("Đơn giá - chỉ chấp nhận định dạng số!",false);
+                txtDonGia.ResetText();
+                return;
+            }
+            else if (txtDonGia.Text.Length > 18)
+            {
+                ShowKetQua("Đơn giá - không vượt quá 18 chữ số!",false);
+                txtDonGia.ResetText();
+                return;
+            }
+
+            //NewImage
+            string NewImage = ImageLocationPath;
+
+            //DTO Information                
+            DTO_MonAn monAn;
+                if (thayDoiAnh)
+                {
+                    string newImage = ImageLocationPath;
+                    string nameOfImage = (lblThongTinMaMonAn.Text + Path.GetExtension(newImage));
+
+                    //Duong dan file                
+                    string desFileName = Path.Combine(@"DanhSachMonAn\", nameOfImage);
+
+                    //Xoa anh cu neu da ton tai
+                    if (!System.IO.Directory.Exists(desFileName))
+                    {
+                        System.IO.File.Delete(desFileName);
+                    }
+                    //copy file
+                    File.Copy(newImage, desFileName);
+                    monAn = new DTO_MonAn(lblThongTinMaMonAn.Text, txtTenMonAn.Text, cbbLoaiMonAn.Text, txtDonGia.Text, txtGhiChu.Text, nameOfImage);
+                }
+                else monAn = new DTO_MonAn(lblThongTinMaMonAn.Text, txtTenMonAn.Text, cbbLoaiMonAn.Text, txtDonGia.Text, txtGhiChu.Text, lbThongTinHinhAnh.Text);
+
+            //Update
+            if (BUS_MonAn.UpdateMonAn(monAn))
+            {
+                UpdateDanhSachMonAn();
+                ShowKetQua("Cập nhật thành công món ăn '" + monAn.MaMonAn + "' !!", true);
+                ClearInputs();
+            }
+            else
+            {
+                ShowKetQua("Cập nhật thất bại. Vui lòng kiểm tra lại.", false);
+            }
+    }
         private void btnXoa_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Bạn có muốn xóa món ăn này không?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -124,270 +227,27 @@ namespace QuanLyTiecCuoiUI
             {
                 try
                 {
-                    DTO_MonAn monAn = new DTO_MonAn();
-                    monAn.HinhAnh = ResultTable.Rows[itemSelect][3].ToString();
-                    monAn.MaMonAn = Int32.Parse(ResultTable.Rows[itemSelect][0].ToString());
+                    DTO_MonAn monAn = new DTO_MonAn(lblThongTinMaMonAn.Text, txtTenMonAn.Text, cbbLoaiMonAn.Text, txtDonGia.Text, txtGhiChu.Text, lbThongTinHinhAnh.Text);
 
                     //Check State of Image
-                    bool DeleteState = BUS_MonAn.DeleteMonAn(monAn);
-                    if (DeleteState)
-                    {
-                        DeleteImage();
-
-                        imgListMonAn.Dispose();
-                        lstHinhAnh.Items.Clear();
-                        SetupImageListView();
-
-                        MessageBox.Show("Xóa thành công!");
-                        this.currentState = STATE.WAITING;
-                        EnableFunctionsControl();
+                    if (BUS_MonAn.DeleteMonAn(monAn))
+                    { 
+                        ShowKetQua("Xóa thành công món ăn '"+monAn.TenMonAn+ "' !!",true);
+                        UpdateDanhSachMonAn();
+                        ClearInputs();
                     }
                     else
                     {
-                        MessageBox.Show("Xóa thất bại!\nItem vẫn đang được sử dụng ở PhieuDatBan, vui lòng kiểm tra lại!");
+                        ShowKetQua("Xóa thất bại, Item vẫn đang được sử dụng ở PhieuDatBan, vui lòng kiểm tra lại.",false);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Thao tác xóa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ShowKetQua("Xóa thất bại, vui lòng kiểm tra lại.", false);
                 }
             }
         }
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-            if (InputsAreNull())
-            {
-                MessageBox.Show("Vui lòng nhập đầy đủ!");
-                txtTenMonAn.Focus();
-            }
-
-            //INSERT State
-            else if (this.currentState == STATE.INSERT)
-            {
-                //Check txtDonGia
-                double parsedValue;
-                if (!double.TryParse(txtDonGia.Text, out parsedValue))
-                {
-                    MessageBox.Show("Đơn giá - chỉ chấp nhận định dạng số!");
-                    txtDonGia.ResetText();
-                    return;
-                }
-                else if (txtDonGia.Text.Length > 18)
-                {
-                    MessageBox.Show("Đơn giá - không vượt quá 18 chữ số!");
-                    txtDonGia.ResetText();
-                    return;
-                }
-
-                //Save image
-                bool stateSaveImage = true;
-                string newImage = ImageLocationPath;
-                try
-                {
-                    if (lbThongTinHinhAnh.Text == "")
-                    {
-                        lbThongTinHinhAnh.Text = "Unknow.png";
-                    }
-                    if (File.Exists(@"DanhSachMonAn\" + lbThongTinHinhAnh.Text))
-                    {
-                        stateSaveImage = false;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    lbThongTinHinhAnh.Text = "Unknow.png";
-                }
-
-                //DTO Information
-                string nameOfImage = (BUS_MonAn.LastIndex() + 1).ToString() + Path.GetExtension(newImage);
-                DTO_MonAn monAn = new DTO_MonAn();
-                monAn.TenMonAn = txtTenMonAn.Text;
-                monAn.DonGia = Convert.ToDecimal(txtDonGia.Text);
-                monAn.GhiChu = txtGhiChu.Text;
-                if (lbThongTinHinhAnh.Text == "Unknow.png")
-                {
-                    monAn.HinhAnh = "Unknow.png";
-                }
-                else
-                {
-                    monAn.HinhAnh = nameOfImage;
-                }
-
-                //INSERT
-                bool InsertState = BUS_MonAn.InsertMonAn(monAn);
-                if (InsertState)
-                {
-                    //Copy image to folder project                
-                    if (stateSaveImage)
-                    {
-                        try
-                        {
-                            string desFileName = Path.Combine(@"DanhSachMonAn\", nameOfImage);
-                            File.Copy(newImage, desFileName);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Thao tác thêm ảnh vào CSDL thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
-                    ResultTable = BUS_MonAn.GetDataTableMonAn();
-                    InsertNewImage(monAn);
-                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
-                }
-                else
-                    MessageBox.Show("Thêm thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
-
-                //lstHinhAnh.Refresh();
-                this.currentState = STATE.WAITING;
-                EnableFunctionsControl();
-                ClearInputs();
-            }
-
-            //UPDATE state
-            else if (this.currentState == STATE.EDIT)
-            {
-                //Check txtDonGia - Number only
-                double parsedValue;
-                if (!double.TryParse(txtDonGia.Text, out parsedValue))
-                {
-                    MessageBox.Show("Đơn giá - chỉ chấp nhận định dạng số!");
-                    txtDonGia.ResetText();
-                    return;
-                }
-                else if (txtDonGia.Text.Length > 18)
-                {
-                    MessageBox.Show("Đơn giá - không vượt quá 18 chữ số!");
-                    txtDonGia.ResetText();
-                    return;
-                }
-
-                //OldImage
-                string OldImage = ResultTable.Rows[itemSelect][3].ToString();
-                //NewImage
-                string NewImage = ImageLocationPath;
-
-                //DTO Information                
-                DTO_MonAn monAn = new DTO_MonAn();
-                monAn.MaMonAn = Int32.Parse(ResultTable.Rows[itemSelect][0].ToString());
-                monAn.TenMonAn = txtTenMonAn.Text;
-                monAn.DonGia = Convert.ToDecimal(txtDonGia.Text);
-                monAn.GhiChu = txtGhiChu.Text;
-                string nameOfImage = monAn.MaMonAn.ToString() + Path.GetExtension(NewImage);
-
-                //name HinhAnh
-                if (lbThongTinHinhAnh.Text == "")
-                {
-                    monAn.HinhAnh = "Unknow.png";
-                }
-                else
-                {
-                    //monAn.HinhAnh = lbThongTinHinhAnh.Text;
-                    monAn.HinhAnh = nameOfImage;
-                }
-
-                //UPDATE
-                bool UpdateState = BUS_MonAn.UpdateMonAn(monAn);
-                if (UpdateState)
-                {
-                    //Check [NewImage] with [OldImage]
-
-                    if (lbThongTinHinhAnh.Text != OldImage)
-                    {
-                        //DELETE OldImage and INSERT NewImage
-                        if (monAn.HinhAnh != "Unknow.png")
-                        {
-                            //DELETE OldImage
-                            try
-                            {
-                                string path2 = @"DanhSachMonAn\" + OldImage;
-                                GC.Collect();
-                                GC.WaitForPendingFinalizers();
-                                if (OldImage != "Unknow.png")
-                                    File.Delete(path2);
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Xóa ảnh thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
-                            }
-
-                            //INSERT NewImage
-                            try
-                            {
-                                string nameOfNewImage = monAn.MaMonAn.ToString() + Path.GetExtension(NewImage);
-                                string desFileName = Path.Combine(@"DanhSachMonAn\", nameOfNewImage);
-                                File.Copy(NewImage, desFileName);
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Thêm ảnh thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
-                            }
-                            UpdateImage(monAn);
-                        }
-                        else //monAn.HinhAnh == "Unknow.png" => Xóa ảnh [prevImage] (OldImage)
-                        {
-                            //DELETE OldImage
-                            try
-                            {
-                                string path2 = @"DanhSachMonAn\" + OldImage;
-                                GC.Collect();
-                                GC.WaitForPendingFinalizers();
-                                if (OldImage != "Unknow.png")
-                                    File.Delete(path2);
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Xóa ảnh thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.None);
-                            }
-
-                            int lastIndex = imgListMonAn.Images.Count;
-                            imgListMonAn.Images[itemSelect].Dispose();
-                            imgListMonAn.Images.Add(Image.FromFile(@"DanhSachMonAn\Unknow.png"));
-                            imgListMonAn.Images[itemSelect] = imgListMonAn.Images[lastIndex];
-                            imgListMonAn.Images.RemoveAt(lastIndex);
-                            lstHinhAnh.LargeImageList = imgListMonAn;
-                            lstHinhAnh.Items[itemSelect].Text = monAn.TenMonAn;
-                            lstHinhAnh.Refresh();
-                        }
-                    }
-                    else
-                    {
-                        lbThongTinHinhAnh.Text = OldImage;
-                        lstHinhAnh.Items[itemSelect].Text = monAn.TenMonAn;
-                        lstHinhAnh.Refresh();
-                    }
-
-                    ResultTable = BUS_MonAn.GetDataTableMonAn();
-                    this.currentState = STATE.WAITING;
-                    EnableFunctionsControl();
-                    MessageBox.Show("Cập nhật thành công!");
-                }
-                else
-                {
-                    MessageBox.Show("Cập nhật thất bại!");
-                }
-            }
-        }
-        private void btnHuy_Click(object sender, EventArgs e)
-        {
-            if (this.currentState == STATE.INSERT || this.currentState == STATE.EDIT)
-            {
-                DialogResult confirm = MessageBox.Show("Bạn có muốn hủy không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (confirm == DialogResult.Yes)
-                {
-                    this.currentState = STATE.WAITING;
-                    EnableFunctionsControl();
-                }
-                else if (confirm == DialogResult.No)
-                {
-                    return;
-                }
-            }
-            else
-            {
-                this.currentState = STATE.WAITING;
-                EnableFunctionsControl();
-            }
-        }
+        
         #endregion       
 
         #region Button group HinhAnh
@@ -403,161 +263,85 @@ namespace QuanLyTiecCuoiUI
                 ImageLocationPath = dialog.FileName;
                 lbThongTinHinhAnh.Text = dialog.SafeFileName;
                 ptrHinhAnh.ImageLocation = dialog.FileName;
+                thayDoiAnh = true;
             }
         }
 
         private void btnXoaAnh_Click(object sender, EventArgs e)
         {
-            lbThongTinHinhAnh.Text = string.Empty;
+            lbThongTinHinhAnh.Text = "Unknow.png";
             ptrHinhAnh.ImageLocation = @"DanhSachMonAn\Unknow.png";
         }
         #endregion
-
-        #region Event ImageList Insert, Edit, Delete
-        private void InsertNewImage(DTO_MonAn monAn)
-        {
-            try
-            {
-                imgListMonAn.Images.Add(monAn.TenMonAn, Image.FromFile(@"DanhSachMonAn\" + monAn.HinhAnh));
-                imgListMonAn.ImageSize = new Size(90, 90);
-                lstHinhAnh.LargeImageList = imgListMonAn;
-                lstHinhAnh.Refresh();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Hiển thị hình ảnh thất bại");
-            }
-
-            //Add item (text + index) to lstHinhAnh
-            ListViewItem item = new ListViewItem();
-            item.ImageIndex = ResultTable.Rows.Count - 1;
-            item.Text = monAn.TenMonAn;
-            lstHinhAnh.Items.Add(item);
-            lstHinhAnh.Refresh();
-        }
-        /// <summary>
-        /// Delete image at itemSelect (from imgListMonAn, lstHinhAnh)
-        /// </summary>
-        private void DeleteImage()
-        {
-            try
-            {
-                //imgListMonAn.Images.RemoveAt(itemSelect);
-                //lstHinhAnh.Items.RemoveAt(itemSelect);
-
-                //DELETE image
-                string path = @"DanhSachMonAn\" + ResultTable.Rows[itemSelect][3].ToString();
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
-                if (File.Exists(path))
-                {
-                    if (ResultTable.Rows[itemSelect][3].ToString() != "Unknow.png")
-                    {
-                        File.Delete(path);
-                    }
-                }
-
-                //if (ResultTable.Rows[itemSelect][3].ToString() != "Unknow.png")
-                //    File.Delete(path);
-            }
-            catch (IOException ex)
-            {
-                MessageBox.Show("Xóa ảnh thất bại!");
-                return;
-            }
-        }
-        private void UpdateImage(DTO_MonAn monAn)
-        {
-            try
-            {
-                ptrHinhAnh.Image = Image.FromFile(ImageLocationPath);
-                int lastIndex = imgListMonAn.Images.Count;
-                imgListMonAn.Images[itemSelect].Dispose();
-                imgListMonAn.Images.Add(Image.FromFile(ImageLocationPath));
-
-                imgListMonAn.Images[itemSelect] = imgListMonAn.Images[lastIndex];
-                imgListMonAn.Images.RemoveAt(lastIndex);
-
-                lstHinhAnh.LargeImageList = imgListMonAn;
-                lstHinhAnh.Items[itemSelect].Text = monAn.TenMonAn;
-                lstHinhAnh.Refresh();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Cập nhật hình ảnh thất bại!");
-            }
-        }
-        #endregion
-
-        #region Setup ListView
-        private void GetDataMonAnCurrent()
-        {
-            ResultTable = BUS_MonAn.GetDataTableMonAn();
-        }
-        private void SetupImageListView()
-        {
-            //lst image
-            GetDataMonAnCurrent();
-            lstHinhAnh.View = View.Tile;
-            lstHinhAnh.TileSize = new Size(260, 100);
-
-            //Get list Image
-            for (int i = 0; i < ResultTable.Rows.Count; i++)
-            {
-                try
-                {
-                    imgListMonAn.Images.Add(ResultTable.Rows[i][1].ToString(), Image.FromFile(@"DanhSachMonAn\" + ResultTable.Rows[i][3].ToString()));
-                }
-                catch (Exception ex)
-                {
-                    imgListMonAn.Images.Add(ResultTable.Rows[i][1].ToString(), Image.FromFile(@"DanhSachMonAn\Unknow.png"));
-                }
-
-                imgListMonAn.ImageSize = new Size(90, 90);
-                lstHinhAnh.LargeImageList = imgListMonAn;
-            }
-
-            //Add list Image to list view
-            for (int i = 0; i < imgListMonAn.Images.Count; i++)
-            {
-                ListViewItem item = new ListViewItem();
-                item.ImageIndex = i;
-                item.Text = ResultTable.Rows[i][1].ToString();
-                lstHinhAnh.Items.Add(item);
-            }
-        }
-        #endregion
-
-        private void lstHinhAnh_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (currentState == STATE.INSERT)
-                return;
-
-            try
-            {
-                this.currentState = STATE.CELLSELECTED;
-                EnableFunctionsControl();
-
-                if (lstHinhAnh.FocusedItem.Index == -1) return;
-
-                //itemSelect
-                int currentItem = itemSelect = lstHinhAnh.FocusedItem.Index;
-                txtTenMonAn.Text = ResultTable.Rows[currentItem][1].ToString();
-                txtDonGia.Text = ResultTable.Rows[currentItem][2].ToString();
-                txtGhiChu.Text = ResultTable.Rows[currentItem][4].ToString();
-                lbThongTinHinhAnh.Text = ResultTable.Rows[currentItem][3].ToString();
-                ptrHinhAnh.ImageLocation = @"DanhSachMonAn\" + ResultTable.Rows[currentItem][3].ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Thao tác thất bại " + itemSelect.ToString());
-                return;
-            }
-        }
+       
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
 
         }
+
+        void ShowDataCell(int row)
+        {
+            thayDoiAnh = false;
+            btnThem.Visible = false;
+            btnSua.Visible = true;
+            btnXoa.Visible = true;
+            lblThongTinMaMonAn.Text = dgvDanhSachMonAn[0, row].Value.ToString();
+            txtTenMonAn.Text = dgvDanhSachMonAn[1, row].Value.ToString();
+
+            cbbLoaiMonAn.Text = dgvDanhSachMonAn[2, row].Value.ToString();
+            txtDonGia.Text = dgvDanhSachMonAn[3, row].Value.ToString();
+            txtGhiChu.Text = dgvDanhSachMonAn[4, row].Value.ToString();
+
+            lbThongTinHinhAnh.Text = dgvDanhSachMonAn[5, row].Value.ToString();
+            ptrHinhAnh.ImageLocation = @"DanhSachMonAn/" + lbThongTinHinhAnh.Text;
+        }
+        private void dgvDanhSachMonAn_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                ShowDataCell(e.RowIndex);
+            }
+        }
+
+        private void llbThemMoi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ClearInputs();
+            lblThongTinMaMonAn.Text = GetNextID(ResultTable);
+
+        }
+
+        #region Tim Kiem
+        private void txtTenMonAn_TimKiem_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTenMonAn_TimKiem.Text == " ") txtTenMonAn_TimKiem.Text = "";
+            else    dgvDanhSachMonAn.DataSource = BUS_MonAn.SearchMonAn(txtTenMonAn_TimKiem.Text, cbbLoaiMonAn_TimKiem.Text);           
+        }
+        private void cbbLoaiMonAn_TimKiem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvDanhSachMonAn.DataSource = BUS_MonAn.SearchMonAn(txtTenMonAn_TimKiem.Text, cbbLoaiMonAn_TimKiem.Text);
+        }
+
+        #endregion
+
+        private void btnXoaTimKiem_Click(object sender, EventArgs e)
+        {
+            txtTenMonAn_TimKiem.Text = "";
+            cbbLoaiMonAn_TimKiem.Text = "";
+            UpdateDanhSachMonAn();
+        }
+
+        #region Xoa dau cach
+        private void txtTenMonAn_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTenMonAn.Text == " ") txtTenMonAn.Text = "";
+        }
+        private void txtGhiChu_TextChanged(object sender, EventArgs e)
+        {
+            if (txtGhiChu.Text == " ") txtGhiChu.Text = "";
+        }
+        #endregion
+
+
     }
 }

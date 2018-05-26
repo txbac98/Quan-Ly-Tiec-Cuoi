@@ -8,3 +8,8 @@ D:\Github\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecC
 D:\Github\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
 D:\Github\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDTO\obj\Debug\DTO.dll
 D:\Github\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDTO\obj\Debug\DTO.pdb
+D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDTO\bin\Debug\DTO.dll
+D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDTO\bin\Debug\DTO.pdb
+D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
+D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDTO\obj\Debug\DTO.dll
+D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiDTO\obj\Debug\DTO.pdb

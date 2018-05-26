@@ -89,7 +89,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbbDichVu = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.btnHuyTatCa = new System.Windows.Forms.Button();
             this.lblNhanVienLapTiec = new System.Windows.Forms.Label();
@@ -651,7 +651,7 @@
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.pictureBox1);
             this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Controls.Add(this.comboBox1);
+            this.groupBox4.Controls.Add(this.cbbDichVu);
             this.groupBox4.Location = new System.Drawing.Point(520, 31);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(280, 220);
@@ -742,14 +742,14 @@
             this.label14.TabIndex = 1;
             this.label14.Text = "Dịch vụ";
             // 
-            // comboBox1
+            // cbbDichVu
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(68, 23);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(206, 21);
-            this.comboBox1.TabIndex = 0;
+            this.cbbDichVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbDichVu.FormattingEnabled = true;
+            this.cbbDichVu.Location = new System.Drawing.Point(68, 23);
+            this.cbbDichVu.Name = "cbbDichVu";
+            this.cbbDichVu.Size = new System.Drawing.Size(206, 21);
+            this.cbbDichVu.TabIndex = 0;
             // 
             // label15
             // 
@@ -1278,7 +1278,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbbDichVu;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btnHuyTatCa;
         private System.Windows.Forms.Label lblNhanVienLapTiec;

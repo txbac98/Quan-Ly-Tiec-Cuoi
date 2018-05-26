@@ -113,7 +113,14 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
         }
 
         #region Them, Sua, Xoa
-
+        //Chỉ nhập số_Đơn giá
+        private void txtDienThoai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
         private void llbThemMoi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 

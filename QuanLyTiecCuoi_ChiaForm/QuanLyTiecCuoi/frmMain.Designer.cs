@@ -39,8 +39,9 @@
             this.btLoaiSanh = new System.Windows.Forms.Button();
             this.btnNhanVien = new System.Windows.Forms.Button();
             this.grbChucNang = new System.Windows.Forms.GroupBox();
-            this.btnTiec = new System.Windows.Forms.Button();
             this.btnDatTiec = new System.Windows.Forms.Button();
+            this.btnTiec = new System.Windows.Forms.Button();
+            this.btnMonAn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.grbQuanLy.SuspendLayout();
             this.grbChucNang.SuspendLayout();
@@ -97,6 +98,7 @@
             // 
             // grbQuanLy
             // 
+            this.grbQuanLy.Controls.Add(this.btnMonAn);
             this.grbQuanLy.Controls.Add(this.btLoaiSanh);
             this.grbQuanLy.Controls.Add(this.btnNhanVien);
             this.grbQuanLy.Controls.Add(this.btSanh);
@@ -140,15 +142,6 @@
             this.grbChucNang.TabStop = false;
             this.grbChucNang.Text = "Chức năng";
             // 
-            // btnTiec
-            // 
-            this.btnTiec.Location = new System.Drawing.Point(16, 45);
-            this.btnTiec.Name = "btnTiec";
-            this.btnTiec.Size = new System.Drawing.Size(75, 23);
-            this.btnTiec.TabIndex = 14;
-            this.btnTiec.Text = "Tiệc";
-            this.btnTiec.UseVisualStyleBackColor = true;
-            // 
             // btnDatTiec
             // 
             this.btnDatTiec.Location = new System.Drawing.Point(16, 157);
@@ -158,6 +151,25 @@
             this.btnDatTiec.Text = "Đặt tiệc";
             this.btnDatTiec.UseVisualStyleBackColor = true;
             this.btnDatTiec.Click += new System.EventHandler(this.btnDatTiec_Click);
+            // 
+            // btnTiec
+            // 
+            this.btnTiec.Location = new System.Drawing.Point(16, 45);
+            this.btnTiec.Name = "btnTiec";
+            this.btnTiec.Size = new System.Drawing.Size(75, 23);
+            this.btnTiec.TabIndex = 14;
+            this.btnTiec.Text = "Tiệc";
+            this.btnTiec.UseVisualStyleBackColor = true;
+            // 
+            // btnMonAn
+            // 
+            this.btnMonAn.Location = new System.Drawing.Point(20, 213);
+            this.btnMonAn.Name = "btnMonAn";
+            this.btnMonAn.Size = new System.Drawing.Size(75, 23);
+            this.btnMonAn.TabIndex = 17;
+            this.btnMonAn.Text = "Món ăn";
+            this.btnMonAn.UseVisualStyleBackColor = true;
+            this.btnMonAn.Click += new System.EventHandler(this.btnMonAn_Click);
             // 
             // frmMain
             // 
@@ -193,6 +205,7 @@
         private System.Windows.Forms.Button btnTiec;
         private System.Windows.Forms.Button btLoaiSanh;
         private System.Windows.Forms.Button btnDatTiec;
+        private System.Windows.Forms.Button btnMonAn;
     }
 }
 

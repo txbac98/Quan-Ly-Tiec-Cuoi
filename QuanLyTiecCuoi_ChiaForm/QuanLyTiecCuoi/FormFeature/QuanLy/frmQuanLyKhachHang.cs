@@ -116,7 +116,30 @@ namespace QuanLyTiecCuoiUI
             else lbKetQua.ForeColor = Color.Red;
         }
 
- 
+        #region Kiem tra giu lieu nhap
+        //Chỉ nhập số
+        private void txtNamSinhChuRe_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtNamSinhCoDau_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtDienThoai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        #endregion
         #region Them, Sua, Xoa
 
         private void llbThemMoi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

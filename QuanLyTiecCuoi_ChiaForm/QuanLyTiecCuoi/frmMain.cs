@@ -86,5 +86,11 @@ namespace QuanLyTiecCuoiUI
             frmNhanDatTiecCuoi frmNDTC = new frmNhanDatTiecCuoi();
             frmNDTC.Show();
         }
+
+        private void btnMonAn_Click(object sender, EventArgs e)
+        {
+            frmQuanLyMonAn frmQLMA = new frmQuanLyMonAn();
+            frmQLMA.Show();
+        }
     }
 }

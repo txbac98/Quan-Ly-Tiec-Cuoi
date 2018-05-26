@@ -47,6 +47,14 @@ namespace BUS
             return mListMaSanh;
         }
 
+        public static string GetSoLuongBanToiDa(string maSanh)
+        {
+            return DAO_QuanLySanh.GetSoLuongBanToiDa(maSanh);
+        }
+        public static string GetDonGiaBanToiThieu(string maSanh)
+        {
+            return DAO_QuanLySanh.GetDonGiaBanToiThieu(maSanh);
+        }
 
         public static bool InsertSanh(DTO_Sanh sanh)
         {

@@ -32,7 +32,20 @@ namespace DAO
             return DatabaseHelper.GetData(sqlCommand);
 
         }
-
+        public static string GetSoLuongBanToiDa(string maSanh)
+        {
+            DataTable result;
+            string sqlCommand = string.Format(@"SELECT SoLuongBanToiDa from SANH where MaSanh=N'{0}'", maSanh);
+            result = DatabaseHelper.GetData(sqlCommand);
+            return result.Rows[0][0].ToString();
+        }
+        public static string GetDonGiaBanToiThieu(string maSanh)
+        {
+            DataTable result;
+            string sqlCommand = string.Format(@"SELECT DonGiaBan from SANH where MaSanh=N'{0}'", maSanh);
+            result = DatabaseHelper.GetData(sqlCommand);
+            return result.Rows[0][0].ToString();
+        }
         public static bool InsertSanh(DTO_Sanh sanh)
         {
             //string sqlCommand = @"SELECT * FROM LoaiSanh";

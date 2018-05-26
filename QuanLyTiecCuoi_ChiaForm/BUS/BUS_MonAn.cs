@@ -15,21 +15,33 @@ namespace BUS
         {
             return DAO_MonAn.GetDataTableMonAn();
         }
+        public static DataTable SearchMonAn(string tenMonAn, string loaiMonAn)
+        {
+            return DAO_MonAn.SearchMonAn(tenMonAn,loaiMonAn);
+        }
         public static bool InsertMonAn(DTO_MonAn monAn)
         {
-            return DAO_MonAn.InsertMonAn(monAn);
+            if (!TenMonAnIsExistInMonAn(monAn.TenMonAn))
+                return DAO_MonAn.InsertMonAn(monAn);
+            return false;
         }
         public static bool UpdateMonAn(DTO_MonAn monAn)
         {
-            return DAO_MonAn.UpdateMonAn(monAn);
+            if (!TenMonAnIsExistInMonAn(monAn.TenMonAn))
+                return DAO_MonAn.UpdateMonAn(monAn);
+            return false;
         }
         public static bool DeleteMonAn(DTO_MonAn monAn)
         {
             return DAO_MonAn.DeleteMonAn(monAn);
         }
-        public static int LastIndex()
+        public static bool TenMonAnIsExistInMonAn(string tenMonAn)
         {
-            return DAO_MonAn.LastIndex();
+            return DAO_MonAn.TenMonAnIsExistInMonAn(tenMonAn);
         }
+        //public static int LastIndex()
+        //{
+        //    return DAO_MonAn.LastIndex();
+        //}
     }
 }
