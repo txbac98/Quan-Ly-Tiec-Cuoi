@@ -23,7 +23,7 @@ namespace DAO
         }
         public static bool InsertMonAn(DTO_MonAn monAn)
         {
-            string query = String.Format(@"INSERT INTO MONAN (MaMonAn,TenMonAn,LoaiMonAn, DonGia, GhiChu, HinhAnh) VALUES ('{0}', N'{1}', N'{2}', {3},N'{4}',N'{5}')",
+            string query = String.Format(@"INSERT INTO MONAN (MaMA,TenMonAn,LoaiMonAn, DonGia, GhiChu, HinhAnh) VALUES ('{0}', N'{1}', N'{2}', {3},N'{4}',N'{5}')",
               monAn.MaMonAn,  monAn.TenMonAn, monAn.LoaiMonAn, monAn.DonGia, monAn.GhiChu, monAn.HinhAnh);
             try
             {
@@ -40,7 +40,7 @@ namespace DAO
 
         public static bool UpdateMonAn(DTO_MonAn monAn)
         {
-            string query = String.Format(@"UPDATE MONAN SET TenMonAn=N'{0}',LoaiMonAn=N'{1}', DonGia={2}, GhiChu=N'{3}', HinhAnh=N'{4}' WHERE MaMonAn='{5}'",
+            string query = String.Format(@"UPDATE MONAN SET TenMonAn=N'{0}',LoaiMonAn=N'{1}', DonGia={2}, GhiChu=N'{3}', HinhAnh=N'{4}' WHERE MaMA='{5}'",
                 monAn.TenMonAn,monAn.LoaiMonAn, monAn.DonGia, monAn.GhiChu, monAn.HinhAnh, monAn.MaMonAn);
             try
             {
@@ -56,7 +56,7 @@ namespace DAO
         }
         public static bool DeleteMonAn(DTO_MonAn monAn)
         {
-            string query = String.Format(@"DELETE FROM MonAn WHERE MaMonAn='{0}'", monAn.MaMonAn);
+            string query = String.Format(@"DELETE FROM MonAn WHERE MaMA='{0}'", monAn.MaMonAn);
             try
             {
                 int state = DatabaseHelper.ExcuteSql(query);

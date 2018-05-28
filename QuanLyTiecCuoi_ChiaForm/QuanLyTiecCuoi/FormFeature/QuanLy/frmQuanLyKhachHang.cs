@@ -59,6 +59,7 @@ namespace QuanLyTiecCuoiUI
             LoadDataGridView();
 
             lblThongTinMaKhachHang.Text = GetNextID(ResultTable);
+            ShowKetQua("Kết nối thành công !!", true);
         }
         private void frmQuanLyKhachHang_Load(object sender, EventArgs e)
         {
@@ -71,6 +72,7 @@ namespace QuanLyTiecCuoiUI
         //Load DatagridView
         private void LoadDataGridView()
         {
+
             ResultTable = BUS_KhachHang.GetDataTable();
             dgvDanhSachKhachHang.DataSource = ResultTable;
             dgvDanhSachKhachHang.Columns[0].HeaderText = "Mã KH";
@@ -84,7 +86,7 @@ namespace QuanLyTiecCuoiUI
 
             //dgvDanhSachKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDanhSachKhachHang.ReadOnly = true;
-            //dgvDanhSachKhachHang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvDanhSachKhachHang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDanhSachKhachHang.MultiSelect = false;
         }
 
@@ -97,9 +99,9 @@ namespace QuanLyTiecCuoiUI
 
         void ClearDuLieuNhap()
         {
-            btnThem.Visible = true;
-            btnCapNhat.Visible = false;
-            btnXoa.Visible = false;
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
 
             txtTenChuRe.Text = "";
             txtTenCoDau.Text = "";
@@ -228,9 +230,9 @@ namespace QuanLyTiecCuoiUI
         //Chon hang tren data 
         private void ShowDataCell(int row)
         {
-            btnThem.Visible = false;
-            btnCapNhat.Visible = true;
-            btnXoa.Visible = true;
+            btnThem.Enabled = false;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
             lblThongTinMaKhachHang.Text = dgvDanhSachKhachHang[0, row].Value.ToString();
             txtTenChuRe.Text = dgvDanhSachKhachHang[1, row].Value.ToString();
             txtNamSinhChuRe.Text = dgvDanhSachKhachHang[2, row].Value.ToString();
@@ -240,11 +242,14 @@ namespace QuanLyTiecCuoiUI
             txtDiaChi.Text = dgvDanhSachKhachHang[6, row].Value.ToString();
         }
         private void dgvDanhSachKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int rowS = e.RowIndex;
-            if (rowS >= 0)
+        { 
+            if (e.RowIndex >= dgvDanhSachKhachHang.RowCount - 1)
             {
-                ShowDataCell(rowS);
+                ClearDuLieuNhap();
+            }
+            else if (e.RowIndex > -1)
+            {
+                ShowDataCell(e.RowIndex);
             }
         }
 
@@ -291,9 +296,6 @@ namespace QuanLyTiecCuoiUI
             dgvDanhSachKhachHang.DataSource = BUS_KhachHang.SearchKhachHangTheoTen(txbTenChuRe_TimKiem.Text, txbTenCoDau_TimKiem.Text);
         }
         #endregion
-
-
-
 
         #region Kiem tra du lieu nhap
         private void txtTenChuRe_TextChanged(object sender, EventArgs e)

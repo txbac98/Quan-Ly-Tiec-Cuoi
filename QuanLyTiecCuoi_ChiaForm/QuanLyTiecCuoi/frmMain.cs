@@ -66,20 +66,16 @@ namespace QuanLyTiecCuoiUI
 
         private void btCa_Click(object sender, EventArgs e)
         {
-            frmCa frmca = new frmCa();
-            frmca.Show();
+            frmQuanLyCa frmQLC = new frmQuanLyCa();
+            frmQLC.Show();
         }
 
         private void btSanh_Click(object sender, EventArgs e)
         {
-           
+            frmQuanLySanh frmQLS = new frmQuanLySanh();
+            frmQLS.Show();
         }
 
-        private void btLoaiSanh_Click(object sender, EventArgs e)
-        {
-            frmQuanLyLoaiSanh frmQLLSanh = new frmQuanLyLoaiSanh();
-            frmQLLSanh.Show();
-        }
 
         private void btnDatTiec_Click(object sender, EventArgs e)
         {
@@ -91,6 +87,18 @@ namespace QuanLyTiecCuoiUI
         {
             frmQuanLyMonAn frmQLMA = new frmQuanLyMonAn();
             frmQLMA.Show();
+        }
+
+        private void btnDichVu_Click(object sender, EventArgs e)
+        {
+            frmQuanLyDichVu frmQLDV = new frmQuanLyDichVu();
+            frmQLDV.Show();
+        }
+
+        private void btnChucVu_Click(object sender, EventArgs e)
+        {
+            frmQuanLyChucVu frmQLCV = new frmQuanLyChucVu();
+            frmQLCV.Show();
         }
     }
 }

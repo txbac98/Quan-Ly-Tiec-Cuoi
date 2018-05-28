@@ -16,7 +16,7 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
     public partial class frmQuanLyNhanVien : Form
     {
         bool thayDoiAnh = false;
-        private string IDTable = "NV";
+        public string IDTable = "NV";
 
         private DataTable ResultTable;
 
@@ -52,17 +52,20 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
         public frmQuanLyNhanVien()
         {
             InitializeComponent();
-
+            BUS_QuanLyChucVu.Init();
+            
             LoadDataGridView();
-
             ClearDuLieuNhap();
-
             rbtNam.Checked = true;
             lblThongTinMaNhanVien.Text = GetNextID(ResultTable);
+            ShowKetQua("Kết nối thành công !!", true);
         }
         #region Data
         private void LoadDataGridView()
         {
+            cbbChucVu.DataSource = BUS_QuanLyChucVu.GetListChucVu();
+            cbbChucVu_TimKiem.DataSource= BUS_QuanLyChucVu.GetListChucVu_TimKiem();
+            //cbbChucVu_TimKiem.Items.Add("");
             ResultTable = BUS_QuanLyNhanVien.GetDataTable();
             dgvDanhSachNhanVien.DataSource = ResultTable;
             dgvDanhSachNhanVien.Columns[0].HeaderText = "Mã NV";
@@ -76,6 +79,7 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
 
 
             //Khong cho chinh sua tren dgv, khong cho chon nhieu hang
+            dgvDanhSachNhanVien.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDanhSachNhanVien.ReadOnly = true;
             dgvDanhSachNhanVien.MultiSelect = false;
         }
@@ -83,15 +87,20 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
         //Update datagridview
         private void UpDateDataGridView()
         {
+            
+            cbbChucVu.DataSource = BUS_QuanLyChucVu.GetListChucVu();
+            cbbChucVu_TimKiem.DataSource = BUS_QuanLyChucVu.GetListChucVu_TimKiem();
             ResultTable = BUS_QuanLyNhanVien.GetDataTable();
             dgvDanhSachNhanVien.DataSource = ResultTable;
+            dgvDanhSachNhanVien.Sort(dgvDanhSachNhanVien.Columns["STT"], System.ComponentModel.ListSortDirection.Descending);
+            ClearDuLieuNhap();
         }
         #endregion
         void ClearDuLieuNhap()
         {
-            btnThem.Visible = true;
-            btnSua.Visible = false;
-            btnXoa.Visible = false;
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
             lblThongTinMaNhanVien.Text = GetNextID(ResultTable);
             txtTenNhanVien.Text = "";
             rbtNam.Checked = true;
@@ -101,6 +110,9 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
             ptrHinhAnh.ImageLocation = @"DanhSachNhanVien/Unknow.png";
             lbThongTinHinhAnh.Text = "Unknow.png";
             //ptrHinhAnh.Image = QuanLyTiecCuoiUI.Properties.Resources.avatar;
+
+            txtMaNV_TimKiem.Text = txtTenNhanVien_TimKiem.Text = cbbChucVu_TimKiem.Text = "";
+            rbtRong.Checked = true;
         }
 
 
@@ -204,7 +216,7 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
             DTO_NhanVien nhanVien = new DTO_NhanVien(lblThongTinMaNhanVien.Text, txtTenNhanVien.Text,
                     GetGioiTinh(), GetNgaySinh(), cbbChucVu.Text, txtDienThoai.Text, txtDiaChi.Text, lbThongTinHinhAnh.Text);
 
-            if (thayDoiAnh)
+            if (lbThongTinHinhAnh.Text!="Unknow.png" && thayDoiAnh)
             {
                 string newImage = ImageLocationPath;
                 string nameOfImage = (lblThongTinMaNhanVien.Text + Path.GetExtension(newImage));
@@ -236,9 +248,9 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
         private void ShowDataCell(int row)
         {
             thayDoiAnh = false;
-            btnThem.Visible = false;
-            btnSua.Visible = true;
-            btnXoa.Visible = true;
+            btnThem.Enabled = false;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
             lblThongTinMaNhanVien.Text = dgvDanhSachNhanVien[0, row].Value.ToString();
             txtTenNhanVien.Text = dgvDanhSachNhanVien[1, row].Value.ToString();
 
@@ -266,8 +278,9 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
 
             DTO_NhanVien nhanVien;
 
-            if (thayDoiAnh)
+            if (lbThongTinHinhAnh.Text!="Unknow.png" && thayDoiAnh)
             {
+    
                 string newImage = ImageLocationPath;
                 string nameOfImage = (lblThongTinMaNhanVien.Text + Path.GetExtension(newImage));
 
@@ -282,8 +295,8 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
                 //copy file
                 File.Copy(newImage, desFileName);
                 nhanVien = new DTO_NhanVien(lblThongTinMaNhanVien.Text, txtTenNhanVien.Text,
-                     GetGioiTinh(), GetNgaySinh(), cbbChucVu.Text, txtDienThoai.Text, txtDiaChi.Text, nameOfImage);
-            }
+                        GetGioiTinh(), GetNgaySinh(), cbbChucVu.Text, txtDienThoai.Text, txtDiaChi.Text, nameOfImage);
+            }         
             else nhanVien = new DTO_NhanVien(lblThongTinMaNhanVien.Text, txtTenNhanVien.Text,
                      GetGioiTinh(), GetNgaySinh(), cbbChucVu.Text, txtDienThoai.Text, txtDiaChi.Text, lbThongTinHinhAnh.Text);
 
@@ -402,7 +415,24 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
         {
             dgvDanhSachNhanVien.DataSource = BUS_QuanLyNhanVien.SearchNhanVienTheoThongTin(txtTenNhanVien_TimKiem.Text, "", cbbChucVu_TimKiem.Text);
         }
+        private void btnXoaTimKiem_Click(object sender, EventArgs e)
+        {
+            txtMaNV_TimKiem.Text = txtTenNhanVien_TimKiem.Text = cbbChucVu_TimKiem.Text = "";
+            UpDateDataGridView();
+        }
 
         #endregion
+
+        private void lbKetQua_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbbChucVu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IDTable = BUS_QuanLyChucVu.GetMaChucVu(cbbChucVu.Text);
+            DataTable ResultChucVu = BUS_QuanLyNhanVien.SearchNhanVienTheoThongTin("", "", cbbChucVu.Text);
+            lblThongTinMaNhanVien.Text = GetNextID(ResultChucVu);
+        }
     }
 }

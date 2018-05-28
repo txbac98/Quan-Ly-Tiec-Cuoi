@@ -25,9 +25,10 @@ namespace BUS
                 return DAO_MonAn.InsertMonAn(monAn);
             return false;
         }
-        public static bool UpdateMonAn(DTO_MonAn monAn)
+        public static bool UpdateMonAn(DTO_MonAn monAn, string tenMonAnCu)
         {
-            if (!TenMonAnIsExistInMonAn(monAn.TenMonAn))
+            if (monAn.TenMonAn==tenMonAnCu) return DAO_MonAn.UpdateMonAn(monAn);
+            if (!TenMonAnIsExistInMonAn(tenMonAnCu))
                 return DAO_MonAn.UpdateMonAn(monAn);
             return false;
         }

@@ -36,12 +36,13 @@
             this.btnKhachHang = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.grbQuanLy = new System.Windows.Forms.GroupBox();
-            this.btLoaiSanh = new System.Windows.Forms.Button();
+            this.btnDichVu = new System.Windows.Forms.Button();
+            this.btnMonAn = new System.Windows.Forms.Button();
             this.btnNhanVien = new System.Windows.Forms.Button();
             this.grbChucNang = new System.Windows.Forms.GroupBox();
             this.btnDatTiec = new System.Windows.Forms.Button();
             this.btnTiec = new System.Windows.Forms.Button();
-            this.btnMonAn = new System.Windows.Forms.Button();
+            this.btnChucVu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.grbQuanLy.SuspendLayout();
             this.grbChucNang.SuspendLayout();
@@ -98,8 +99,9 @@
             // 
             // grbQuanLy
             // 
+            this.grbQuanLy.Controls.Add(this.btnChucVu);
+            this.grbQuanLy.Controls.Add(this.btnDichVu);
             this.grbQuanLy.Controls.Add(this.btnMonAn);
-            this.grbQuanLy.Controls.Add(this.btLoaiSanh);
             this.grbQuanLy.Controls.Add(this.btnNhanVien);
             this.grbQuanLy.Controls.Add(this.btSanh);
             this.grbQuanLy.Controls.Add(this.btCa);
@@ -110,15 +112,25 @@
             this.grbQuanLy.TabStop = false;
             this.grbQuanLy.Text = "Quản lý";
             // 
-            // btLoaiSanh
+            // btnDichVu
             // 
-            this.btLoaiSanh.Location = new System.Drawing.Point(20, 174);
-            this.btLoaiSanh.Name = "btLoaiSanh";
-            this.btLoaiSanh.Size = new System.Drawing.Size(75, 23);
-            this.btLoaiSanh.TabIndex = 16;
-            this.btLoaiSanh.Text = "Loại Sảnh";
-            this.btLoaiSanh.UseVisualStyleBackColor = true;
-            this.btLoaiSanh.Click += new System.EventHandler(this.btLoaiSanh_Click);
+            this.btnDichVu.Location = new System.Drawing.Point(20, 252);
+            this.btnDichVu.Name = "btnDichVu";
+            this.btnDichVu.Size = new System.Drawing.Size(75, 23);
+            this.btnDichVu.TabIndex = 18;
+            this.btnDichVu.Text = "Dịch vụ";
+            this.btnDichVu.UseVisualStyleBackColor = true;
+            this.btnDichVu.Click += new System.EventHandler(this.btnDichVu_Click);
+            // 
+            // btnMonAn
+            // 
+            this.btnMonAn.Location = new System.Drawing.Point(20, 213);
+            this.btnMonAn.Name = "btnMonAn";
+            this.btnMonAn.Size = new System.Drawing.Size(75, 23);
+            this.btnMonAn.TabIndex = 17;
+            this.btnMonAn.Text = "Món ăn";
+            this.btnMonAn.UseVisualStyleBackColor = true;
+            this.btnMonAn.Click += new System.EventHandler(this.btnMonAn_Click);
             // 
             // btnNhanVien
             // 
@@ -161,15 +173,15 @@
             this.btnTiec.Text = "Tiệc";
             this.btnTiec.UseVisualStyleBackColor = true;
             // 
-            // btnMonAn
+            // btnChucVu
             // 
-            this.btnMonAn.Location = new System.Drawing.Point(20, 213);
-            this.btnMonAn.Name = "btnMonAn";
-            this.btnMonAn.Size = new System.Drawing.Size(75, 23);
-            this.btnMonAn.TabIndex = 17;
-            this.btnMonAn.Text = "Món ăn";
-            this.btnMonAn.UseVisualStyleBackColor = true;
-            this.btnMonAn.Click += new System.EventHandler(this.btnMonAn_Click);
+            this.btnChucVu.Location = new System.Drawing.Point(20, 58);
+            this.btnChucVu.Name = "btnChucVu";
+            this.btnChucVu.Size = new System.Drawing.Size(75, 23);
+            this.btnChucVu.TabIndex = 19;
+            this.btnChucVu.Text = "Chức vụ";
+            this.btnChucVu.UseVisualStyleBackColor = true;
+            this.btnChucVu.Click += new System.EventHandler(this.btnChucVu_Click);
             // 
             // frmMain
             // 
@@ -203,9 +215,10 @@
         private System.Windows.Forms.Button btnNhanVien;
         private System.Windows.Forms.GroupBox grbChucNang;
         private System.Windows.Forms.Button btnTiec;
-        private System.Windows.Forms.Button btLoaiSanh;
         private System.Windows.Forms.Button btnDatTiec;
         private System.Windows.Forms.Button btnMonAn;
+        private System.Windows.Forms.Button btnDichVu;
+        private System.Windows.Forms.Button btnChucVu;
     }
 }
 

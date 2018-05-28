@@ -22,9 +22,9 @@ namespace BUS
         {
             return DAO_QuanLySanh.GetQLSanhTable();
         }
-        public static void DeleteSanh(DTO_Sanh sanh)
+        public static void DeleteSanh(string maSanh)
         {
-            DAO_QuanLySanh.DeleteSanh(sanh);
+            DAO_QuanLySanh.DeleteSanh(maSanh);
         }
         private static void GetListsInTableSanh()
         {
@@ -39,7 +39,7 @@ namespace BUS
 
             foreach (DataRow item in dt.Rows)
             {
-                mListMaSanh.Add(item[0].ToString());
+                mListMaSanh.Add(item[1].ToString());
             }
         }
         public static List<string> GetListMaSanh()
@@ -60,9 +60,13 @@ namespace BUS
         {
             return DAO_QuanLySanh.InsertSanh(sanh);
         }
-        public static int UpdateSanh(DTO_Sanh sanh)
+        public static bool UpdateSanh(DTO_Sanh sanh)
         {
             return DAO_QuanLySanh.UpdateSanh(sanh);
+        }
+        public static bool TenSanhIsExistInSanh(string maSanh)
+        {
+            return DAO_QuanLySanh.TenSanhIsExistInSanh(maSanh);
         }
     }
 }

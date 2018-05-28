@@ -54,6 +54,7 @@
     <Compile Include="BUS_LapHoaDonThang.cs" />
     <Compile Include="BUS_MonAn.cs" />
     <Compile Include="BUS_NhanDatTiec.cs" />
+    <Compile Include="BUS_QuanLyChucVu.cs" />
     <Compile Include="BUS_QuanLyLoaiSanh.cs" />
     <Compile Include="BUS_QuanLyNhanVien.cs" />
     <Compile Include="BUS_QuanLySanh.cs" />

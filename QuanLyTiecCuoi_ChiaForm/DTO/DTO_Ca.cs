@@ -8,17 +8,18 @@ namespace DTO
 {
     public class DTO_Ca
     {
-        private string text1;
-        private string text2;
 
-        public DTO_Ca(string text1, string text2)
+
+        public DTO_Ca(string maCa, string thoiGianBD, string thoiGianKT)
         {
-            this.text1 = text1;
-            this.text2 = text2;
+            MaCa = maCa;
+            ThoiGianBD = thoiGianBD;
+            ThoiGianKT = thoiGianKT;
         }
       
         public string MaCa { get; set; }
-        public string TenCa { get; set; }
+        public string ThoiGianBD { get; set; }
+        public string ThoiGianKT { get; set; }
     }
    
 }

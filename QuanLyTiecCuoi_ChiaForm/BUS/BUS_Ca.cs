@@ -64,9 +64,14 @@ namespace BUS
         {
             return DAO_Ca.UpdateCa(ca);
         }
-        public static bool DeleteCa(DTO_Ca ca)
+        public static void DeleteCa(string maCa)
         {
-            return DAO_Ca.DeleteCa(ca);
+            DAO_Ca.DeleteCa(maCa);
+            return;
+        }
+        public static bool TenCaIsExistInCa(string maCa)
+        {
+            return DAO_Ca.TenCaIsExistInCa(maCa);
         }
     }
 }

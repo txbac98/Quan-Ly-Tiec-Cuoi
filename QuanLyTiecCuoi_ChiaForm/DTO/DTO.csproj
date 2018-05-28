@@ -43,6 +43,7 @@
     <Compile Include="DTO_BaoCaoNgay.cs" />
     <Compile Include="DTO_BaoCaoThang.cs" />
     <Compile Include="DTO_Ca.cs" />
+    <Compile Include="DTO_ChucVu.cs" />
     <Compile Include="DTO_CT_PhieuDatBan.cs" />
     <Compile Include="DTO_CT_PhieuDatDichVu.cs" />
     <Compile Include="DTO_DangNhap.cs" />

@@ -12,12 +12,12 @@ namespace DAO
     {
         public static DataTable GetQLSanhTable()
         {
-            string sqlCommand = @"SELECT MaSanh, TenSanh, SoLuongBanToiDa, DonGiaBan, GhiChu FROM  Sanh ";
+            string sqlCommand = @"SELECT * FROM  Sanh ";
             return DatabaseHelper.GetData(sqlCommand);
         }
-        public static void DeleteSanh(DTO_Sanh sanh)
+        public static void DeleteSanh(string maSanh)
         {
-            string sqlCommand = string.Format(@"DELETE FROM Sanh WHERE MaSanh={0}", sanh.maSanh);
+            string sqlCommand = string.Format(@"DELETE FROM Sanh WHERE MaSanh=N'{0}'", maSanh);
             DatabaseHelper.ExcuteSql(sqlCommand);
         }
         public static DataTable GetLoaiSanhTable()
@@ -26,16 +26,16 @@ namespace DAO
             return DatabaseHelper.GetData(sqlCommand);
         }
 
-        public static DataTable SearchSanhTableTheoTen(string tenSanh)
+        public static DataTable SearchSanhTableTheoTen(string maSanh)
         {
-            string sqlCommand = string.Format(@"SELECT * FROM SANH WHERE TenSanh LIKE N'%{0}%'", tenSanh);
+            string sqlCommand = string.Format(@"SELECT * FROM SANH WHERE MaSanh LIKE N'%{0}%'", maSanh);
             return DatabaseHelper.GetData(sqlCommand);
 
         }
         public static string GetSoLuongBanToiDa(string maSanh)
         {
             DataTable result;
-            string sqlCommand = string.Format(@"SELECT SoLuongBanToiDa from SANH where MaSanh=N'{0}'", maSanh);
+            string sqlCommand = string.Format(@"SELECT SoLuongBanTD from SANH where MaSanh=N'{0}'", maSanh);
             result = DatabaseHelper.GetData(sqlCommand);
             return result.Rows[0][0].ToString();
         }
@@ -49,18 +49,27 @@ namespace DAO
         public static bool InsertSanh(DTO_Sanh sanh)
         {
             //string sqlCommand = @"SELECT * FROM LoaiSanh";
-            string sqlCommand = string.Format(@"INSERT INTO Sanh (TenSanh, MaLoaiSanh, SoLuongBanToiDa,DonGiaBan, GhiChu) VALUES (N'{0}', N'{1}', {2}, {3},N'{4}')", sanh.tenSanh, sanh.soLuongBanToiDa, sanh.donGiaBan, sanh.ghiChu);
+            string sqlCommand = string.Format(@"INSERT INTO Sanh (MaSanh, DonGiaBan, SoLuongBanTD, GhiChu) VALUES (N'{0}', {1}, {2},N'{3}')", sanh.MaSanh, sanh.DonGiaBan, sanh.SoLuongBanTD, sanh.GhiChu);
 
             if (DatabaseHelper.ExcuteSql(sqlCommand) == 1)
                 return true;
             return false;
             //return DatabaseHelper.ExecuteNonQuery(sqlCommand);
         }
-        public static int UpdateSanh(DTO_Sanh sanh)
+        public static bool UpdateSanh(DTO_Sanh sanh)
         {
-            string sqlCommand = String.Format(@"UPDATE Sanh SET TenSanh=N'{0}', SoLuongBanToiDa={2},DonGiaBan={3}, GhiChu=N'{4}' WHERE MaSanh=N'{4}'",
-                sanh.tenSanh ,sanh.soLuongBanToiDa,sanh.donGiaBan, sanh.ghiChu, sanh.maSanh);
-            return DatabaseHelper.ExcuteSql(sqlCommand);
+            string sqlCommand = String.Format(@"UPDATE Sanh SET MaSanh=N'{0}', DonGiaBan={1}, SoLuongBanToiDa={2}, GhiChu=N'{3}' WHERE MaSanh=N'{4}'",
+                sanh.MaSanh ,sanh.DonGiaBan,sanh.SoLuongBanTD, sanh.GhiChu,sanh.MaSanh);
+            if (DatabaseHelper.ExcuteSql(sqlCommand) == 1)
+                return true;
+            return false;
+        }
+        public static bool TenSanhIsExistInSanh(string maSanh)
+        {
+            string sqlCommand = @"SELECT MaSanh FROM Sanh WHERE MaSanh=N'" + maSanh + "'";
+            if (DatabaseHelper.GetData(sqlCommand).Rows.Count > 0)
+                return true;
+            return false;
         }
     }
 }

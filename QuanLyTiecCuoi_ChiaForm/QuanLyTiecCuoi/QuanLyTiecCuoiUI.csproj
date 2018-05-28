@@ -48,17 +48,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\QuanLyCa.cs" />
-    <Compile Include="FormFeature\QuanLy\frmCa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormFeature\QuanLy\frmCa.Designer.cs">
-      <DependentUpon>frmCa.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormFeature\QuanLy\frmNhanDatTiecCuoi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormFeature\QuanLy\frmNhanDatTiecCuoi.Designer.cs">
       <DependentUpon>frmNhanDatTiecCuoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFeature\QuanLy\frmQuanLyCa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFeature\QuanLy\frmQuanLyCa.Designer.cs">
+      <DependentUpon>frmQuanLyCa.cs</DependentUpon>
     </Compile>
     <Compile Include="FormFeature\QuanLy\frmQuanLyChucVu.cs">
       <SubType>Form</SubType>
@@ -66,17 +66,17 @@
     <Compile Include="FormFeature\QuanLy\frmQuanLyChucVu.Designer.cs">
       <DependentUpon>frmQuanLyChucVu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormFeature\QuanLy\frmQuanLyDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFeature\QuanLy\frmQuanLyDichVu.Designer.cs">
+      <DependentUpon>frmQuanLyDichVu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormFeature\QuanLy\frmQuanLyKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormFeature\QuanLy\frmQuanLyKhachHang.Designer.cs">
       <DependentUpon>frmQuanLyKhachHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormFeature\QuanLy\frmQuanLyLoaiSanh.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormFeature\QuanLy\frmQuanLyLoaiSanh.Designer.cs">
-      <DependentUpon>frmQuanLyLoaiSanh.cs</DependentUpon>
     </Compile>
     <Compile Include="FormFeature\QuanLy\frmQuanLyMonAn.cs">
       <SubType>Form</SubType>
@@ -90,6 +90,12 @@
     <Compile Include="FormFeature\QuanLy\frmQuanLyNhanVien.Designer.cs">
       <DependentUpon>frmQuanLyNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormFeature\QuanLy\frmQuanLySanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFeature\QuanLy\frmQuanLySanh.Designer.cs">
+      <DependentUpon>frmQuanLySanh.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,22 +103,28 @@
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\ConnectDatabase.cs" />
+    <Compile Include="frmQuanLyTiecCuoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLyTiecCuoi.Designer.cs">
+      <DependentUpon>frmQuanLyTiecCuoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormFeature\QuanLy\frmCa.resx">
-      <DependentUpon>frmCa.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormFeature\QuanLy\frmNhanDatTiecCuoi.resx">
       <DependentUpon>frmNhanDatTiecCuoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLyCa.resx">
+      <DependentUpon>frmQuanLyCa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLyChucVu.resx">
       <DependentUpon>frmQuanLyChucVu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLyDichVu.resx">
+      <DependentUpon>frmQuanLyDichVu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLyKhachHang.resx">
       <DependentUpon>frmQuanLyKhachHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLyLoaiSanh.resx">
-      <DependentUpon>frmQuanLyLoaiSanh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLyMonAn.resx">
       <DependentUpon>frmQuanLyMonAn.cs</DependentUpon>
@@ -120,8 +132,14 @@
     <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLyNhanVien.resx">
       <DependentUpon>frmQuanLyNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLySanh.resx">
+      <DependentUpon>frmQuanLySanh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyTiecCuoi.resx">
+      <DependentUpon>frmQuanLyTiecCuoi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -165,6 +183,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-group-new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TiecCuoi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CapNhan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-insert-horizontal-rule-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-validated-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Alarm-Error-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -20,6 +20,7 @@ namespace QuanLyTiecCuoiUI
         private string ImageLocationPath = string.Empty;
         //private string ImageInstance = string.Empty;
         private string IDTable = "MA";
+        string tenMonAnCu = "";
         bool thayDoiAnh;
 
         //Convert Number to string for index
@@ -49,7 +50,7 @@ namespace QuanLyTiecCuoiUI
             InitializeComponent();
             LoadDanhSachMonAn();
             ClearInputs();
-            
+            ShowKetQua("Kết nối thành công !!", true);
         }
         private void frmQuanLyMonAn_Load(object sender, EventArgs e)
         {
@@ -59,11 +60,13 @@ namespace QuanLyTiecCuoiUI
         }
         void LoadDanhSachMonAn()
         {
+            dgvDanhSachMonAn.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvDanhSachMonAn.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDanhSachMonAn.ReadOnly = true;
             dgvDanhSachMonAn.MultiSelect = false;
             ResultTable = BUS_MonAn.GetDataTableMonAn();
             dgvDanhSachMonAn.DataSource = ResultTable;
-            dgvDanhSachMonAn.Columns[0].Visible = false;
+            dgvDanhSachMonAn.Columns[0].HeaderText="Mã MA";
             dgvDanhSachMonAn.Columns[1].HeaderText = "Tên món ăn";
             dgvDanhSachMonAn.Columns[2].HeaderText = "Loại món ăn";
             dgvDanhSachMonAn.Columns[3].HeaderText = "Đơn giá";
@@ -89,19 +92,14 @@ namespace QuanLyTiecCuoiUI
 
         private void ClearInputs()
         {
-            btnThem.Visible = true;
-            btnSua.Visible = false;
-            btnXoa.Visible = false;
-            txtDonGia.Text = txtTenMonAn.Text = txtGhiChu.Text = string.Empty;
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            txtTenMonAn_TimKiem.Text= txtDonGia.Text = txtTenMonAn.Text = txtGhiChu.Text = string.Empty;
             ptrHinhAnh.ImageLocation = @"DanhSachMonAn\Unknow.png";
             lbThongTinHinhAnh.Text = "Unknow.png";
             cbbLoaiMonAn.SelectedIndex = 0;
-        }
-        private bool InputsAreNull()
-        {
-            if (txtTenMonAn.Text == "" || txtDonGia.Text == "")
-                return true;
-            return false;
+            lblThongTinMaMonAn.Text = GetNextID(ResultTable);
         }
         //Chỉ nhập số_Đơn giá
         private void txtDonGia_KeyPress(object sender, KeyPressEventArgs e)
@@ -114,6 +112,14 @@ namespace QuanLyTiecCuoiUI
         #endregion
 
         #region Button event
+
+        private void llbThemMoi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ClearInputs();
+            lblThongTinMaMonAn.Text = GetNextID(ResultTable);
+
+        }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             //Check txtDonGia
@@ -209,11 +215,12 @@ namespace QuanLyTiecCuoiUI
                 else monAn = new DTO_MonAn(lblThongTinMaMonAn.Text, txtTenMonAn.Text, cbbLoaiMonAn.Text, txtDonGia.Text, txtGhiChu.Text, lbThongTinHinhAnh.Text);
 
             //Update
-            if (BUS_MonAn.UpdateMonAn(monAn))
+            if (BUS_MonAn.UpdateMonAn(monAn,tenMonAnCu))
             {
+         
                 UpdateDanhSachMonAn();
                 ShowKetQua("Cập nhật thành công món ăn '" + monAn.MaMonAn + "' !!", true);
-                ClearInputs();
+                ClearInputs();     
             }
             else
             {
@@ -270,25 +277,20 @@ namespace QuanLyTiecCuoiUI
         private void btnXoaAnh_Click(object sender, EventArgs e)
         {
             lbThongTinHinhAnh.Text = "Unknow.png";
-            ptrHinhAnh.ImageLocation = @"DanhSachMonAn\Unknow.png";
+            ptrHinhAnh.ImageLocation = @"DanhSachDichVu\Unknow.png";
         }
         #endregion
        
 
-        private void btnTimKiem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         void ShowDataCell(int row)
         {
             thayDoiAnh = false;
-            btnThem.Visible = false;
-            btnSua.Visible = true;
-            btnXoa.Visible = true;
+            btnThem.Enabled = false;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
             lblThongTinMaMonAn.Text = dgvDanhSachMonAn[0, row].Value.ToString();
             txtTenMonAn.Text = dgvDanhSachMonAn[1, row].Value.ToString();
-
+            tenMonAnCu= dgvDanhSachMonAn[1, row].Value.ToString();
             cbbLoaiMonAn.Text = dgvDanhSachMonAn[2, row].Value.ToString();
             txtDonGia.Text = dgvDanhSachMonAn[3, row].Value.ToString();
             txtGhiChu.Text = dgvDanhSachMonAn[4, row].Value.ToString();
@@ -304,12 +306,7 @@ namespace QuanLyTiecCuoiUI
             }
         }
 
-        private void llbThemMoi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            ClearInputs();
-            lblThongTinMaMonAn.Text = GetNextID(ResultTable);
-
-        }
+        
 
         #region Tim Kiem
         private void txtTenMonAn_TimKiem_TextChanged(object sender, EventArgs e)

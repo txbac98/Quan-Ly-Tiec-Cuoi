@@ -29,7 +29,7 @@ namespace DAO
 
         public static bool InsertCa(DTO_Ca ca)
         {
-            string sTruyVan = string.Format("Insert into Ca(TenCa) values (N'{0}')", ca.TenCa);
+            string sTruyVan = string.Format("Insert into Ca(MaCa, ThoiGianBD, ThoiGianKT) values (N'{0}','{1}','{2}')", ca.MaCa, ca.ThoiGianBD,ca.ThoiGianKT);
             try
             {
                 int state = DatabaseHelper.ExcuteSql(sTruyVan);
@@ -43,25 +43,16 @@ namespace DAO
             return false;
         }
 
-        public static bool DeleteCa(DTO_Ca ca)
+        public static void DeleteCa(string  maCa)
         {
-            string sTruyVan = string.Format("Delete from Ca where MaCa = {0}", ca.MaCa);
-            try
-            {
-                int state = DatabaseHelper.ExcuteSql(sTruyVan);
-                if (state > 0)
-                    return true;
-            }
-            catch (Exception ex)
-            {
+            string sTruyVan = string.Format("Delete from Ca where MaCa = '{0}'", maCa);
+            DatabaseHelper.ExcuteSql(sTruyVan);
 
-            }
-            return false;
         }
 
         public static bool UpdateCa(DTO_Ca ca)
         {
-            string sTruyVan = string.Format("Update Ca set TenCa=N'{0}' where MaCa={1}", ca.TenCa, ca.MaCa);
+            string sTruyVan = string.Format("Update Ca set ThoiGianBD='{0}', ThoiGianKT='{1}' where MaCa=N'{2}'", ca.ThoiGianBD,ca.ThoiGianKT, ca.MaCa);
             try
             {
                 int state = DatabaseHelper.ExcuteSql(sTruyVan);
@@ -72,6 +63,13 @@ namespace DAO
             {
 
             }
+            return false;
+        }
+        public static bool TenCaIsExistInCa(string maCa)
+        {
+            string sqlCommand = @"SELECT MaCa FROM Ca WHERE MaCa=N'" + maCa + "'";
+            if (DatabaseHelper.GetData(sqlCommand).Rows.Count > 0)
+                return true;
             return false;
         }
     }

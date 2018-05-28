@@ -52,6 +52,7 @@
     <Compile Include="DAO_LapHoaDonThang.cs" />
     <Compile Include="DAO_MonAn.cs" />
     <Compile Include="DAO_NhanDatTiecCuoi.cs" />
+    <Compile Include="DAO_QuanLyChucVu.cs" />
     <Compile Include="DAO_QuanLyLoaiSanh.cs" />
     <Compile Include="DAO_QuanLyNhanVien.cs" />
     <Compile Include="DAO_QuanLySanh.cs" />

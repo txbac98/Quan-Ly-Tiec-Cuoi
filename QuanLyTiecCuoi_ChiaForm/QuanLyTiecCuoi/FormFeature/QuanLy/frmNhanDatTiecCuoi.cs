@@ -14,6 +14,7 @@ namespace QuanLyTiecCuoiUI
 {
     public partial class frmNhanDatTiecCuoi : Form
     {
+        
         private string IDTable = "KH";
 
         private string maKH, maTiec;
@@ -24,6 +25,9 @@ namespace QuanLyTiecCuoiUI
         private List<int> lstSoLuongBanToiDaSanh = new List<int>();
 
         private string soLuongBanToiDa , donGiaBan;
+
+        string maDV;
+        int soDichVu=-1;
 
         //Convert Number to string for index
 
@@ -63,7 +67,7 @@ namespace QuanLyTiecCuoiUI
 
         private void frmNhanDatTiecCuoi_Load(object sender, EventArgs e)
         {
-            SetupDefaultControlState();
+            ClearInputs();
 
             //LoadSanhAndCa();
             LoadCa();
@@ -73,7 +77,7 @@ namespace QuanLyTiecCuoiUI
 
        
 
-        private void SetupDefaultControlState()
+        private void ClearInputs()
         {
             txtTenChuRe.Text = txtTenCoDau.Text = txtDienThoai.Text=txbNamSinhChuRe.Text=txbNamSinhCoDau.Text=txbDiaChi.Text = string.Empty;
             txtGhiChuThongTinTiecCuoi.Text = txtTienDatCoc.Text = string.Empty;
@@ -92,6 +96,13 @@ namespace QuanLyTiecCuoiUI
         {
             soLuongBanToiDa = BUS_QuanLySanh.GetSoLuongBanToiDa(cboSanh.Text);
             donGiaBan = BUS_QuanLySanh.GetDonGiaBanToiThieu(cboSanh.Text);
+        }
+
+        private void cbbDichVu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblDonGiaDichVu.Text = BUS_DichVu.GetDonGia(cbbDichVu.Text);
+            ptrHinhAnhDichVu.ImageLocation = @"DanhSachDichVu\"+BUS_DichVu.GetHinhAnh(cbbDichVu.Text);
+            maDV = BUS_DichVu.GetMaDV(cbbDichVu.Text);
         }
 
         //private void LoadMonAn()
@@ -121,6 +132,8 @@ namespace QuanLyTiecCuoiUI
                 MessageBox.Show("Không thể tải danh sách dịch vụ. Vui lòng kiểm tra lại.", "Thông báo");
             }
         }
+
+        
 
         //private void LoadSanhAndCa()
         //{
@@ -171,6 +184,7 @@ namespace QuanLyTiecCuoiUI
                 MessageBox.Show("Không thể tải dữ liệu sảnh. Vui lòng kiểm tra lại.", "Thông báo");
             }
         }
+
         private void LoadCa()
         {
             try
@@ -182,5 +196,60 @@ namespace QuanLyTiecCuoiUI
                 MessageBox.Show("Không thể tải dữ liệu sảnh. Vui lòng kiểm tra lại.", "Thông báo");
             }
         }
+
+        #region button
+
+        private void btnPhieuDatDichVu_Click(object sender, EventArgs e)
+        {
+            pnlPhieuDichVu.Visible = true;
+        }
+        #endregion
+
+
+        #region Phieu dich vu
+
+        #region Them dich vu
+        private void btnChonDV_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < lsvDichVu.Items.Count; i++)
+            {
+                if (lsvDichVu.Items[i].SubItems[1].Text == cbbDichVu.Text)
+                {
+                    MessageBox.Show("Dịch vụ '" +cbbDichVu.Text+"' đã được chọn.");
+                    return;
+                }
+            }
+            soDichVu++;
+            lsvDichVu.Items.Add((soDichVu+1).ToString());
+            lsvDichVu.Items[soDichVu].SubItems.Add(cbbDichVu.Text);
+            lsvDichVu.Items[soDichVu].SubItems.Add(lblDonGiaDichVu.Text);
+            lsvDichVu.Items[soDichVu].SubItems.Add(txtSoLuongDichVu.Text);
+        }
+
+        
+
+        private void btnLapPhieuDichVu_Click(object sender, EventArgs e)
+        {
+            btnPhieuDatDichVu.Enabled = true;
+            pnlPhieuDichVu.Visible = false;
+            pnlPhieuBanAn.Visible = true;
+        }
+        #endregion
+
+        #region Kiem tra nhap
+        private void txtSoLuongDichVu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtSoLuongDichVu_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSoLuongDichVu.Text == "0") txtSoLuongDichVu.Text = "";
+        }
+        #endregion
+
+        #endregion
     }
 }

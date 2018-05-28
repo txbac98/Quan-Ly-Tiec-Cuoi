@@ -9,17 +9,16 @@ namespace DTO
     public class DTO_Sanh
     {
         public DTO_Sanh() { }
-        public DTO_Sanh(string tenSanh, int soLuongBanToiDa, int donGiaBan, string ghiChu)
+        public DTO_Sanh(string maSanh, string donGiaBan, string soLuongBanTD,  string ghiChu)
         {
-            this.tenSanh = tenSanh;
-            this.soLuongBanToiDa = soLuongBanToiDa;
-            this.donGiaBan = donGiaBan;
-            this.ghiChu = ghiChu;
+            this.MaSanh = maSanh;
+            this.DonGiaBan = long.Parse(donGiaBan);
+            this.SoLuongBanTD = int.Parse(soLuongBanTD);      
+            this.GhiChu = ghiChu;
         }
-        public string maSanh { get; set; }
-        public string tenSanh { get; set; }
-        public int donGiaBan { get; set; }
-        public int soLuongBanToiDa { get; set; }
-        public string ghiChu { get; set; }
+        public string MaSanh { get; set; }
+        public long DonGiaBan { get; set; }
+        public int SoLuongBanTD { get; set; }
+        public string GhiChu { get; set; }
     }
 }

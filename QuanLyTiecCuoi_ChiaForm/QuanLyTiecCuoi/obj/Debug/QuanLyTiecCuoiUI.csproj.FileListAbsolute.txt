@@ -136,13 +136,15 @@ D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\
 D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\bin\Debug\DAO.pdb
 D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\bin\Debug\DTO.pdb
 D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.csprojResolveAssemblyReference.cache
-D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.frmCa.resources
 D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.frmNhanDatTiecCuoi.resources
 D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.FormFeature.QuanLy.frmQuanLyChucVu.resources
 D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.frmQuanLyKhachHang.resources
-D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.frmQuanLyLoaiSanh.resources
 D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.frmQuanLyMonAn.resources
 D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.FormFeature.QuanLy.frmQuanLyNhanVien.resources
 D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.frmMain.resources
 D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.Properties.Resources.resources
 D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.csproj.GenerateResource.Cache
+D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.FormFeature.QuanLy.frmQuanLyDichVu.resources
+D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.FormFeature.QuanLy.frmQuanLyCa.resources
+D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.FormFeature.QuanLy.frmQuanLySanh.resources
+D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.frmQuanLyTiecCuoi.resources
