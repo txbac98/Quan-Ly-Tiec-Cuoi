@@ -13,7 +13,7 @@ namespace QuanLyTiecCuoiUI
 {
     public partial class frmQuanLyTiecCuoi : Form
     {
-
+        public string maNV;
 
         bool CheckExistForm(string name)
         {
@@ -51,10 +51,14 @@ namespace QuanLyTiecCuoiUI
             {
                 frm.Visible=false;
             }
+            btnKhachHang.Enabled = btnNhanVien.Enabled = true;
+            btnKhachHang.BackColor = btnNhanVien.BackColor = Color.FromArgb(0, 64, 64);
         }
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
             AnForm();
+            btnKhachHang.Enabled = false;
+            btnKhachHang.BackColor = Color.Teal;
             if (!CheckExistForm("frmQuanLyKhachHang"))
             {
                 frmQuanLyKhachHang frmQLKH = new frmQuanLyKhachHang();
@@ -73,6 +77,8 @@ namespace QuanLyTiecCuoiUI
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
             AnForm();
+            btnNhanVien.Enabled = false;
+            btnNhanVien.BackColor = Color.Teal;
             if (!CheckExistForm("frmQuanLyNhanVien"))
             {
                 frmQuanLyNhanVien frmQLNV = new frmQuanLyNhanVien();
@@ -121,6 +127,21 @@ namespace QuanLyTiecCuoiUI
         {
             frmQuanLyDichVu frmQLDV = new frmQuanLyDichVu();
             frmQLDV.Show();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }

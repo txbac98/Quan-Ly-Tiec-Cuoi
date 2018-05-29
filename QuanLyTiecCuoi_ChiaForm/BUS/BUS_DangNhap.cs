@@ -19,5 +19,9 @@ namespace BUS
         {
             return DAO_DangNhap.GetPhanQuyen(dangnhap);
         }
+        public static String GetMaNV(DTO_DangNhap dangnhap)
+        {
+            return DAO_DangNhap.GetMaNV(dangnhap);
+        }
     }
 }

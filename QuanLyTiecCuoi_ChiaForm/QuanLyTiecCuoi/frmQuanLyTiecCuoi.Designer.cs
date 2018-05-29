@@ -67,56 +67,56 @@
             this.pnlQuanLy.Controls.Add(this.panel2);
             this.pnlQuanLy.Location = new System.Drawing.Point(-1, 0);
             this.pnlQuanLy.Name = "pnlQuanLy";
-            this.pnlQuanLy.Size = new System.Drawing.Size(80, 549);
+            this.pnlQuanLy.Size = new System.Drawing.Size(80, 591);
             this.pnlQuanLy.TabIndex = 1;
             // 
             // btnNhanVien
             // 
-            this.btnNhanVien.BackColor = System.Drawing.Color.Teal;
+            this.btnNhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnNhanVien.BackgroundImage = global::QuanLyTiecCuoiUI.Properties.Resources.Users;
             this.btnNhanVien.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNhanVien.Location = new System.Drawing.Point(13, 284);
+            this.btnNhanVien.Location = new System.Drawing.Point(0, 317);
             this.btnNhanVien.Name = "btnNhanVien";
-            this.btnNhanVien.Size = new System.Drawing.Size(53, 37);
+            this.btnNhanVien.Size = new System.Drawing.Size(80, 50);
             this.btnNhanVien.TabIndex = 3;
             this.btnNhanVien.UseVisualStyleBackColor = false;
             this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
             // 
             // btnKhachHang
             // 
-            this.btnKhachHang.BackColor = System.Drawing.Color.Teal;
+            this.btnKhachHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnKhachHang.BackgroundImage = global::QuanLyTiecCuoiUI.Properties.Resources.user_group_new;
             this.btnKhachHang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnKhachHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKhachHang.Location = new System.Drawing.Point(13, 216);
+            this.btnKhachHang.Location = new System.Drawing.Point(0, 235);
             this.btnKhachHang.Name = "btnKhachHang";
-            this.btnKhachHang.Size = new System.Drawing.Size(53, 37);
+            this.btnKhachHang.Size = new System.Drawing.Size(80, 50);
             this.btnKhachHang.TabIndex = 2;
             this.btnKhachHang.UseVisualStyleBackColor = false;
             this.btnKhachHang.Click += new System.EventHandler(this.btnKhachHang_Click);
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.Teal;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.button3.BackgroundImage = global::QuanLyTiecCuoiUI.Properties.Resources.CapNhan;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(13, 145);
+            this.button3.Location = new System.Drawing.Point(0, 156);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(53, 37);
+            this.button3.Size = new System.Drawing.Size(80, 50);
             this.button3.TabIndex = 1;
             this.button3.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Teal;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.button1.BackgroundImage = global::QuanLyTiecCuoiUI.Properties.Resources.Home;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(13, 74);
+            this.button1.Location = new System.Drawing.Point(0, 79);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(53, 37);
+            this.button1.Size = new System.Drawing.Size(80, 50);
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -125,8 +125,9 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(113, 55);
+            this.panel2.Size = new System.Drawing.Size(113, 59);
             this.panel2.TabIndex = 0;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // mstChucNang
             // 
@@ -140,14 +141,14 @@
             this.mItemHelp});
             this.mstChucNang.Location = new System.Drawing.Point(0, 0);
             this.mstChucNang.Name = "mstChucNang";
-            this.mstChucNang.Size = new System.Drawing.Size(1014, 25);
+            this.mstChucNang.Size = new System.Drawing.Size(1014, 27);
             this.mstChucNang.TabIndex = 2;
             this.mstChucNang.Text = "menuChucNang";
             // 
             // mItemRong
             // 
             this.mItemRong.Name = "mItemRong";
-            this.mItemRong.Size = new System.Drawing.Size(79, 21);
+            this.mItemRong.Size = new System.Drawing.Size(79, 23);
             this.mItemRong.Text = "                    ";
             // 
             // mItemLapBaoCao
@@ -156,7 +157,7 @@
             this.mItemLapBaoCaoThang,
             this.mItemLapBaoCaoNgay});
             this.mItemLapBaoCao.Name = "mItemLapBaoCao";
-            this.mItemLapBaoCao.Size = new System.Drawing.Size(83, 21);
+            this.mItemLapBaoCao.Size = new System.Drawing.Size(83, 23);
             this.mItemLapBaoCao.Text = "Lập báo cáo";
             // 
             // mItemLapBaoCaoThang
@@ -179,7 +180,7 @@
             this.mItemQuanLyThucDon,
             this.mItemQuanLyChucVu});
             this.mItemQuanLy.Name = "mItemQuanLy";
-            this.mItemQuanLy.Size = new System.Drawing.Size(60, 21);
+            this.mItemQuanLy.Size = new System.Drawing.Size(60, 23);
             this.mItemQuanLy.Text = "Quản lý";
             // 
             // mItemQuanLyCa
@@ -217,78 +218,80 @@
             this.mItemDoUong,
             this.mItemDichVuKhac});
             this.mItemDichVu.Name = "mItemDichVu";
-            this.mItemDichVu.Size = new System.Drawing.Size(59, 21);
+            this.mItemDichVu.Size = new System.Drawing.Size(59, 23);
             this.mItemDichVu.Text = "Dịch vụ";
             // 
             // mItemMonAn
             // 
             this.mItemMonAn.Name = "mItemMonAn";
-            this.mItemMonAn.Size = new System.Drawing.Size(152, 22);
+            this.mItemMonAn.Size = new System.Drawing.Size(120, 22);
             this.mItemMonAn.Text = "Món ăn";
             this.mItemMonAn.Click += new System.EventHandler(this.mItemMonAn_Click);
             // 
             // mItemDoUong
             // 
             this.mItemDoUong.Name = "mItemDoUong";
-            this.mItemDoUong.Size = new System.Drawing.Size(152, 22);
+            this.mItemDoUong.Size = new System.Drawing.Size(120, 22);
             this.mItemDoUong.Text = "Đồ uống";
             this.mItemDoUong.Click += new System.EventHandler(this.mItemDoUong_Click);
             // 
             // mItemDichVuKhac
             // 
             this.mItemDichVuKhac.Name = "mItemDichVuKhac";
-            this.mItemDichVuKhac.Size = new System.Drawing.Size(152, 22);
+            this.mItemDichVuKhac.Size = new System.Drawing.Size(120, 22);
             this.mItemDichVuKhac.Text = "Dịch vụ";
             this.mItemDichVuKhac.Click += new System.EventHandler(this.mItemDichVuKhac_Click);
             // 
             // mItemHelp
             // 
             this.mItemHelp.Name = "mItemHelp";
-            this.mItemHelp.Size = new System.Drawing.Size(44, 21);
+            this.mItemHelp.Size = new System.Drawing.Size(44, 23);
             this.mItemHelp.Text = "Help";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Info;
-            this.label1.Location = new System.Drawing.Point(570, 9);
+            this.label1.Location = new System.Drawing.Point(570, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.Size = new System.Drawing.Size(82, 14);
             this.label1.TabIndex = 4;
             this.label1.Text = "Trần Xuân Bắc,";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(659, 9);
+            this.linkLabel1.Location = new System.Drawing.Point(659, 10);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(31, 13);
+            this.linkLabel1.Size = new System.Drawing.Size(31, 14);
             this.linkLabel1.TabIndex = 5;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "thoát";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel1.Location = new System.Drawing.Point(0, 543);
+            this.panel1.Location = new System.Drawing.Point(0, 585);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1020, 20);
+            this.panel1.Size = new System.Drawing.Size(1020, 22);
             this.panel1.TabIndex = 7;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel3.Location = new System.Drawing.Point(995, 26);
+            this.panel3.Location = new System.Drawing.Point(995, 28);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(20, 523);
+            this.panel3.Size = new System.Drawing.Size(20, 563);
             this.panel3.TabIndex = 8;
             // 
             // frmQuanLyTiecCuoi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1014, 561);
+            this.ClientSize = new System.Drawing.Size(1014, 604);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.linkLabel1);

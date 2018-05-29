@@ -434,5 +434,10 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
             DataTable ResultChucVu = BUS_QuanLyNhanVien.SearchNhanVienTheoThongTin("", "", cbbChucVu.Text);
             lblThongTinMaNhanVien.Text = GetNextID(ResultChucVu);
         }
+
+        private void lblThongTinMaNhanVien_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

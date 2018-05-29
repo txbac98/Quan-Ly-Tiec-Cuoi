@@ -16,9 +16,16 @@ namespace DAO
             DataTable state = DatabaseHelper.GetData(sTruyVan);
             return state;
         }
+
+        public static String GetMaNV(DTO_DangNhap dangnhap)
+        {
+            string sTruyVan = string.Format(@"Select MaNV from TAIKHOAN where (Username='{0}') and (Password='{1}') ", dangnhap.Username, dangnhap.Password);
+            DataTable state = DatabaseHelper.GetData(sTruyVan);
+            return state.Rows[0][0].ToString();
+        }
         public static bool KiemTraDangNhap(DTO_DangNhap dangnhap)
         {
-            string sTruyVan = string.Format(@"Select * from NHANVIEN where (Username='{0}') and (Password='{1}')", dangnhap.Username, dangnhap.Password);
+            string sTruyVan = string.Format(@"Select * from TAIKHOAN where (Username='{0}') and (Password='{1}')", dangnhap.Username, dangnhap.Password);
             try
             {
                 DataTable state = DatabaseHelper.GetData(sTruyVan);

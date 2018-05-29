@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyTiecCuoiUI.FormFeature.ConfigDatabase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace QuanLyTiecCuoiUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmMain());
-            Application.Run(new frmQuanLyTiecCuoi());
+            Application.Run(new frmLogin());
         }
     }
 }

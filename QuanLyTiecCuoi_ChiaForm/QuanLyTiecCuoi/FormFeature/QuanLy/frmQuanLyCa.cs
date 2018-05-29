@@ -164,5 +164,10 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
         {
             if (txtMaCa.Text == " ") txtMaCa.Text = "";
         }
+
+        private void frmQuanLyCa_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

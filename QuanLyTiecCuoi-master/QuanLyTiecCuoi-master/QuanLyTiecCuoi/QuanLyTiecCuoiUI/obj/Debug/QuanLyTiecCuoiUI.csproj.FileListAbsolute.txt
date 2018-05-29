@@ -85,3 +85,6 @@ D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi-master\QuanLyTiecCuoi-ma
 D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiUI\obj\Debug\QuanLyTiecCuoiUI.ucControlFeature.menuQuyDinh.resources
 D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiUI\obj\Debug\QuanLyTiecCuoiUI.ucControlFeature.menuTraCuu.resources
 D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiUI\obj\Debug\QuanLyTiecCuoiUI.csproj.GenerateResource.Cache
+C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiUI\bin\Debug\QuanLyTiecCuoiUI.exe.config
+C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiUI\obj\Debug\QuanLyTiecCuoiUI.exe
+C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi-master\QuanLyTiecCuoi-master\QuanLyTiecCuoi\QuanLyTiecCuoiUI\obj\Debug\QuanLyTiecCuoiUI.pdb

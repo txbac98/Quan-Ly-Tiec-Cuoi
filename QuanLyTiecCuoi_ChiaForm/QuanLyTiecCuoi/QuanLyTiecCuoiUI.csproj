@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\QuanLyCa.cs" />
+    <Compile Include="FormFeature\ConfigDatabase\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFeature\ConfigDatabase\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormFeature\QuanLy\frmNhanDatTiecCuoi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormFeature\ConfigDatabase\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormFeature\QuanLy\frmNhanDatTiecCuoi.resx">
       <DependentUpon>frmNhanDatTiecCuoi.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,9 +173,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FormFeature\ConfigDatabase\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BUS\BUS.csproj">
       <Project>{6ffcdea2-6c6e-4389-88f2-fc70ef974abc}</Project>

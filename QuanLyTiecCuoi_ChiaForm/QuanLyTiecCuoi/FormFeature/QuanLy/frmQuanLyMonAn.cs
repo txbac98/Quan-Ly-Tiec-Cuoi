@@ -99,6 +99,7 @@ namespace QuanLyTiecCuoiUI
             ptrHinhAnh.ImageLocation = @"DanhSachMonAn\Unknow.png";
             lbThongTinHinhAnh.Text = "Unknow.png";
             cbbLoaiMonAn.SelectedIndex = 0;
+            ResultTable = BUS_MonAn.GetDataTableMonAn();
             lblThongTinMaMonAn.Text = GetNextID(ResultTable);
         }
         //Chỉ nhập số_Đơn giá
@@ -116,6 +117,7 @@ namespace QuanLyTiecCuoiUI
         private void llbThemMoi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ClearInputs();
+            ResultTable = BUS_MonAn.GetDataTableMonAn();
             lblThongTinMaMonAn.Text = GetNextID(ResultTable);
 
         }
@@ -163,8 +165,9 @@ namespace QuanLyTiecCuoiUI
             if (BUS_MonAn.InsertMonAn(monAn))
             {
                 //lstHinhAnh.Refresh();
-                ClearInputs();
                 UpdateDanhSachMonAn();
+                ClearInputs();
+               
                 ShowKetQua("Thêm thành công món ăn '" +txtTenMonAn.Text+"' !!",true);
             }
             else

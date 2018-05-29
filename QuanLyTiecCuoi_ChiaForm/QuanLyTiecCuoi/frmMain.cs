@@ -100,5 +100,10 @@ namespace QuanLyTiecCuoiUI
             frmQuanLyChucVu frmQLCV = new frmQuanLyChucVu();
             frmQLCV.Show();
         }
+
+        private void btnTiec_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
