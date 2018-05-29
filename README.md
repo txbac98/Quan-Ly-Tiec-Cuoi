@@ -1,5 +1,5 @@
 
-![alt text](https://s3-ap-northeast-1.amazonaws.com/vnschool/school/735/truong-dai-hoc-cong-nghe-thong-tin-dhqg-hcm-uit-0-UG91FE.jpg)
+![alt text](https://www.uit.edu.vn/sites/vi/files/banner.png)
 
 **TÊN ĐỀ TÀI: QUẢN LÍ TIỆC CƯỚI**
 ```Đồ án cuối kì nhập môn công nghệ phần mềm
