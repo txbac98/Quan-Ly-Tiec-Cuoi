@@ -1,5 +1,5 @@
 
-TÊN ĐỀ TÀI: QUẢN LÍ TIỆC CƯỚI
+**TÊN ĐỀ TÀI: QUẢN LÍ TIỆC CƯỚI**
 Đồ án cuối kì nhập môn công nghệ phần mềm
 THÔNG TIN NHÓM:
   Tên nhóm: 1234
