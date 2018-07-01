@@ -6,10 +6,10 @@
 THÔNG TIN NHÓM:
   Tên nhóm: 1234
   Thành viên nhóm:
-     > 1. Dương Trí Tuệ 16521390
-     > 2. Trần Xuân Bắc 16520069
-     > 3. Võ Hiển  16520372
-     > 4. Vũ Nhật Nam 16520781
+     >1. Dương Trí Tuệ 16521390
+     >2. Trần Xuân Bắc 16520069
+     >3. Võ Hiển  16520372
+     >4. Vũ Nhật Nam 16520781
   Giảng viên hướng dẫn: Nguyễn Công Hoan
  
 GIỚI THIỆU TỔNG QUAN
