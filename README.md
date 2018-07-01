@@ -1,7 +1,7 @@
 
 ![alt text](https://www.uit.edu.vn/sites/vi/files/banner.png)
    # TÊN ĐỀ TÀI: QUẢN LÍ TIỆC CƯỚI
-``` Đồ án cuối kì nhập môn công nghệ phần mềm```
+##``` Đồ án cuối kì nhập môn công nghệ phần mềm```
 ## THÔNG TIN NHÓM:
  ### Tên nhóm: 1234
  ### Thành viên nhóm:
@@ -9,7 +9,7 @@
   > 2. Trần Xuân Bắc 16520069
   > 3. Võ Hiển  16520372
   > 4. Vũ Nhật Nam 16520781
-  Giảng viên hướng dẫn: Nguyễn Công Hoan
+ ### Giảng viên hướng dẫn: Nguyễn Công Hoan
  
 ## GIỚI THIỆU TỔNG QUAN
   > Những năm qua vừa qua, lĩnh vực nhà hàng tiệc cưới phát triển với tốc độ khá nhanh nhằm đáp ứng nhu cầu cưới hỏi,
