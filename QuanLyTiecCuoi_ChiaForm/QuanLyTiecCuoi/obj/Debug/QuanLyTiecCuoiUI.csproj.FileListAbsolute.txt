@@ -151,3 +151,6 @@ C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\Qu
 C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.FormFeature.QuanLy.frmQuanLySanh.resources
 C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.frmQuanLyTiecCuoi.resources
 C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.FormFeature.ConfigDatabase.frmLogin.resources
+C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\bin\Debug\QuanLyTiecCuoiUI.exe.config
+C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.exe
+C:\Users\Tri Tue\Desktop\first Time\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\QuanLyTiecCuoi\obj\Debug\QuanLyTiecCuoiUI.pdb
