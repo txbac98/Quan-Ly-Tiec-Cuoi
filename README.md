@@ -31,4 +31,4 @@
    > 5. Lập báo cáo tháng.
    > 6. Thay đổi quy định.
  ## MÔI TRƯỜNG CÀI ĐẶT
-    - Hệ điều hành Windows từ 7 trở về sau, phiên bản 32/64 bit. 
+    _ Hệ điều hành Windows từ 7 trở về sau, phiên bản 32/64 bit. 
