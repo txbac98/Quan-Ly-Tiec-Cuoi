@@ -1,14 +1,13 @@
 
 ![alt text](https://www.uit.edu.vn/sites/vi/files/banner.png)
------------
    # TÊN ĐỀ TÀI: QUẢN LÍ TIỆC CƯỚI
------------
+------------------------
 ```Đồ án cuối kì nhập môn công nghệ phần mềm```
 ## THÔNG TIN NHÓM:
   Tên nhóm: 1234
   Thành viên nhóm:
-    >1. Dương Trí Tuệ 16521390
-    >2. Trần Xuân Bắc 16520069
+  > 1. Dương Trí Tuệ 16521390
+  > 2. Trần Xuân Bắc 16520069
   > 3. Võ Hiển  16520372
   > 4. Vũ Nhật Nam 16520781
   Giảng viên hướng dẫn: Nguyễn Công Hoan
