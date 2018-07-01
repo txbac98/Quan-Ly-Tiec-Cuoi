@@ -4,10 +4,10 @@
 ## THÔNG TIN NHÓM:
    ### Tên nhóm: 1234
    ### Thành viên nhóm:
-  - Dương Trí Tuệ [GitHub Pages](https://www.facebook.com/duong.tritue.9) 16521390
-  - Trần Xuân Bắc 16520069
-  - Võ Hiển  16520372
-  - Vũ Nhật Nam 16520781
+  - [Dương Trí Tuệ](https://www.facebook.com/duong.tritue.9) 16521390
+  - [Trần Xuân Bắc](https://www.facebook.com/txbac98) 16520069
+  - [Võ Hiển](https://www.facebook.com/hien.vo.752861)   16520372
+  - [Vũ Nhật Nam](https://www.facebook.com/nam131998) 16520781
    ### Giảng viên hướng dẫn: Nguyễn Công Hoan
  
  ## GIỚI THIỆU TỔNG QUAN
