@@ -8,9 +8,9 @@
   > 2. Trần Xuân Bắc 16520069
   > 3. Võ Hiển  16520372
   > 4. Vũ Nhật Nam 16520781
- ### - Giảng viên hướng dẫn: Nguyễn Công Hoan
+   ### Giảng viên hướng dẫn: Nguyễn Công Hoan
  
- *GIỚI THIỆU TỔNG QUAN*
+ ## GIỚI THIỆU TỔNG QUAN
  > Những năm qua vừa qua, lĩnh vực nhà hàng tiệc cưới phát triển với tốc độ khá nhanh nhằm đáp ứng nhu cầu cưới hỏi,
   tổ chức hội nghị ngày càng tăng. Tìm kiếm một phần mềm quản lý nhà hàng tiệc cưới đáp ứng đầy đủ nhu cầu là vấn
   đề được nhiều doanh nghiệp trong lĩnh vực này quan tâm.
@@ -18,16 +18,17 @@
   của phần mềm này là hỗ trợ nhà hàng trong việc nâng cao hiệu quả quản lý, giúp nhân viên thực thi nghiệp vụ nhanh 
   chóng để tiết kiệm thời gian, chi phí.
   
- *CÔNG CỤ SỬ DỤNG ĐỂ THIẾT KẾ PHẦN MỀM*
+ ## CÔNG CỤ SỬ DỤNG ĐỂ THIẾT KẾ PHẦN MỀM
    > 1. Ngôn ngữ lập trình C# winform.
    > 2. Visual studio 2015.
    > 3. SQL Studio 2014.
    
- *CÁC CHỨC NĂNG CHÍNH* 
+ ## CÁC CHỨC NĂNG CHÍNH 
    > 1. Tiếp nhận sảnh. 
    > 2. Nhận đặt tiệc cưới.
    > 3. Tra cứu tiệc cưới.
    > 4. Lập hóa đơn thanh toán.
    > 5. Lập báo cáo tháng.
    > 6. Thay đổi quy định.
- 
+ ## MÔI TRƯỜNG CÀI ĐẶT
+    - Hệ điều hành Windows từ 7 trở về sau, phiên bản 32/64 bit. 
