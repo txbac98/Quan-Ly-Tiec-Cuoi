@@ -71,7 +71,8 @@ namespace QuanLyTiecCuoiUI
             dgvDanhSachMonAn.Columns[2].HeaderText = "Loại món ăn";
             dgvDanhSachMonAn.Columns[3].HeaderText = "Đơn giá";
             dgvDanhSachMonAn.Columns[4].HeaderText = "Ghi chú";
-            dgvDanhSachMonAn.Columns[5].Visible=false;
+            dgvDanhSachMonAn.Columns[5].HeaderText="Hình ảnh";
+            dgvDanhSachMonAn.Columns[6].Visible = false;
             lblThongTinMaMonAn.Text = GetNextID(ResultTable);
             ShowKetQua("Kết nối thành công.", true);
         }
@@ -99,7 +100,6 @@ namespace QuanLyTiecCuoiUI
             ptrHinhAnh.ImageLocation = @"DanhSachMonAn\Unknow.png";
             lbThongTinHinhAnh.Text = "Unknow.png";
             cbbLoaiMonAn.SelectedIndex = 0;
-            ResultTable = BUS_MonAn.GetDataTableMonAn();
             lblThongTinMaMonAn.Text = GetNextID(ResultTable);
         }
         //Chỉ nhập số_Đơn giá
@@ -117,7 +117,6 @@ namespace QuanLyTiecCuoiUI
         private void llbThemMoi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ClearInputs();
-            ResultTable = BUS_MonAn.GetDataTableMonAn();
             lblThongTinMaMonAn.Text = GetNextID(ResultTable);
 
         }
@@ -165,9 +164,8 @@ namespace QuanLyTiecCuoiUI
             if (BUS_MonAn.InsertMonAn(monAn))
             {
                 //lstHinhAnh.Refresh();
-                UpdateDanhSachMonAn();
                 ClearInputs();
-               
+                UpdateDanhSachMonAn();
                 ShowKetQua("Thêm thành công món ăn '" +txtTenMonAn.Text+"' !!",true);
             }
             else

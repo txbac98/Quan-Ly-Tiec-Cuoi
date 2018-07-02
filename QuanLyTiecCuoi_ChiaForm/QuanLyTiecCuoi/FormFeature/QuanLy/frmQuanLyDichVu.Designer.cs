@@ -339,11 +339,13 @@
             // 
             // btnXoaTimKiem
             // 
+            this.btnXoaTimKiem.Image = global::QuanLyTiecCuoiUI.Properties.Resources.Alarm_Error_icon;
+            this.btnXoaTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnXoaTimKiem.Location = new System.Drawing.Point(322, 17);
             this.btnXoaTimKiem.Name = "btnXoaTimKiem";
-            this.btnXoaTimKiem.Size = new System.Drawing.Size(75, 23);
+            this.btnXoaTimKiem.Size = new System.Drawing.Size(85, 31);
             this.btnXoaTimKiem.TabIndex = 15;
-            this.btnXoaTimKiem.Text = "Xóa tìm kiếm";
+            this.btnXoaTimKiem.Text = "        Hủy tìm";
             this.btnXoaTimKiem.UseVisualStyleBackColor = true;
             this.btnXoaTimKiem.Click += new System.EventHandler(this.btnXoaTimKiem_Click);
             // 

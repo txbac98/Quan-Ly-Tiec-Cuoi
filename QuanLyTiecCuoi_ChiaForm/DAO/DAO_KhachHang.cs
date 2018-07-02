@@ -58,9 +58,9 @@ namespace DAO
             }
             return false;
         }
-        public static bool DeleteKhachHang(DTO_KhachHang khachhang)
+        public static bool DeleteKhachHang(string maKH)
         {
-            string sTruyVan = string.Format("Delete KhachHang where MaKH=N'{0}'", khachhang.MaKH);
+            string sTruyVan = string.Format("Delete KhachHang where MaKH=N'{0}'", maKH);
             try
             {
                 int state = DatabaseHelper.ExcuteSql(sTruyVan);

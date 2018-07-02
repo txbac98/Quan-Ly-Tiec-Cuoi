@@ -33,17 +33,17 @@ namespace DAO
                 {
                     tiecCuoi = new DTO_TiecCuoi();
                     DataRow dataRow = dataTable.Rows[0];
-                    tiecCuoi.MaTiecCuoi = int.Parse(dataRow["MaTiecCuoi"].ToString());
+                    tiecCuoi.MaTC = dataRow["MaTiecCuoi"].ToString();
                     tiecCuoi.TenChuRe = dataRow["TenChuRe"].ToString();
                     tiecCuoi.TenCoDau = dataRow["TenCoDau"].ToString();
                     tiecCuoi.DienThoai = dataRow["DienThoai"].ToString();
-                    tiecCuoi.NgayDatTiec = dataRow["NgayDatTiec"].ToString();
-                    tiecCuoi.NgayDaiTiec = dataRow["NgayDaiTiec"].ToString();
-                    tiecCuoi.MaCa = int.Parse(dataRow["MaCa"].ToString());
-                    tiecCuoi.MaSanh = int.Parse(dataRow["MaSanh"].ToString());
+                    //tiecCuoi.NgayDatTiec = dataRow["NgayDatTiec"];
+                    //tiecCuoi.NgayDaiTiec = dataRow["NgayDaiTiec"];
+                    tiecCuoi.Ca = dataRow["MaCa"].ToString();
+                    tiecCuoi.Sanh = dataRow["MaSanh"].ToString();
                     tiecCuoi.TienCoc = decimal.Parse(dataRow["TienCoc"].ToString());
                     tiecCuoi.GhiChu = dataRow["GhiChu"].ToString();
-                    tiecCuoi.MaNV = int.Parse(dataRow["MaNV"].ToString());
+                    tiecCuoi.MaNV = dataRow["MaNV"].ToString();
                 }
             }
             return tiecCuoi;
@@ -136,7 +136,7 @@ namespace DAO
 
         public static bool UpdateTiecCuoi(DTO_TiecCuoi tiecCuoiInfo)
         {
-            String sqlCommand = String.Format(@"UPDATE TIECCUOI SET TinhTrangTiec = {0} WHERE MaTiecCuoi = {1}", tiecCuoiInfo.TinhTrangTiec, tiecCuoiInfo.MaTiecCuoi);
+            String sqlCommand = String.Format(@"UPDATE TIECCUOI SET TinhTrangTiec = {0} WHERE MaTiecCuoi = {1}", tiecCuoiInfo.MaTC);
             if (DatabaseHelper.ExcuteSql(sqlCommand) > 0)
             {
                 return true;

@@ -55,6 +55,7 @@
     <Compile Include="DTO_NhanVien.cs" />
     <Compile Include="DTO_PhieuDatBan.cs" />
     <Compile Include="DTO_Sanh.cs" />
+    <Compile Include="DTO_TaiKhoan.cs" />
     <Compile Include="DTO_ThamSo.cs" />
     <Compile Include="DTO_TiecCuoi.cs" />
     <Compile Include="DTO_TraCuu.cs" />

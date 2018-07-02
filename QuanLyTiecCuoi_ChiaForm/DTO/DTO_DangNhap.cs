@@ -13,7 +13,7 @@ namespace DTO
             Username = user;
             Password = pass;
         }
-        public string Username { get; set; }
+        public  string Username { get; set; }
         public string Password { get; set; }
     }
 }

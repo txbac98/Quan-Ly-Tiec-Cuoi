@@ -145,12 +145,6 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
             else
                 ShowKetQua("Cập nhật thất bại, vui lòng kiểm tra lại.", false);
         }
-
-        private void llbThemMoi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            ClearInputs();
-        }
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             BUS_QuanLyChucVu.DeleteChucVu(maChucVuCu);

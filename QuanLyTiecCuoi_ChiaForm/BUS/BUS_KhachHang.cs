@@ -32,9 +32,10 @@ namespace BUS
         {
             return DAO_KhachHang.UpdateKhachHang(khachhang);
         }
-        public static bool DeleteKhachHang(DTO_KhachHang khachhang)
+        public static bool DeleteKhachHang(string maKH)
         {
-            return DAO_KhachHang.DeleteKhachHang(khachhang);
+            return DAO_KhachHang.DeleteKhachHang(maKH);
         }
+        
     }
 }

@@ -18,7 +18,7 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
         private DataTable ResultTable;
         private string ImageLocationPath = string.Empty;
         //private string ImageInstance = string.Empty;
-        private string IDTable = "DV";
+        public string IDTable = "DV";
 
         //Luu ten dich vu ban dau luc cap nhat
         string tenDichVuCu = "";
@@ -50,7 +50,7 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
             InitializeComponent();
             LoadDanhSachDichVu();
             ClearInputs();
-            ShowKetQua("Kết nối thành công !!", true);
+            lblThongTinMaDichVu.Text = GetNextID(ResultTable);
         }
         void LoadDanhSachDichVu()
         {
@@ -64,8 +64,8 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
             dgvDanhSachDichVu.Columns[1].HeaderText = "Tên dịch vụ";
             dgvDanhSachDichVu.Columns[2].HeaderText = "Đơn giá";
             dgvDanhSachDichVu.Columns[3].HeaderText = "Ghi chú";
-            dgvDanhSachDichVu.Columns[4].Visible = false;
-            lblThongTinMaDichVu.Text = GetNextID(ResultTable);
+            dgvDanhSachDichVu.Columns[4].HeaderText="Hình ảnh";
+            dgvDanhSachDichVu.Columns[5].Visible = false;
             ShowKetQua("Kết nối thành công !!", true);
         }
         void UpdateDanhSachDichVu()
@@ -89,8 +89,8 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
 
             txtTenDichVu_TimKiem.Text=txtDonGia.Text = txtTenDichVu.Text = txtGhiChu.Text = string.Empty;
             ptrHinhAnh.ImageLocation = @"DanhSachDichVu\Unknow.png";
-            lbThongTinHinhAnh.Text = "Unknow.png";
-            
+            lbThongTinHinhAnh.Text = "Unknow.png";    
+
         }
         //Chỉ nhập số_Đơn giá
         private void txtDonGia_KeyPress(object sender, KeyPressEventArgs e)
@@ -106,6 +106,7 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
         private void llbThemMoi_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ClearInputs();
+            ResultTable = BUS_DichVu.GetDataTableDichVu();
             lblThongTinMaDichVu.Text = GetNextID(ResultTable);
         }
         private void btnThem_Click(object sender, EventArgs e)
@@ -282,15 +283,11 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
             txtDonGia.Text = dgvDanhSachDichVu[2, row].Value.ToString();
             txtGhiChu.Text = dgvDanhSachDichVu[3, row].Value.ToString();
             lbThongTinHinhAnh.Text = dgvDanhSachDichVu[4, row].Value.ToString();
-            ptrHinhAnh.ImageLocation = @"DanhSachDichVu/" + lbThongTinHinhAnh.Text;
+            ptrHinhAnh.ImageLocation = @"DanhSachDichVu\" + lbThongTinHinhAnh.Text;
         }
         private void dgvDanhSachDichVu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex == dgvDanhSachDichVu.RowCount - 1)
-            {
-                ClearInputs();
-            }
-            else if (e.RowIndex > -1)
+            if (e.RowIndex > -1)
             {
                 ShowDataCell(e.RowIndex);
             }

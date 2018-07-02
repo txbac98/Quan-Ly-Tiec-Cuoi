@@ -11,13 +11,49 @@ namespace BUS
 {
     public class BUS_MonAn
     {
+        public static bool mIsMonAnDataEmpty;
+        private static List<string> mListTenMonAn;
         public static DataTable GetDataTableMonAn()
         {
             return DAO_MonAn.GetDataTableMonAn();
         }
+
+        public static void GetListMonAn(string loaiMonAn)
+        {
+            DataTable dt = SearchMonAnTheoLoai(loaiMonAn);
+            if (dt.Rows.Count == 0)
+            {
+                mIsMonAnDataEmpty = true;
+                return;
+            }
+            mIsMonAnDataEmpty = false;
+            mListTenMonAn = new List<string>();
+
+            foreach (DataRow item in dt.Rows)
+            {
+                mListTenMonAn.Add(item[0].ToString());
+            }
+        }
+        public static List<string> GetListMonAnTheoLoai(string loaiMonAn)
+        {
+            GetListMonAn(loaiMonAn);
+            return mListTenMonAn;
+        }
+        public static string GetDonGia(string tenMonAn)
+        {
+            return DAO_MonAn.GetDonGia(tenMonAn);
+        }
+        public static string GetHinhAnh(string tenMonAn)
+        {
+            return DAO_MonAn.GetHinhAnh(tenMonAn);
+        }
         public static DataTable SearchMonAn(string tenMonAn, string loaiMonAn)
         {
             return DAO_MonAn.SearchMonAn(tenMonAn,loaiMonAn);
+        }
+        public static DataTable SearchMonAnTheoLoai(string loaiMonAn)
+        {
+            return DAO_MonAn.SearchMonAnTheoLoai(loaiMonAn);
         }
         public static bool InsertMonAn(DTO_MonAn monAn)
         {

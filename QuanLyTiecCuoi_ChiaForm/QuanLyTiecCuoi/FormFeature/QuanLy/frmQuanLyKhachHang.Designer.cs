@@ -49,15 +49,15 @@
             this.lblMaKhachHang = new System.Windows.Forms.Label();
             this.dgvDanhSachKhachHang = new System.Windows.Forms.DataGridView();
             this.grpThongTinKhachHang = new System.Windows.Forms.GroupBox();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
             this.lblNamSinhCoDau = new System.Windows.Forms.Label();
             this.lblNamSinhChuRe = new System.Windows.Forms.Label();
             this.txtNamSinhCoDau = new System.Windows.Forms.TextBox();
             this.txtNamSinhChuRe = new System.Windows.Forms.TextBox();
             this.llbThemMoi = new System.Windows.Forms.LinkLabel();
             this.lbKetQua = new System.Windows.Forms.Label();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
             this.grbTimKiem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachKhachHang)).BeginInit();
             this.grpThongTinKhachHang.SuspendLayout();
@@ -170,11 +170,13 @@
             // 
             // btnXoaTimKiem
             // 
-            this.btnXoaTimKiem.Location = new System.Drawing.Point(24, 80);
+            this.btnXoaTimKiem.Image = global::QuanLyTiecCuoiUI.Properties.Resources.Alarm_Error_icon;
+            this.btnXoaTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXoaTimKiem.Location = new System.Drawing.Point(24, 64);
             this.btnXoaTimKiem.Name = "btnXoaTimKiem";
-            this.btnXoaTimKiem.Size = new System.Drawing.Size(75, 23);
+            this.btnXoaTimKiem.Size = new System.Drawing.Size(95, 36);
             this.btnXoaTimKiem.TabIndex = 13;
-            this.btnXoaTimKiem.Text = "Xóa tìm kiếm";
+            this.btnXoaTimKiem.Text = "        Hủy tìm";
             this.btnXoaTimKiem.UseVisualStyleBackColor = true;
             // 
             // lbMaKH
@@ -277,6 +279,47 @@
             this.grpThongTinKhachHang.TabStop = false;
             this.grpThongTinKhachHang.Text = "Thông tin khách hàng";
             // 
+            // btnThem
+            // 
+            this.btnThem.Image = global::QuanLyTiecCuoiUI.Properties.Resources.Actions_insert_horizontal_rule_icon;
+            this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThem.Location = new System.Drawing.Point(9, 352);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(80, 30);
+            this.btnThem.TabIndex = 15;
+            this.btnThem.Text = "     Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Enabled = false;
+            this.btnXoa.Image = global::QuanLyTiecCuoiUI.Properties.Resources.Alarm_Error_icon;
+            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXoa.Location = new System.Drawing.Point(208, 352);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(80, 30);
+            this.btnXoa.TabIndex = 16;
+            this.btnXoa.Text = "     Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnSua
+            // 
+            this.btnSua.Enabled = false;
+            this.btnSua.Image = global::QuanLyTiecCuoiUI.Properties.Resources.edit_validated_icon;
+            this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSua.Location = new System.Drawing.Point(108, 352);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(80, 30);
+            this.btnSua.TabIndex = 17;
+            this.btnSua.Text = "     Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnCapNhat_Click);
+            // 
             // lblNamSinhCoDau
             // 
             this.lblNamSinhCoDau.AutoSize = true;
@@ -332,47 +375,6 @@
             this.lbKetQua.Size = new System.Drawing.Size(73, 13);
             this.lbKetQua.TabIndex = 8;
             this.lbKetQua.Text = "Show ket qua";
-            // 
-            // btnThem
-            // 
-            this.btnThem.Image = global::QuanLyTiecCuoiUI.Properties.Resources.Actions_insert_horizontal_rule_icon;
-            this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(9, 352);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(80, 30);
-            this.btnThem.TabIndex = 15;
-            this.btnThem.Text = "     Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Enabled = false;
-            this.btnXoa.Image = global::QuanLyTiecCuoiUI.Properties.Resources.Alarm_Error_icon;
-            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(208, 352);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(80, 30);
-            this.btnXoa.TabIndex = 16;
-            this.btnXoa.Text = "     Xóa";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
-            // btnSua
-            // 
-            this.btnSua.Enabled = false;
-            this.btnSua.Image = global::QuanLyTiecCuoiUI.Properties.Resources.edit_validated_icon;
-            this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSua.Location = new System.Drawing.Point(108, 352);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(80, 30);
-            this.btnSua.TabIndex = 17;
-            this.btnSua.Text = "     Sửa";
-            this.btnSua.UseVisualStyleBackColor = true;
-            this.btnSua.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // frmQuanLyKhachHang
             // 

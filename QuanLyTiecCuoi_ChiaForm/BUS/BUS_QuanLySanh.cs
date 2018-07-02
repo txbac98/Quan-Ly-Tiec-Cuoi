@@ -36,7 +36,7 @@ namespace BUS
             }
             mIsSanhDataEmpty = false;
             mListMaSanh = new List<string>();
-
+            
             foreach (DataRow item in dt.Rows)
             {
                 mListMaSanh.Add(item[1].ToString());
@@ -46,7 +46,7 @@ namespace BUS
         {
             return mListMaSanh;
         }
-
+        
         public static string GetSoLuongBanToiDa(string maSanh)
         {
             return DAO_QuanLySanh.GetSoLuongBanToiDa(maSanh);

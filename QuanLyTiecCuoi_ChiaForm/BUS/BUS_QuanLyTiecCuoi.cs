@@ -11,6 +11,8 @@ namespace BUS
 {
     public class BUS_QuanLyTiecCuoi
     {
+        public static List<string> _ListSanh;
+        public static List<string> _ListSanhRanh;
         public static List<string> _ListMaCa;
         public static List<string> _ListTenCa;
         public static List<string> _ListMaSanh;
@@ -27,58 +29,79 @@ namespace BUS
         public static List<string> _ListDonGiaDichVu;
         public static List<string> _ListHinhAnhDichVu;
 
-        static public void Init()
+        //static public void Init()
+        //{
+        //    _ListMaCa = new List<string>();
+        //    _ListTenCa = new List<string>();
+        //    _ListMaSanh = new List<string>();
+        //    _ListTenSanh = new List<string>();
+        //    _ListSoLuongBanToiDa = new List<int>();
+
+        //    DataTable dtCa = DAO_QuanLyTiecCuoi.GetTableCa();
+        //    foreach (DataRow row in dtCa.Rows)
+        //    {
+        //        _ListMaCa.Add(row["MaCa"].ToString());
+        //        _ListTenCa.Add(row["TenCa"].ToString());
+        //    }
+        //    DataTable dtSanh = DAO_QuanLyTiecCuoi.GetTableSanh();
+        //    foreach (DataRow row in dtSanh.Rows)
+        //    {
+        //        _ListMaSanh.Add(row["MaSanh"].ToString());
+        //        _ListSoLuongBanToiDa.Add(int.Parse(row["SoLuongBanToiDa"].ToString()));
+        //        _ListTenSanh.Add(row["TenSanh"].ToString());
+        //    }
+
+        //    _ListMaMonAn = new List<string>(); _ListTenMonAn = new List<string>();
+        //    _ListDonGiaMonAn = new List<string>(); _ListHinhAnhMonAn = new List<string>();
+        //    using (DataTable dt = DAO_QuanLyTiecCuoi.GetTableMonAn())
+        //    {
+        //        foreach (DataRow row in dt.Rows)
+        //        {
+        //            _ListMaMonAn.Add(row["MaMonAn"].ToString());
+        //            _ListTenMonAn.Add(row["TenMonAn"].ToString());
+        //            _ListDonGiaMonAn.Add(row["DonGia"].ToString());
+        //            _ListHinhAnhMonAn.Add(row["HinhAnh"].ToString());
+        //        }
+        //    }
+
+        //    _ListMaDichVu = new List<string>(); _ListTenDichVu = new List<string>();
+        //    _ListDonGiaDichVu = new List<string>(); _ListHinhAnhDichVu = new List<string>();
+        //    using (DataTable dt = DAO_QuanLyTiecCuoi.GetTableDichVu())
+        //    {
+        //        foreach (DataRow row in dt.Rows)
+        //        {
+        //            _ListMaDichVu.Add(row["MaDichVu"].ToString());
+        //            _ListTenDichVu.Add(row["TenDichVu"].ToString());
+        //            _ListDonGiaDichVu.Add(row["DonGia"].ToString());
+        //            _ListHinhAnhDichVu.Add(row["HinhAnh"].ToString());
+        //        }
+        //    }
+        //}
+        public static List<string> GetListSanhRanh(string ngayDaiTiec, string ca)
         {
-            _ListMaCa = new List<string>();
-            _ListTenCa = new List<string>();
-            _ListMaSanh = new List<string>();
-            _ListTenSanh = new List<string>();
-            _ListSoLuongBanToiDa = new List<int>();
-
-            DataTable dtCa = DAO_QuanLyTiecCuoi.GetTableCa();
-            foreach (DataRow row in dtCa.Rows)
+            _ListSanhRanh = new List<string>();
+            using (DataTable dt = DAO_QuanLyTiecCuoi.GetSanhInCa(ngayDaiTiec,ca))
             {
-                _ListMaCa.Add(row["MaCa"].ToString());
-                _ListTenCa.Add(row["TenCa"].ToString());
-            }
-            DataTable dtSanh = DAO_QuanLyTiecCuoi.GetTableSanh();
-            foreach (DataRow row in dtSanh.Rows)
-            {
-                _ListMaSanh.Add(row["MaSanh"].ToString());
-                _ListSoLuongBanToiDa.Add(int.Parse(row["SoLuongBanToiDa"].ToString()));
-                _ListTenSanh.Add(row["TenSanh"].ToString());
-            }
-
-            _ListMaMonAn = new List<string>(); _ListTenMonAn = new List<string>();
-            _ListDonGiaMonAn = new List<string>(); _ListHinhAnhMonAn = new List<string>();
-            using (DataTable dt = DAO_QuanLyTiecCuoi.GetTableMonAn())
-            {
-                foreach (DataRow row in dt.Rows)
+                DataTable dtSanh = BUS_QuanLySanh.GetQLSanhTable();
+                foreach (DataRow rowSanh in dtSanh.Rows)
                 {
-                    _ListMaMonAn.Add(row["MaMonAn"].ToString());
-                    _ListTenMonAn.Add(row["TenMonAn"].ToString());
-                    _ListDonGiaMonAn.Add(row["DonGia"].ToString());
-                    _ListHinhAnhMonAn.Add(row["HinhAnh"].ToString());
+                    bool bRanh = true;
+                    foreach (DataRow row in dt.Rows){
+                        if (row["Sanh"].ToString() == rowSanh["MaSanh"].ToString()) bRanh=false;
+                    }
+                    if (bRanh)_ListSanhRanh.Add(rowSanh["MaSanh"].ToString());
+
                 }
             }
-
-            _ListMaDichVu = new List<string>(); _ListTenDichVu = new List<string>();
-            _ListDonGiaDichVu = new List<string>(); _ListHinhAnhDichVu = new List<string>();
-            using (DataTable dt = DAO_QuanLyTiecCuoi.GetTableDichVu())
-            {
-                foreach (DataRow row in dt.Rows)
-                {
-                    _ListMaDichVu.Add(row["MaDichVu"].ToString());
-                    _ListTenDichVu.Add(row["TenDichVu"].ToString());
-                    _ListDonGiaDichVu.Add(row["DonGia"].ToString());
-                    _ListHinhAnhDichVu.Add(row["HinhAnh"].ToString());
-                }
-            }
+            return _ListSanhRanh;
         }
         public static DataTable GetTableDanhSachTiecCuoi()
         {
-            DataTable dt = DAO_QuanLyTiecCuoi.GetTableDanhSachTiecCuoi();
             return DAO_QuanLyTiecCuoi.GetTableDanhSachTiecCuoi();
+        }
+        public static DataTable GetSanhInCa(string ngayDaiTiec,string ca)
+        {
+            return DAO_QuanLyTiecCuoi.GetSanhInCa(ngayDaiTiec, ca);
         }
 
         //public static int GetIndexListMaCa(string maCa)
@@ -92,22 +115,24 @@ namespace BUS
         //}
 
         // Tra ve false neu khong tim thay MaTiecCuoi trong TIECCUOI
-        public static bool DeleteTiecCuoi(string maTiecCuoi)
+        public static DataTable SearchTiecTheoNgay(string ngayDaiTiec, string ca, string sanh)
         {
-            return DAO_QuanLyTiecCuoi.DeleteTiecCuoi(maTiecCuoi);
+            return DAO_QuanLyTiecCuoi.SearchTiecTheoNgay(ngayDaiTiec, ca, sanh);
+        }
+        public static DataTable SearchTiecKhongTheoNgay( string ca, string sanh)
+        {
+            return DAO_QuanLyTiecCuoi.SearchTiecKhongTheoNgay(ca, sanh);
+        }
+        public static void DeleteTiecCuoi(string maTiecCuoi)
+        {
+            DAO_QuanLyTiecCuoi.DeleteTiecCuoi(maTiecCuoi);
         }
 
-        public static void GetDataPhieuBanAn(string maTiecCuoi, out string soLuongBan, out string soLuongBanDuTru, out DataTable danhSachMonAn)
+        public static DataTable GetDataPhieuDatMon(string maTiecCuoi)
         {
-            using (DataTable dt = DAO_QuanLyTiecCuoi.GetRowPhieuDatBan(maTiecCuoi))
-            {
-                soLuongBan = dt.Rows[0].ItemArray[0].ToString();
-                soLuongBanDuTru = dt.Rows[0].ItemArray[1].ToString();
-            }
-
-            danhSachMonAn = DAO_QuanLyTiecCuoi.GetTableMonAnDonGiaDGTT(maTiecCuoi);
+            return  DAO_QuanLyTiecCuoi.GetDataPhieuDatMon(maTiecCuoi);
         }
-        public static object GetDataPhieuDichVu(string maTiecCuoi)
+        public static DataTable GetDataPhieuDichVu(string maTiecCuoi)
         {
             return DAO_QuanLyTiecCuoi.GetTablePhieuDichVu(maTiecCuoi);
         }

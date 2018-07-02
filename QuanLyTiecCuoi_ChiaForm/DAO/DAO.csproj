@@ -43,7 +43,7 @@
     <Compile Include="DAO_BaoCaoNgay.cs" />
     <Compile Include="DAO_BaoCaoThang.cs" />
     <Compile Include="DAO_Ca.cs" />
-    <Compile Include="DAO_DangNhap.cs" />
+    <Compile Include="DAO_QuanLyTaiKhoan.cs" />
     <Compile Include="DAO_DichVu.cs" />
     <Compile Include="DAO_DoiMatKhau.cs" />
     <Compile Include="DAO_HoaDon.cs" />

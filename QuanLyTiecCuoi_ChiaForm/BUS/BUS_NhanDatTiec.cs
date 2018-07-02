@@ -54,5 +54,13 @@ namespace BUS
         {
             return DAO_NhanDatTiecCuoi.CheckDaLapTiecCuoi(tieccuoi);
         }
+        public static void DeletePhieuDatDichVu(string maTiecCuoi)
+        {
+             DAO_NhanDatTiecCuoi.DeletePhieuDatDichVu(maTiecCuoi);
+        }
+        public static void DeletePhieuDatMonAn(string maTiecCuoi)
+        {
+            DAO_NhanDatTiecCuoi.DeletePhieuDatMonAn(maTiecCuoi);
+        }
     }
 }

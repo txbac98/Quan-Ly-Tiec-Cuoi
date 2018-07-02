@@ -8,8 +8,9 @@ namespace DTO
 {
     public class DTO_CT_PhieuDatBan
     {
-        public int MaPhieuDatBan { get; set; }
-        public int MaMonAn { get; set; }
+        public string MaTiecCuoi { get; set; }
+        public string LoaiMonAn { get; set; }
+        public string TenMonAn { get; set; }
         public decimal DonGia { get; set; }
         public int SoLuong { get; set; }
         public string GhiChu { get; set; }

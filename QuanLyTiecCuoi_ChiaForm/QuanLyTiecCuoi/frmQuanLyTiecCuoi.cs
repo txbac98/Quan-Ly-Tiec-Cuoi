@@ -8,13 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using DTO;
+using BUS;
 namespace QuanLyTiecCuoiUI
 {
     public partial class frmQuanLyTiecCuoi : Form
     {
-        public string maNV;
 
+        public string maNV, tenNV,taiKhoan,matKhau;
         bool CheckExistForm(string name)
         {
             bool check = false;
@@ -43,22 +44,27 @@ namespace QuanLyTiecCuoiUI
         public frmQuanLyTiecCuoi()
         {
             InitializeComponent();
+           
         }
-
+        public void DangNhap(DTO_DangNhap dangNhap)
+        {
+            taiKhoan = dangNhap.Username;
+            matKhau = dangNhap.Password;
+            tenNV = BUS_QuanLyTaiKhoan.GetTenNV(dangNhap);
+            maNV = BUS_QuanLyTaiKhoan.GetMaNV(dangNhap);
+            lblTenNhanVien.Text = tenNV;
+        }
+        
         void AnForm()
         {
             foreach (Form frm in MdiChildren)
             {
                 frm.Visible=false;
             }
-            btnKhachHang.Enabled = btnNhanVien.Enabled = true;
-            btnKhachHang.BackColor = btnNhanVien.BackColor = Color.FromArgb(0, 64, 64);
         }
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
             AnForm();
-            btnKhachHang.Enabled = false;
-            btnKhachHang.BackColor = Color.Teal;
             if (!CheckExistForm("frmQuanLyKhachHang"))
             {
                 frmQuanLyKhachHang frmQLKH = new frmQuanLyKhachHang();
@@ -69,16 +75,12 @@ namespace QuanLyTiecCuoiUI
             else
             {
                 ActiveChildForm("frmQuanLyKhachHang");
-            }
-
-            
+            }           
         }
 
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
             AnForm();
-            btnNhanVien.Enabled = false;
-            btnNhanVien.BackColor = Color.Teal;
             if (!CheckExistForm("frmQuanLyNhanVien"))
             {
                 frmQuanLyNhanVien frmQLNV = new frmQuanLyNhanVien();
@@ -118,30 +120,63 @@ namespace QuanLyTiecCuoiUI
             frmQLMA.Show();
         }
 
-        private void mItemDoUong_Click(object sender, EventArgs e)
-        {
 
+        private void btnTiecCuoi_Click(object sender, EventArgs e)
+        {
+            frmNhanDatTiecCuoi frmNDTC = new frmNhanDatTiecCuoi();
+            frmNDTC.Show();
+            frmNDTC.SetTaiKhoan(maNV, tenNV);
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            AnForm();
+            if (!CheckExistForm("frmDanhSachTiec"))
+            {
+                frmDanhSachTiec frmDSTC = new frmDanhSachTiec();
+                frmDSTC.MdiParent = this;
+                frmDSTC.Show();
+                frmDSTC.Location = new Point(80, 0);
+                frmDSTC.SetTaiKhoan(maNV, tenNV);
+            }
+            else ActiveChildForm("frmDanhSachTiec");
+        }
+
+        private void frmQuanLyTiecCuoi_Load(object sender, EventArgs e)
+        {
+            AnForm();
+            if (!CheckExistForm("frmDanhSachTiec"))
+            {
+                frmDanhSachTiec frmDSTC = new frmDanhSachTiec();
+                frmDSTC.MdiParent = this;
+                frmDSTC.Show();
+                frmDSTC.Location = new Point(80, 0);
+                frmDSTC.SetTaiKhoan(maNV, tenNV);
+            }
+            else ActiveChildForm("frmDanhSachTiec");
+        }
+
+        private void mItemQuanLyTaiKhoan_Click(object sender, EventArgs e)
+        {
+            if (tenNV == "admin")
+            {
+                frmQuanLyTaiKhoan frmQLTK = new frmQuanLyTaiKhoan();
+                frmQLTK.Show();
+            }
+            else MessageBox.Show("Chức năng chỉ dành cho admin");
+        }
+
+        private void llbDoiMatKhau_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmDoiMatKhau frmDMK = new frmDoiMatKhau();
+            frmDMK.Show();
+            frmDMK.DangNhap(taiKhoan, matKhau);
         }
 
         private void mItemDichVuKhac_Click(object sender, EventArgs e)
         {
             frmQuanLyDichVu frmQLDV = new frmQuanLyDichVu();
             frmQLDV.Show();
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
         }
     }
 }

@@ -12,13 +12,17 @@ using System.Windows.Forms;
 
 namespace QuanLyTiecCuoiUI.FormFeature.ConfigDatabase
 {
+    
     public partial class frmLogin : Form
     {
+        public string maNV, tenNV;
         public frmLogin()
         {
             InitializeComponent();
             SetFormStart();
         }
+
+
         private void txtUser_MouseEnter(object sender, EventArgs e)
         {
             if (txtUser.Text == "Username...")
@@ -63,7 +67,6 @@ namespace QuanLyTiecCuoiUI.FormFeature.ConfigDatabase
                 txtPassword.ForeColor = Color.LightGray;
             }
         }
-
         private void txtUser_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((sender as TextBox).SelectionStart == 0)
@@ -75,7 +78,6 @@ namespace QuanLyTiecCuoiUI.FormFeature.ConfigDatabase
             else
                 e.Handled = false;
         }
-
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((sender as TextBox).SelectionStart == 0)
@@ -87,6 +89,11 @@ namespace QuanLyTiecCuoiUI.FormFeature.ConfigDatabase
             }
             else
                 e.Handled = false;
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
@@ -101,22 +108,16 @@ namespace QuanLyTiecCuoiUI.FormFeature.ConfigDatabase
                 lblNotification.Text = "Mật khẩu còn trống" + Environment.NewLine;
                 return;
             }
-
             DTO_DangNhap dangnhap = new DTO_DangNhap(txtUser.Text,txtPassword.Text);
-
-            if (BUS_DangNhap.KiemTraDangNhap(dangnhap))
+            if (BUS_QuanLyTaiKhoan.KiemTraDangNhap(dangnhap))
             {
-                lblNotification.Text = "Đăng nhập thành công !!";
+                lblNotification.Text = "Đăng nhập thành công!";
                 frmQuanLyTiecCuoi frmQLTC = new frmQuanLyTiecCuoi();
-                frmQLTC.ShowDialog();
-                frmQLTC.maNV = BUS_DangNhap.GetMaNV(dangnhap);
-                this.Close();
+                this.Visible = false;
+                frmQLTC.Show();
+                frmQLTC.DangNhap(dangnhap);
             }
-            else
-            {
-                lblNotification.Text = "Đăng nhập không thành công.";
-            }
+            else lblNotification.Text = "Đăng nhập thất bại";
         }
     }
-
 }

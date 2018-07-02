@@ -217,7 +217,7 @@ namespace QuanLyTiecCuoiUI
 
             if (resultDialog == DialogResult.Yes)
             {
-                if (BUS_KhachHang.DeleteKhachHang(khachhang))
+                if (BUS_KhachHang.DeleteKhachHang(khachhang.MaKH))
                 {
                     UpDateDataGridView();
                     ShowKetQua("Xóa thành công khách hàng '" +khachhang.MaKH+ "' !!",true);

@@ -13,7 +13,7 @@ namespace DAO
     {
         public static DataTable GetDataTableDichVu()
         {
-            string query = @"SELECT * FROM DICHVU";
+            string query = "SELECT * FROM DICHVU";
             return DatabaseHelper.GetData(query);
         }
         public static string GetDonGia(string tenDichVu)

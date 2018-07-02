@@ -54,6 +54,18 @@
     <Compile Include="FormFeature\ConfigDatabase\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormFeature\QuanLy\frmDanhSachTiec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFeature\QuanLy\frmDanhSachTiec.Designer.cs">
+      <DependentUpon>frmDanhSachTiec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFeature\QuanLy\frmDoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFeature\QuanLy\frmDoiMatKhau.Designer.cs">
+      <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormFeature\QuanLy\frmNhanDatTiecCuoi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,11 +114,17 @@
     <Compile Include="FormFeature\QuanLy\frmQuanLySanh.Designer.cs">
       <DependentUpon>frmQuanLySanh.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="FormFeature\QuanLy\frmQuanLyTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <Compile Include="FormFeature\QuanLy\frmQuanLyTaiKhoan.Designer.cs">
+      <DependentUpon>frmQuanLyTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFeature\QuanLy\frmThemTiec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFeature\QuanLy\frmThemTiec.Designer.cs">
+      <DependentUpon>frmThemTiec.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\ConnectDatabase.cs" />
     <Compile Include="frmQuanLyTiecCuoi.cs">
@@ -119,6 +137,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormFeature\ConfigDatabase\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFeature\QuanLy\frmDanhSachTiec.resx">
+      <DependentUpon>frmDanhSachTiec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFeature\QuanLy\frmDoiMatKhau.resx">
+      <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFeature\QuanLy\frmNhanDatTiecCuoi.resx">
       <DependentUpon>frmNhanDatTiecCuoi.cs</DependentUpon>
@@ -144,8 +168,11 @@
     <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLySanh.resx">
       <DependentUpon>frmQuanLySanh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <EmbeddedResource Include="FormFeature\QuanLy\frmQuanLyTaiKhoan.resx">
+      <DependentUpon>frmQuanLyTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFeature\QuanLy\frmThemTiec.resx">
+      <DependentUpon>frmThemTiec.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyTiecCuoi.resx">
       <DependentUpon>frmQuanLyTiecCuoi.cs</DependentUpon>

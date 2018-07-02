@@ -15,9 +15,29 @@ namespace DAO
             string query = @"SELECT * FROM MONAN";
             return DatabaseHelper.GetData(query);
         }
+        public static string GetDonGia(string tenMonAn)
+        {
+            DataTable result;
+            string sTruyvan = string.Format("Select DonGia from MONAN where TenMonAn = N'{0}'", tenMonAn);
+            result = DatabaseHelper.GetData(sTruyvan);
+            return result.Rows[0][0].ToString();
+        }
+        public static string GetHinhAnh(string tenMonAn)
+        {
+            DataTable result;
+            string sTruyvan = string.Format("Select HinhAnh from MONAN where TenMonAn = N'{0}'", tenMonAn);
+            result = DatabaseHelper.GetData(sTruyvan);
+            return result.Rows[0][0].ToString();
+        }
         public static DataTable SearchMonAn(string tenMonAn, string loaiMonAn)
         {
             string sTruyVan = string.Format("Select * from MONAN where TenMonAn like N'%{0}%' and LoaiMonAn like N'%{1}%'", tenMonAn,loaiMonAn);
+            return DatabaseHelper.GetData(sTruyVan);
+
+        }
+        public static DataTable SearchMonAnTheoLoai( string loaiMonAn)
+        {
+            string sTruyVan = string.Format("Select TenMonAn from MONAN where LoaiMonAn = N'{0}'", loaiMonAn);
             return DatabaseHelper.GetData(sTruyVan);
 
         }

@@ -12,16 +12,7 @@ namespace DAO
     {
         public static DataTable GetTableDanhSachTiecCuoi()
         {
-            string sqlCommand = @"SELECT TenChuRe, TenCoDau, Sanh.TenSanh,
-	                                CONVERT(DATE, NgayDaiTiec) AS 'NgayDaiTiec', PHIEUDATBAN.SoBan,     
-                                    PHIEUDATBAN.MaTiecCuoi, TIECCUOI.DienThoai, NgayDatTiec, TenCa, 
-                                    DonGiaBanToiThieu, TienCoc, TIECCUOI.GhiChu, NHANVIEN.HoTen AS 'TenNV'
-                                FROM TIECCUOI JOIN CA ON TIECCUOI.MaCa = Ca.MaCa
-                                    JOIN SANH ON TIECCUOI.MaSanh = SANH.MaSanh
-                                    JOIN NHANVIEN ON TIECCUOI.MaNV = NHANVIEN.MaNV
-                                    JOIN PHIEUDATBAN ON TIECCUOI.MaTiecCuoi = PHIEUDATBAN.MaTiecCuoi
-                                    JOIN LOAISANH ON SANH.MaLoaiSanh = LOAISANH.MaLoaiSanh
-	                                ";
+            string sqlCommand = @"SELECT * FROM TIECCUOI";
             return DatabaseHelper.GetData(sqlCommand);
         }
         public static DataTable GetTableSanh()
@@ -29,30 +20,43 @@ namespace DAO
             string sqlCommand = @"SELECT * FROM SANH";
             return DatabaseHelper.GetData(sqlCommand);
         }
+        public static DataTable GetSanhInCa(string ngayDaiTiec, string ca)
+        {
+            string sqlCommand = string.Format("SELECT Sanh FROM TIECCUOI Where NgayDaiTiec='{0}' and Ca=N'{1}'",ngayDaiTiec,ca);
+            return DatabaseHelper.GetData(sqlCommand);
+        }
         public static DataTable GetTableCa()
         {
             string sqlCommand = @"SELECT * FROM CA";
             return DatabaseHelper.GetData(sqlCommand);
         }
-        // Tra ve false neu khong tim thay MaTiecCuoi trong TIECCUOI
-        public static bool DeleteTiecCuoi(string maTiecCuoi)
+        public static DataTable SearchTiecTheoNgay(string ngayDaiTiec, string ca, string sanh)
         {
-            if (DatabaseHelper.CountRecord(@"SELECT COUNT(*) FROM TIECCUOI WHERE MaTiecCuoi=" + maTiecCuoi) == 0)
-                return false;
-
-            DatabaseHelper.ExcuteSql(@"DELETE CT_PHIEUDATBAN 
-                                        FROM CT_PHIEUDATBAN c JOIN PHIEUDATBAN p ON c.MaPhieuDatBan=p.MaPhieuDatBan
-                                        WHERE MaTiecCuoi=" + maTiecCuoi + ";"
-                                    + @"DELETE FROM CT_PHIEUDATDICHVU WHERE MaTiecCuoi=" + maTiecCuoi + ";"
-                                    + @"DELETE FROM PHIEUDATBAN WHERE MaTiecCuoi=" + maTiecCuoi + ";"
-                                    + @"DELETE FROM HOADON WHERE MaTiecCuoi=" + maTiecCuoi + ";"
-                                    );
-            DatabaseHelper.ExcuteSql(@"DELETE FROM TIECCUOI WHERE MaTiecCuoi=" + maTiecCuoi);
-            return true;
+            string sTruyVan = string.Format("SELECT * FROM TIECCUOI WHERE NgayDaiTiec='{0}' and Ca like N'%{1}%' and Sanh like N'%{2}%'", ngayDaiTiec, ca, sanh);
+            return DatabaseHelper.GetData(sTruyVan);
         }
-        public static DataTable GetRowPhieuDatBan(string maTiecCuoi)
+        public static DataTable SearchTiecKhongTheoNgay( string ca, string sanh)
         {
-            return DatabaseHelper.GetData(@"SELECT SoBan, SoBanDuTru FROM PHIEUDATBAN WHERE MaTiecCuoi=" + maTiecCuoi);
+            string sTruyVan = string.Format("SELECT * FROM TIECCUOI WHERE Ca like N'%{0}%' and Sanh like N'%{1}%'", ca, sanh);
+            return DatabaseHelper.GetData(sTruyVan);
+        }
+        // Tra ve false neu khong tim thay MaTiecCuoi trong TIECCUOI
+        public static void DeleteTiecCuoi(string maTiecCuoi)
+        {
+            //if (DatabaseHelper.CountRecord(@"SELECT COUNT(*) FROM TIECCUOI WHERE MaTiecCuoi=" + maTiecCuoi) == 0)
+                //return false;
+
+            //DatabaseHelper.ExcuteSql(@"DELETE FROM CT_PHIEUDATBAN WHERE MaTC=" + maTiecCuoi + ";"
+                                   //+ @"DELETE FROM CT_PHIEUDATDICHVU WHERE MaTC=" + maTiecCuoi + ";"
+                                    //);
+            DatabaseHelper.ExcuteSql(string.Format("DELETE FROM TIECCUOI WHERE MaTC='{0}'", maTiecCuoi));
+            DatabaseHelper.ExcuteSql(string.Format("DELETE FROM CT_PHIEUDATBAN WHERE MaTC='{0}'", maTiecCuoi));
+            DatabaseHelper.ExcuteSql(string.Format("DELETE FROM CT_PHIEUDATDICHVU WHERE MaTC='{0}'", maTiecCuoi));
+        }
+        public static DataTable GetDataPhieuDatMon(string maTiecCuoi)
+        {
+            string sTruyVan = string.Format("SELECT * FROM CT_PHIEUDATBAN  WHERE MaTC='{0}'", maTiecCuoi);
+            return DatabaseHelper.GetData(sTruyVan);
         }
         public static DataTable GetTableMonAnDonGiaDGTT(string maTiecCuoi)
         {
@@ -72,11 +76,9 @@ namespace DAO
             return DatabaseHelper.GetData(@"SELECT * FROM DICHVU");
         }
 
-        public static object GetTablePhieuDichVu(string maTiecCuoi)
+        public static DataTable GetTablePhieuDichVu(string maTiecCuoi)
         {
-            return DatabaseHelper.GetData(@"SELECT D.MaDichVu, D.TenDichVu, C.DonGia AS 'DonGiaTT', C.SoLuong
-                                            FROM DICHVU D JOIN CT_PHIEUDATDICHVU C ON D.MaDichVu = C.MaDichVu
-                                            WHERE MaTiecCuoi = " + maTiecCuoi);
+            return DatabaseHelper.GetData(string.Format("SELECT * FROM CT_PHIEUDATDICHVU WHERE MaTC ='{0}' ", maTiecCuoi));
         }
 
         public static void UpdateTiecCuoi(DTO_TiecCuoi tiecCuoi)
@@ -85,8 +87,8 @@ namespace DAO
                 "UPDATE TIECCUOI " +
                 "SET TenChuRe=N'{0}', TenCoDau=N'{1}', DienThoai='{2}', NgayDaiTiec='{3}', MaCa={4}, MaSanh={5}, TienCoc={6}, GhiChu=N'{7}' " +
                 "WHERE MaTiecCuoi={8}",
-                tiecCuoi.TenChuRe, tiecCuoi.TenCoDau, tiecCuoi.DienThoai, tiecCuoi.NgayDaiTiec, tiecCuoi.MaCa, tiecCuoi.MaSanh, tiecCuoi.TienCoc, tiecCuoi.GhiChu,
-                tiecCuoi.MaTiecCuoi
+                tiecCuoi.TenChuRe, tiecCuoi.TenCoDau, tiecCuoi.DienThoai, tiecCuoi.NgayDaiTiec, tiecCuoi.Ca, tiecCuoi.Sanh, tiecCuoi.TienCoc, tiecCuoi.GhiChu,
+                tiecCuoi.MaTC
                 ));
         }
 
