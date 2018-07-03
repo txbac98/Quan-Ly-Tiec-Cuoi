@@ -1,0 +1,1 @@
+Data Source=DESKTOP-VM2VH3B\SQLEXPRESS;Initial Catalog=QuanLyTiecCuoi;Integrated Security=True

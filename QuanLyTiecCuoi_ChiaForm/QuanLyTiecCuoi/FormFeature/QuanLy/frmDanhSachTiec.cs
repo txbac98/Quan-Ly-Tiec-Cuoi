@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 using BUS;
 using DTO;
@@ -21,7 +22,7 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
             BUS_QuanLySanh.Init();
             BUS_Ca.Init();
             InitializeComponent();
-            LoadData();
+            //LoadData();
         }
         void LoadData()
         {
@@ -107,6 +108,12 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             UpdateData();
+            LoadData();
+        }
+
+        private void frmDanhSachTiec_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void btnSuaTiec_Click(object sender, EventArgs e)

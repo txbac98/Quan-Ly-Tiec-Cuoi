@@ -33,6 +33,7 @@
             this.lblDanhSachTiec = new System.Windows.Forms.Label();
             this.dtpNgayDaiTiec = new System.Windows.Forms.DateTimePicker();
             this.grbTimKiemTiec = new System.Windows.Forms.GroupBox();
+            this.ckbNgayDatTiec = new System.Windows.Forms.CheckBox();
             this.btnHuyTim = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.cbbSanh = new System.Windows.Forms.ComboBox();
@@ -43,7 +44,6 @@
             this.btnSuaTiec = new System.Windows.Forms.Button();
             this.btnXoaTiec = new System.Windows.Forms.Button();
             this.btnLamMoi = new System.Windows.Forms.Button();
-            this.ckbNgayDatTiec = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachTiec)).BeginInit();
             this.grbTimKiemTiec.SuspendLayout();
             this.SuspendLayout();
@@ -91,6 +91,16 @@
             this.grbTimKiemTiec.TabIndex = 3;
             this.grbTimKiemTiec.TabStop = false;
             this.grbTimKiemTiec.Text = "Tìm kiếm";
+            // 
+            // ckbNgayDatTiec
+            // 
+            this.ckbNgayDatTiec.AutoSize = true;
+            this.ckbNgayDatTiec.Location = new System.Drawing.Point(16, 33);
+            this.ckbNgayDatTiec.Name = "ckbNgayDatTiec";
+            this.ckbNgayDatTiec.Size = new System.Drawing.Size(90, 17);
+            this.ckbNgayDatTiec.TabIndex = 10;
+            this.ckbNgayDatTiec.Text = "Ngày đặt tiệc";
+            this.ckbNgayDatTiec.UseVisualStyleBackColor = true;
             // 
             // btnHuyTim
             // 
@@ -203,16 +213,6 @@
             this.btnLamMoi.UseVisualStyleBackColor = true;
             this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
-            // ckbNgayDatTiec
-            // 
-            this.ckbNgayDatTiec.AutoSize = true;
-            this.ckbNgayDatTiec.Location = new System.Drawing.Point(16, 33);
-            this.ckbNgayDatTiec.Name = "ckbNgayDatTiec";
-            this.ckbNgayDatTiec.Size = new System.Drawing.Size(90, 17);
-            this.ckbNgayDatTiec.TabIndex = 10;
-            this.ckbNgayDatTiec.Text = "Ngày đặt tiệc";
-            this.ckbNgayDatTiec.UseVisualStyleBackColor = true;
-            // 
             // frmDanhSachTiec
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,6 +228,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDanhSachTiec";
             this.Text = "Danh sách tiệc";
+            this.Load += new System.EventHandler(this.frmDanhSachTiec_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachTiec)).EndInit();
             this.grbTimKiemTiec.ResumeLayout(false);
             this.grbTimKiemTiec.PerformLayout();

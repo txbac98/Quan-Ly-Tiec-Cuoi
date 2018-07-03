@@ -240,6 +240,7 @@
             this.txtDonGiaMonAn_YeuCau.Name = "txtDonGiaMonAn_YeuCau";
             this.txtDonGiaMonAn_YeuCau.Size = new System.Drawing.Size(124, 20);
             this.txtDonGiaMonAn_YeuCau.TabIndex = 6;
+            this.txtDonGiaMonAn_YeuCau.TextChanged += new System.EventHandler(this.txtDonGiaMonAn_YeuCau_TextChanged);
             // 
             // lblDonGiaThucTe
             // 
@@ -316,6 +317,7 @@
             // txtGhiChuMonAn
             // 
             this.txtGhiChuMonAn.Location = new System.Drawing.Point(19, 212);
+            this.txtGhiChuMonAn.MaxLength = 1000;
             this.txtGhiChuMonAn.Multiline = true;
             this.txtGhiChuMonAn.Name = "txtGhiChuMonAn";
             this.txtGhiChuMonAn.Size = new System.Drawing.Size(248, 48);
@@ -378,6 +380,7 @@
             // txtSoBanDungMon
             // 
             this.txtSoBanDungMon.Location = new System.Drawing.Point(143, 171);
+            this.txtSoBanDungMon.MaxLength = 3;
             this.txtSoBanDungMon.Name = "txtSoBanDungMon";
             this.txtSoBanDungMon.Size = new System.Drawing.Size(124, 20);
             this.txtSoBanDungMon.TabIndex = 25;
@@ -581,7 +584,7 @@
             // txtGhiChuDichVu
             // 
             this.txtGhiChuDichVu.Location = new System.Drawing.Point(119, 149);
-            this.txtGhiChuDichVu.MaxLength = 3;
+            this.txtGhiChuDichVu.MaxLength = 1000;
             this.txtGhiChuDichVu.Multiline = true;
             this.txtGhiChuDichVu.Name = "txtGhiChuDichVu";
             this.txtGhiChuDichVu.Size = new System.Drawing.Size(151, 41);
@@ -893,6 +896,7 @@
             // txtSoLuongBanDat
             // 
             this.txtSoLuongBanDat.Location = new System.Drawing.Point(145, 178);
+            this.txtSoLuongBanDat.MaxLength = 3;
             this.txtSoLuongBanDat.Name = "txtSoLuongBanDat";
             this.txtSoLuongBanDat.Size = new System.Drawing.Size(215, 20);
             this.txtSoLuongBanDat.TabIndex = 34;
@@ -940,6 +944,7 @@
             // txtGhiChuThongTinTiecCuoi
             // 
             this.txtGhiChuThongTinTiecCuoi.Location = new System.Drawing.Point(145, 237);
+            this.txtGhiChuThongTinTiecCuoi.MaxLength = 1000;
             this.txtGhiChuThongTinTiecCuoi.Multiline = true;
             this.txtGhiChuThongTinTiecCuoi.Name = "txtGhiChuThongTinTiecCuoi";
             this.txtGhiChuThongTinTiecCuoi.Size = new System.Drawing.Size(215, 55);
@@ -1186,7 +1191,7 @@
             // 
             this.txtDiaChi.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtDiaChi.Location = new System.Drawing.Point(81, 133);
-            this.txtDiaChi.MaxLength = 12;
+            this.txtDiaChi.MaxLength = 1000;
             this.txtDiaChi.Multiline = true;
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(279, 31);
@@ -1204,6 +1209,7 @@
             // txtNamSinhCoDau
             // 
             this.txtNamSinhCoDau.Location = new System.Drawing.Point(287, 74);
+            this.txtNamSinhCoDau.MaxLength = 4;
             this.txtNamSinhCoDau.Name = "txtNamSinhCoDau";
             this.txtNamSinhCoDau.Size = new System.Drawing.Size(72, 20);
             this.txtNamSinhCoDau.TabIndex = 35;
@@ -1221,6 +1227,7 @@
             // txtNamSinhChuRe
             // 
             this.txtNamSinhChuRe.Location = new System.Drawing.Point(287, 45);
+            this.txtNamSinhChuRe.MaxLength = 4;
             this.txtNamSinhChuRe.Name = "txtNamSinhChuRe";
             this.txtNamSinhChuRe.Size = new System.Drawing.Size(72, 20);
             this.txtNamSinhChuRe.TabIndex = 33;

@@ -35,6 +35,7 @@
             this.lblMatKhau = new System.Windows.Forms.Label();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.lblNotification = new System.Windows.Forms.Label();
+            this.btnConfigDatabase = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtUser
@@ -77,7 +78,7 @@
             // 
             // btnDangNhap
             // 
-            this.btnDangNhap.Location = new System.Drawing.Point(192, 111);
+            this.btnDangNhap.Location = new System.Drawing.Point(191, 131);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(75, 23);
             this.btnDangNhap.TabIndex = 4;
@@ -93,12 +94,23 @@
             this.lblNotification.Size = new System.Drawing.Size(0, 13);
             this.lblNotification.TabIndex = 5;
             // 
+            // btnConfigDatabase
+            // 
+            this.btnConfigDatabase.Location = new System.Drawing.Point(19, 132);
+            this.btnConfigDatabase.Name = "btnConfigDatabase";
+            this.btnConfigDatabase.Size = new System.Drawing.Size(94, 23);
+            this.btnConfigDatabase.TabIndex = 6;
+            this.btnConfigDatabase.Text = "ConfigDatabase";
+            this.btnConfigDatabase.UseVisualStyleBackColor = true;
+            this.btnConfigDatabase.Click += new System.EventHandler(this.btnConfigDatabase_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.ClientSize = new System.Drawing.Size(278, 147);
+            this.ClientSize = new System.Drawing.Size(278, 167);
+            this.Controls.Add(this.btnConfigDatabase);
             this.Controls.Add(this.lblNotification);
             this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.lblMatKhau);
@@ -123,5 +135,6 @@
         private System.Windows.Forms.Label lblMatKhau;
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Label lblNotification;
+        private System.Windows.Forms.Button btnConfigDatabase;
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
 using DTO;
+using System.IO;
 namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
 {
     public partial class frmQuanLyTaiKhoan : Form

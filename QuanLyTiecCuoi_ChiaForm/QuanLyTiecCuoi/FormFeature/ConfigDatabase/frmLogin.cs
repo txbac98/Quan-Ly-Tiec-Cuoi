@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using DAO;
 
 namespace QuanLyTiecCuoiUI.FormFeature.ConfigDatabase
 {
@@ -20,6 +22,11 @@ namespace QuanLyTiecCuoiUI.FormFeature.ConfigDatabase
         {
             InitializeComponent();
             SetFormStart();
+            using (StreamReader sr = new StreamReader("DataSource.txt"))
+            {
+                string dataSource = sr.ReadLine();
+                DatabaseHelper.dataSource = dataSource;
+            }
         }
 
 
@@ -94,6 +101,12 @@ namespace QuanLyTiecCuoiUI.FormFeature.ConfigDatabase
         private void frmLogin_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnConfigDatabase_Click(object sender, EventArgs e)
+        {
+            frmConfigDatabase frmConfig = new frmConfigDatabase();
+            frmConfig.Show();
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)

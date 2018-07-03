@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyChucVu));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaChucVu = new System.Windows.Forms.TextBox();
@@ -37,12 +38,12 @@
             this.lblGhiChu = new System.Windows.Forms.Label();
             this.llbThemMoi = new System.Windows.Forms.LinkLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgvDanhSachChucVu = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblKetQua = new System.Windows.Forms.Label();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
+            this.dgvDanhSachChucVu = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblKetQua = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachChucVu)).BeginInit();
@@ -135,40 +136,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức năng";
             // 
-            // dgvDanhSachChucVu
-            // 
-            this.dgvDanhSachChucVu.AllowUserToAddRows = false;
-            this.dgvDanhSachChucVu.AllowUserToDeleteRows = false;
-            this.dgvDanhSachChucVu.AllowUserToResizeRows = false;
-            this.dgvDanhSachChucVu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDanhSachChucVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDanhSachChucVu.Location = new System.Drawing.Point(2, 179);
-            this.dgvDanhSachChucVu.MultiSelect = false;
-            this.dgvDanhSachChucVu.Name = "dgvDanhSachChucVu";
-            this.dgvDanhSachChucVu.ReadOnly = true;
-            this.dgvDanhSachChucVu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDanhSachChucVu.Size = new System.Drawing.Size(355, 150);
-            this.dgvDanhSachChucVu.TabIndex = 6;
-            this.dgvDanhSachChucVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachChucVu_CellClick);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(-1, 152);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Danh sách chức vụ";
-            // 
-            // lblKetQua
-            // 
-            this.lblKetQua.AutoSize = true;
-            this.lblKetQua.Location = new System.Drawing.Point(13, 332);
-            this.lblKetQua.Name = "lblKetQua";
-            this.lblKetQua.Size = new System.Drawing.Size(44, 13);
-            this.lblKetQua.TabIndex = 8;
-            this.lblKetQua.Text = "Kết quả";
-            // 
             // btnThem
             // 
             this.btnThem.Image = global::QuanLyTiecCuoiUI.Properties.Resources.Actions_insert_horizontal_rule_icon;
@@ -210,6 +177,40 @@
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
+            // dgvDanhSachChucVu
+            // 
+            this.dgvDanhSachChucVu.AllowUserToAddRows = false;
+            this.dgvDanhSachChucVu.AllowUserToDeleteRows = false;
+            this.dgvDanhSachChucVu.AllowUserToResizeRows = false;
+            this.dgvDanhSachChucVu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDanhSachChucVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDanhSachChucVu.Location = new System.Drawing.Point(2, 179);
+            this.dgvDanhSachChucVu.MultiSelect = false;
+            this.dgvDanhSachChucVu.Name = "dgvDanhSachChucVu";
+            this.dgvDanhSachChucVu.ReadOnly = true;
+            this.dgvDanhSachChucVu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDanhSachChucVu.Size = new System.Drawing.Size(355, 150);
+            this.dgvDanhSachChucVu.TabIndex = 6;
+            this.dgvDanhSachChucVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachChucVu_CellClick);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(-1, 152);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(101, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Danh sách chức vụ";
+            // 
+            // lblKetQua
+            // 
+            this.lblKetQua.AutoSize = true;
+            this.lblKetQua.Location = new System.Drawing.Point(13, 332);
+            this.lblKetQua.Name = "lblKetQua";
+            this.lblKetQua.Size = new System.Drawing.Size(44, 13);
+            this.lblKetQua.TabIndex = 8;
+            this.lblKetQua.Text = "Kết quả";
+            // 
             // frmQuanLyChucVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,6 +222,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmQuanLyChucVu";
             this.Text = "Quản lý chức vụ";
             this.Load += new System.EventHandler(this.frmQuanLyChucVu_Load);

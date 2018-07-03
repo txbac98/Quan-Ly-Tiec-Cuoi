@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using BUS;
+using System.IO;
 
 namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
 {
@@ -116,12 +117,7 @@ namespace QuanLyTiecCuoiUI.FormFeature.QuanLy
             }
 
             DTO_Sanh sanh = new DTO_Sanh(txtMaSanh.Text, txtDonGiaBan.Text, txtSoLuongBanTD.Text, txtGhiChu.Text);
-
-            if (BUS_QuanLySanh.TenSanhIsExistInSanh(sanh.MaSanh))
-            {
-                ShowKetQua("Cập nhật thất bại, sảnh '" + sanh.MaSanh + "' đã tồn tại.", false);
-                return;
-            }
+            
             BUS_QuanLySanh.DeleteSanh(maSanhCu);
             if (BUS_QuanLySanh.InsertSanh(sanh)) 
             {

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using BUS;
 using DTO;
 
@@ -231,15 +232,15 @@ namespace QuanLyTiecCuoiUI
 
         void TinhTongTien()
         {
-            int tongTien = 0;
-            tongTien += int.Parse(lblDonGiaBan.Text) * int.Parse(txtSoLuongBanDat.Text);
+            decimal tongTien = 0;
+            tongTien += decimal.Parse(lblDonGiaBan.Text) * decimal.Parse(txtSoLuongBanDat.Text);
             for (int i = 0; i < lsvDichVu.Items.Count; i++)
             {
-                tongTien += int.Parse(lsvDichVu.Items[i].SubItems[2].Text) * int.Parse(lsvDichVu.Items[i].SubItems[3].Text);             
+                tongTien += decimal.Parse(lsvDichVu.Items[i].SubItems[2].Text) * decimal.Parse(lsvDichVu.Items[i].SubItems[3].Text);             
             }
             for (int i = 0; i < lsvMonAn.Items.Count; i++)
             {
-                tongTien += int.Parse(lsvMonAn.Items[i].SubItems[3].Text) * int.Parse(lsvMonAn.Items[i].SubItems[3].Text);
+                tongTien += decimal.Parse(lsvMonAn.Items[i].SubItems[3].Text) * decimal.Parse(lsvMonAn.Items[i].SubItems[3].Text);
             }
             lblTongTienTamTinh.Text = tongTien.ToString();
         }
@@ -286,12 +287,12 @@ namespace QuanLyTiecCuoiUI
         //Mon an
         private void llbDonGiaChuan_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            txtDonGiaMonAn_YeuCau.Text = lblDonGiaMacDinh.Text;
         }
 
         private void llbBangSoBan_MonAn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            txtSoBanDungMon.Text = txtSoLuongBanDat.Text;
         }
 
         private void btnChonMon_Click(object sender, EventArgs e)
@@ -576,6 +577,11 @@ namespace QuanLyTiecCuoiUI
         private void btnHuyTatCa_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtDonGiaMonAn_YeuCau_TextChanged(object sender, EventArgs e)
+        {
+            
         }
 
 

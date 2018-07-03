@@ -17,6 +17,7 @@ namespace DAO
         private static SqlConnection sCon;
         //public static String CONNECTION_STRING { get; set; }
         private static SqlCommand mCommand;
+        public static string dataSource;
         /// <summary>
         /// Open connection to Database
         /// </summary>
@@ -25,7 +26,7 @@ namespace DAO
         {
             try
             {
-                sCon = new SqlConnection(@"Data Source=DESKTOP-R1JCKM1\SQLEXPRESS;Initial Catalog=QuanLyTiecCuoi;Integrated Security=True");
+                sCon = new SqlConnection(@dataSource);
 
                 //if (sCon.State == ConnectionState.Closed)
 

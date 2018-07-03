@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemTiec));
             this.dtpNgayDaiTiec = new System.Windows.Forms.DateTimePicker();
             this.lblNgayDaiTiec = new System.Windows.Forms.Label();
             this.cbbSanh = new System.Windows.Forms.ComboBox();
@@ -142,6 +143,7 @@
             this.Controls.Add(this.grpThongTinTiec);
             this.Controls.Add(this.btnDatTiec);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmThemTiec";
             this.Text = "Kiểm tra đặt tiệc";
             this.Load += new System.EventHandler(this.frmThemTiec_Load);

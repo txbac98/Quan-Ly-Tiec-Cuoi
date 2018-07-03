@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyDichVu));
             this.lbThongTinHinhAnh = new System.Windows.Forms.Label();
             this.btnXoaAnh = new System.Windows.Forms.Button();
             this.lbCaution = new System.Windows.Forms.Label();
@@ -386,6 +387,7 @@
             this.Controls.Add(this.gbDanhSachDichVu);
             this.Controls.Add(this.gbThongTinDichVu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmQuanLyDichVu";
             this.Text = "Quản lý dịch vụ";
             this.gbDanhSachDichVu.ResumeLayout(false);

@@ -47,3 +47,10 @@ D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\bin\Debug\D
 D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
 D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\obj\Debug\DAO.dll
 D:\Github\Project_QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\obj\Debug\DAO.pdb
+D:\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\bin\Debug\DAO.dll
+D:\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\bin\Debug\DAO.pdb
+D:\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\bin\Debug\DTO.dll
+D:\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\bin\Debug\DTO.pdb
+D:\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
+D:\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\obj\Debug\DAO.dll
+D:\QLTC\Quan-Ly-Tiec-Cuoi\QuanLyTiecCuoi_ChiaForm\DAO\obj\Debug\DAO.pdb
